@@ -946,8 +946,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .team .card a {
-    /* display: flex; */
-    /* flex-wrap: nowrap; */
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .team .card img {
@@ -1319,7 +1319,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .footer .footer-top .container .row .footer-contact {
     display: flex;
-    gap: 2rem;
+    gap: 5rem;
+    white-space: nowrap;
     width: 100vw;
     /* background-color: white; */
 }
