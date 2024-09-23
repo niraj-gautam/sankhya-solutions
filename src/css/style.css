@@ -3,6 +3,7 @@ body {
     color: #656565;
     font-family: "Roboto Slab", sans-serif;
     background: #dbdbdb;
+    /* overflow: hidden; */
 }
 
 a {
@@ -571,11 +572,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 /* ------------- Section Header Style -------------- */
-.section-header {
-    position: relative;
-    max-width: 700px;
-    margin: 0 auto;
-}
 
 .section-header h3 {
     font-size: 32px;
@@ -933,38 +929,43 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .team .card {
-    position: relative;
+    /* position: relative; */
     border: none;
     border-radius: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     transition: 0.3s;
     margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    /* padding-left: 1rem; */
+    /* gap: 2rem; */
+    /* height: 90%; */
+    /* background-color: red; */
+    /* min-width: fit-content; */
 }
 
 .team .card:hover {
     box-shadow: 0px 0px 10px #999999;
 }
-
-.team .card a {
+/* .team .card a {
     display: flex;
     flex-wrap: nowrap;
-}
+} */
 
 .team .card img {
-    /* flex: 1; */
-    width: 100%;
-    object-fit: contain;
-    height: 100px;
+    width: 30%;
+    height: max-content;
+    object-fit: cover;
 }
 
 .team .card-title-wrap {
-    /* flex: 5; */
-    height: 100px;
-    padding: 15px 25px;
-    position: relative;
-    background-color: #ebebeb;
-    white-space: nowrap;
-    gap: 1rem;
+    /* height: 100px; */
+    padding: 10px 10px;
+    /* position: relative; */
+    /* background-color: red; */
 }
 
 .team .card:hover .card-title-wrap {
@@ -974,10 +975,14 @@ body.mobile-nav-active #mobile-nav-toggle {
 .team .card-title-wrap .card-title,
 .team .card-title-wrap .card-text {
     display: block;
+    /* word-wrap: wrap; */
+    white-space: pre-line;
     margin: 0;
 }
 
 .team .card-title-wrap .card-title {
+    white-space: pre-line;
+    /* background-color: red */
     text-align: center;
     font-size: 18px;
     color: #353535;
@@ -991,22 +996,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .team .card:hover .card-title-wrap .card-title,
 .team .card:hover .card-title-wrap .card-text {
-    color: #ffffff;
-}
-
-.team .card .social-nav {
-    position: relative;
-    text-align: center;
-}
-
-.team .card .social-nav a {
-    display: inline-block;
-    color: #353535;
-    font-size: 18px;
-    margin: 5px;
-}
-
-.team .card:hover .social-nav a {
     color: #ffffff;
 }
 
@@ -1290,35 +1279,8 @@ body.mobile-nav-active #mobile-nav-toggle {
     line-height: 26px;
 }
 
-.footer .footer-top .footer-newsletter input[type="email"] {
-    border: 0;
-    padding: 6px 8px;
-    width: 60%;
-}
-
-.footer .footer-top .footer-newsletter input[type="submit"] {
-    border: 0;
-    width: 40%;
-    padding: 6px 0;
-    text-align: center;
-    color: #ffffff;
-    background: #353535;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.footer .footer-top .footer-newsletter input[type="submit"]:hover {
-    background: #000000;
-}
-
-.footer .footer-top .footer-newsletter p {
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 400;
-}
-
 .footer .footer-top .container .row .footer-contact {
-    display: flex;
+    /* display: flex; */
     gap: 5rem;
     white-space: nowrap;
     width: 100vw;
@@ -1354,6 +1316,10 @@ body.mobile-nav-active #mobile-nav-toggle {
     #nav-menu-container {
         padding-right: 60px;
     }
+
+    .footer .footer-top .container .row .footer-contact {
+        display: flex;
+    }
 }
 
 @media (max-width: 1180px) {
@@ -1370,11 +1336,13 @@ body.mobile-nav-active #mobile-nav-toggle {
     .header .logo img {
         margin-right: 1rem;
     }
+    .footer .footer-top .container .row .footer-contact {
+        display: flex;
+    }
 }
 
 @media (max-width: 1042px) {
     .header .logo h1 span {
-        /* position: relative; */
         top: 1.5rem;
     }
 }
@@ -1392,7 +1360,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     .header .logo h1 {
         position: relative;
         top: -10px;
-        /* left: 2rem; */
+
         font-size: 28px;
     }
 
@@ -1418,6 +1386,9 @@ body.mobile-nav-active #mobile-nav-toggle {
     .slider h2 {
         font-size: 28px;
     }
+    .footer .footer-top .container .row .footer-contact {
+        display: block;
+    }
 }
 
 @media (max-width: 454px) {
@@ -1432,15 +1403,5 @@ body.mobile-nav-active #mobile-nav-toggle {
 @media (max-width: 380px) {
     .header .logo h1 span {
         font-size: 1rem;
-    }
-}
-
-@media (max-width: 61.9em) {
-    .team .team-over {
-        padding-top: 20px;
-    }
-    .team .card .social-nav {
-        margin-bottom: 15px;
-        padding: 0;
     }
 }
