@@ -58,17 +58,17 @@
     }
 
     // Header scroll
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            $(".header").addClass("header-scrolled");
-        } else {
-            $(".header").removeClass("header-scrolled");
-        }
-    });
+    // $(window).scroll(function () {
+    //     if ($(this).scrollTop() > 100) {
+    //         $(".header").addClass("header-scrolled");
+    //     } else {
+    //         $(".header").removeClass("header-scrolled");
+    //     }
+    // });
 
-    if ($(window).scrollTop() > 100) {
-        $(".header").addClass("header-scrolled");
-    }
+    // if ($(window).scrollTop() > 100) {
+    //     $(".header").addClass("header-scrolled");
+    // }
 
     // Carousel
     var carousel = $(".carousel");
@@ -116,15 +116,15 @@
         allowPageScroll: "vertical",
     });
 
-    // Skills section
-    $(".skills").waypoint(
-        function () {
-            $(".progress .progress-bar").each(function () {
-                $(this).css("width", $(this).attr("aria-valuenow") + "%");
-            });
-        },
-        { offset: "80%" }
-    );
+    // // Skills section
+    // $(".skills").waypoint(
+    //     function () {
+    //         $(".progress .progress-bar").each(function () {
+    //             $(this).css("width", $(this).attr("aria-valuenow") + "%");
+    //         });
+    //     },
+    //     { offset: "80%" }
+    // );
 
     // jQuery counterUp
     $('[data-toggle="counter-up"]').counterUp({
