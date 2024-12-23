@@ -173,4 +173,119 @@
         $("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
         return false;
     });
+
+    //For Read-More in services
+    document.addEventListener("DOMContentLoaded", function () {
+        const serviceParagraphs =
+            document.querySelectorAll(".single-service p");
+
+        function truncateText(text, maxLength) {
+            text = text.replace("...", "").trim();
+
+            if (text.length <= maxLength) return text;
+
+            const truncated = text.substr(0, maxLength);
+            const lastSpace = truncated.lastIndexOf(" ");
+
+            return truncated.substr(0, lastSpace);
+        }
+
+        serviceParagraphs.forEach((paragraph) => {
+            const fullContent = paragraph.innerHTML;
+
+            const temp = document.createElement("div");
+            temp.style.position = "absolute";
+            temp.style.visibility = "hidden";
+            temp.style.width = paragraph.offsetWidth + "px";
+            temp.style.font = window.getComputedStyle(paragraph).font;
+            temp.style.lineHeight =
+                window.getComputedStyle(paragraph).lineHeight;
+            document.body.appendChild(temp);
+
+            const sampleText = fullContent.slice(0, 200);
+            temp.innerHTML = sampleText;
+            const lineHeight = parseInt(
+                window.getComputedStyle(temp).lineHeight
+            );
+            const targetHeight = lineHeight * 4;
+
+            let left = 0;
+            let right = fullContent.length;
+            let perfectCut = 0;
+
+            while (left <= right) {
+                const mid = Math.floor((left + right) / 2);
+                temp.innerHTML = truncateText(fullContent, mid);
+
+                if (temp.offsetHeight <= targetHeight) {
+                    perfectCut = mid;
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+
+            document.body.removeChild(temp);
+
+            const wrapper = document.createElement("div");
+            wrapper.className = "content-wrapper";
+            paragraph.parentNode.insertBefore(wrapper, paragraph);
+            wrapper.appendChild(paragraph);
+
+            const truncatedContent = truncateText(fullContent, perfectCut);
+            paragraph.innerHTML = truncatedContent + "...";
+
+            const button = document.createElement("button");
+            button.className = "read-more-btn";
+            button.textContent = "Read More";
+            wrapper.appendChild(button);
+
+            let isExpanded = false;
+
+            // Handle button click
+            button.addEventListener("click", function (e) {
+                e.stopPropagation(); // Prevent event bubbling
+                if (!isExpanded) {
+                    paragraph.innerHTML = fullContent;
+                    button.textContent = "Read Less";
+                    isExpanded = true;
+                } else {
+                    paragraph.innerHTML = truncatedContent + "...";
+                    button.textContent = "Read More";
+                    isExpanded = false;
+                }
+            });
+
+            // Keep button visible if content is expanded
+            wrapper.addEventListener("mouseleave", function () {
+                if (isExpanded) {
+                    button.style.opacity = "1";
+                    button.style.visibility = "visible";
+                }
+            });
+        });
+    });
+    // JavaScript for Popup Toggle
+    function togglePopup(card) {
+        const isOpen = card.classList.contains("clicked");
+
+        // Close all other popups
+        document
+            .querySelectorAll(".team-card")
+            .forEach((el) => el.classList.remove("clicked"));
+
+        // Toggle the clicked card
+        if (!isOpen) {
+            card.classList.add("clicked");
+        }
+    }
+
+    // Close popup when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".team-card")) {
+            document
+                .querySelectorAll(".team-card")
+                .forEach((el) => el.classList.remove("clicked"));
+        }
+    });
 })(jQuery);
