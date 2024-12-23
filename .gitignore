@@ -1,5 +1,7 @@
 *.zip
 
+.vscode/
+
 # Dependencies
 node_modules/
 
