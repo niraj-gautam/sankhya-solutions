@@ -137,12 +137,12 @@ export function Footer() {
 
                 {/* Copyright */}
                 <div className="border-t border-gray-600 pt-4 mt-6">
-                    <div className="relative flex justify-center">
-                        <p className="text-sm">
+                    <div className="relative flex flex-col items-center md:flex-row md:justify-center">
+                        <p className="text-sm text-center md:text-left">
                             &copy; {new Date().getFullYear()}{" "}
                             {content.company.name}. All rights reserved.
                         </p>
-                        <div className="absolute right-0 flex items-center text-xs text-gray-300">
+                        <div className="mt-2 self-end md:self-auto md:absolute md:right-0 flex items-center text-xs text-gray-300 md:pr-2">
                             <p>Developed by</p>
                             <a
                                 href="https://example.com"

@@ -1,9 +1,111 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { content } from "../data/content"; // Adjust the import path as needed
+import { content } from "../data/content";
+import emailjs from "@emailjs/browser";
 
 export function Contact() {
     const { contact } = content;
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+    const [errors, setErrors] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitSuccess, setSubmitSuccess] = useState(false);
+    const [submitError, setSubmitError] = useState("");
+
+    useEffect(() => {
+        let timer: number;
+        if (submitSuccess) {
+            timer = setTimeout(() => {
+                setSubmitSuccess(false);
+            }, 10000); // 10 seconds
+        }
+        return () => clearTimeout(timer); // Cleanup on unmount
+    }, [submitSuccess]);
+
+    // Initialize EmailJS with your Public Key
+    emailjs.init("ev0rNYcZrNW4EHGcI"); // Replace with your EmailJS public key
+
+    const validateForm = () => {
+        let isValid = true;
+        const newErrors = {
+            name: "",
+            email: "",
+            phone: "",
+            message: "",
+        };
+
+        if (!formData.name.trim()) {
+            newErrors.name = "Name is required";
+            isValid = false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!formData.email) {
+            newErrors.email = "Email is required";
+            isValid = false;
+        } else if (!emailRegex.test(formData.email)) {
+            newErrors.email = "Invalid email format";
+            isValid = false;
+        }
+
+        const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+        if (formData.phone && !phoneRegex.test(formData.phone)) {
+            newErrors.phone = "Invalid phone number format";
+            isValid = false;
+        }
+
+        if (!formData.message.trim()) {
+            newErrors.message = "Message is required";
+            isValid = false;
+        }
+
+        setErrors(newErrors);
+        return isValid;
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!validateForm()) return;
+
+        setIsSubmitting(true);
+        setSubmitError("");
+        setSubmitSuccess(false);
+
+        try {
+            await emailjs.send(
+                "service_kpzdwx4", // Replace with your EmailJS service ID
+                "template_zf8rldr", // Replace with your EmailJS template ID
+                formData
+            );
+
+            setFormData({ name: "", email: "", phone: "", message: "" });
+            setSubmitSuccess(true);
+        } catch (error) {
+            console.error("Failed to send message:", error);
+            setSubmitError("Failed to send message. Please try again later.");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    const handleInputChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+        if (errors[name as keyof typeof errors]) {
+            setErrors((prev) => ({ ...prev, [name]: "" }));
+        }
+    };
 
     return (
         <section id="contact" className="relative bg-white py-14">
@@ -19,7 +121,7 @@ export function Contact() {
 
                 {/* Form Section */}
                 <div className="max-w-xl mx-auto mb-20">
-                    <form className="space-y-6">
+                    <form className="space-y-6" onSubmit={handleSubmit}>
                         <div>
                             <label
                                 htmlFor="name"
@@ -31,10 +133,22 @@ export function Contact() {
                                 type="text"
                                 name="name"
                                 id="name"
-                                className="mt-1 block w-full px-4 py-2 bg-white border border-gray-200 rounded-md text-gray-900 shadow-sm focus:border-[#303392] focus:ring-2 focus:ring-[#303392] focus:ring-opacity-20 transition-colors"
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors ${
+                                    errors.name
+                                        ? "border-red-500 focus:ring-red-500"
+                                        : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
+                                }`}
                                 placeholder="John Doe"
                             />
+                            {errors.name && (
+                                <p className="mt-1 text-sm text-red-600">
+                                    {errors.name}
+                                </p>
+                            )}
                         </div>
+
                         <div>
                             <label
                                 htmlFor="email"
@@ -46,10 +160,22 @@ export function Contact() {
                                 type="email"
                                 name="email"
                                 id="email"
-                                className="mt-1 block w-full px-4 py-2 bg-white border border-gray-200 rounded-md text-gray-900 shadow-sm focus:border-[#303392] focus:ring-2 focus:ring-[#303392] focus:ring-opacity-20 transition-colors"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors ${
+                                    errors.email
+                                        ? "border-red-500 focus:ring-red-500"
+                                        : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
+                                }`}
                                 placeholder="john@example.com"
                             />
+                            {errors.email && (
+                                <p className="mt-1 text-sm text-red-600">
+                                    {errors.email}
+                                </p>
+                            )}
                         </div>
+
                         <div>
                             <label
                                 htmlFor="phone"
@@ -61,10 +187,22 @@ export function Contact() {
                                 type="tel"
                                 name="phone"
                                 id="phone"
-                                className="mt-1 block w-full px-4 py-2 bg-white border border-gray-200 rounded-md text-gray-900 shadow-sm focus:border-[#303392] focus:ring-2 focus:ring-[#303392] focus:ring-opacity-20 transition-colors"
+                                value={formData.phone}
+                                onChange={handleInputChange}
+                                className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors ${
+                                    errors.phone
+                                        ? "border-red-500 focus:ring-red-500"
+                                        : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
+                                }`}
                                 placeholder="+1 (555) 123-4567"
                             />
+                            {errors.phone && (
+                                <p className="mt-1 text-sm text-red-600">
+                                    {errors.phone}
+                                </p>
+                            )}
                         </div>
+
                         <div>
                             <label
                                 htmlFor="message"
@@ -76,16 +214,41 @@ export function Contact() {
                                 id="message"
                                 name="message"
                                 rows={4}
-                                className="mt-1 block w-full px-4 py-2 bg-white border border-gray-200 rounded-md text-gray-900 shadow-sm focus:border-[#303392] focus:ring-2 focus:ring-[#303392] focus:ring-opacity-20 transition-colors resize-none"
+                                value={formData.message}
+                                onChange={handleInputChange}
+                                className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors resize-none ${
+                                    errors.message
+                                        ? "border-red-500 focus:ring-red-500"
+                                        : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
+                                }`}
                                 placeholder="How can we help you?"
                             />
+                            {errors.message && (
+                                <p className="mt-1 text-sm text-red-600">
+                                    {errors.message}
+                                </p>
+                            )}
                         </div>
+
+                        {submitError && (
+                            <div className="p-4 bg-red-100 text-red-800 rounded-md">
+                                {submitError}
+                            </div>
+                        )}
+
+                        {submitSuccess && (
+                            <div className="p-4 bg-green-100 text-green-800 rounded-md">
+                                Message sent successfully!
+                            </div>
+                        )}
+
                         <div>
                             <button
                                 type="submit"
-                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#303392] hover:bg-[#252a75] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#303392] transition-colors"
+                                disabled={isSubmitting}
+                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#303392] hover:bg-[#252a75] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#303392] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                Send Message
+                                {isSubmitting ? "Sending..." : "Send Message"}
                             </button>
                         </div>
                     </form>

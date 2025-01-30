@@ -57,7 +57,7 @@ export function About() {
                     <h2 className="text-3xl font-extrabold text-gray-900 mb-6">
                         {content.about.title}
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                    <p className="text-lg text-gray-600 max-w-4xl mx-auto">
                         {content.about.mainText}
                     </p>
                 </div>
@@ -84,7 +84,7 @@ export function About() {
                                 href="#contact"
                                 className="inline-block bg-[#303392] text-white px-8 py-3 rounded-md font-medium hover:bg-[#252a75] transition-colors"
                             >
-                                ABOUT US
+                                Learn More
                             </a>
                         </div>
                     </div>

@@ -54,7 +54,7 @@ export const content = {
     about: {
         title: "We Do Market Research Differently.",
         mainText:
-            "Insight Analytics is not (really) a market research company. We provide consulting services focused on human decision-making. We're here to deliver empathic research that includes the subjective experience, not just churn out datasets.",
+            "Sankhya Solutions is a data analytics and consultancy organization that helps enterprises and governments achieve accelerated impact by providing data driven insights.We are a team of young professionals, scholars, working towards a common goal of making a difference in society by harnessing the power of research and data.",
         image: "images/We Do Market Research Differently.-min.jpg",
         description:
             "For over 15 years our agency has been using human-centered research methodologies – including digital ethnography, focus groups, surveys, interviews, overlaid with strategic analysis – to advise on real business tactics.",
@@ -158,9 +158,9 @@ export const content = {
     services: [
         {
             id: 1,
-            title: "Research & Analysis",
+            title: "Research & Policy Analysis",
             description:
-                "Comprehensive research solutions combining quantitative and qualitative methodologies to deliver actionable insights.",
+                "We facilitate research and policy creation, offer macroeconomic advice, and assist governments and commercial companies in formulating data-driven policies.",
             icon: "LineChart",
             image: "images/service1-min.jpg",
         },
@@ -168,15 +168,15 @@ export const content = {
             id: 2,
             title: "Survey & Data Collection",
             description:
-                "Expert design and implementation of surveys, interviews, and data collection programs.",
+                "We offer comprehensive economic data, covering industry, company, and macro-level insights, using advanced technology and methodologies.",
             icon: "ClipboardList",
             image: "images/service2-min.jpg",
         },
         {
             id: 3,
-            title: "Policy Analysis",
+            title: "Evaluation & Learning",
             description:
-                "In-depth analysis of policy implications and recommendations for public and private sector organizations.",
+                "We help businesses boost revenue, efficiency, and competitiveness through AI, machine learning, predictive analytics, and automation.",
             icon: "FileText",
             image: "images/service3-min.jpg",
         },
@@ -184,16 +184,16 @@ export const content = {
             id: 4,
             title: "Training & Development",
             description:
-                "Customized training programs and skill development workshops for organizational growth.",
+                "We provide hands-on training in survey design, data analysis, research methodology, and technical skill  for professionals, researchers, and students.",
             icon: "GraduationCap",
             image: "images/service4-min.jpg",
         },
     ],
     stats: [
-        { value: "500+", label: "Projects Completed" },
+        { value: "50+", label: "Projects Completed" },
         { value: "95%", label: "Client Satisfaction" },
-        { value: "50+", label: "Industry Experts" },
-        { value: "20+", label: "Years Experience" },
+        { value: "7+", label: "Industry Experts" },
+        { value: "2+", label: "Years Experience" },
     ],
     testimonials: [
         {
