@@ -11,6 +11,7 @@ import { ServicePage } from "./pages/ServicePage";
 import { ResourcePage } from "./pages/ResourcePage";
 import { BackToTop } from "./components/BackToTop";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { Footer } from "./components/Footer";
 
 function HomePage() {
     return (
@@ -24,6 +25,7 @@ function HomePage() {
                 <Resources />
                 <Contact />
             </div>
+            <Footer />
         </>
     );
 }
