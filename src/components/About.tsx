@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import {
     useFloating,
     autoUpdate,
@@ -7,19 +6,43 @@ import {
     flip,
     shift,
     arrow,
+    Placement,
 } from "@floating-ui/react";
 import { Linkedin, Twitter, Mail } from "lucide-react";
 import { content } from "../data/content";
 
+// Define interfaces for the team member data structure
+interface Social {
+    linkedin: string;
+    twitter: string;
+    email: string;
+}
+
+interface TeamMember {
+    id: string | number;
+    name: string;
+    position: string;
+    description: string;
+    image: string;
+    social: Social;
+}
+
+interface TeamMemberCardProps {
+    member: TeamMember;
+    index: number;
+    isEven: boolean;
+    totalMembers: number;
+}
+
 export function About() {
-    const teamMembers = content.team;
+    const teamMembers = content.team as TeamMember[];
     const isEven = teamMembers.length % 2 === 0;
 
     return (
         <section id="about" className="py-12 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                    <h2 className="text-3xl font-extrabold text-gray-900 mb-6">
                         {content.about.title}
                     </h2>
                     <p className="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -80,9 +103,14 @@ export function About() {
     );
 }
 
-function TeamMemberCard({ member, index, isEven, totalMembers }) {
+function TeamMemberCard({
+    member,
+    index,
+    isEven,
+    totalMembers,
+}: TeamMemberCardProps) {
     const [isOpen, setIsOpen] = React.useState(false);
-    const arrowRef = React.useRef(null);
+    const arrowRef = React.useRef<HTMLDivElement>(null);
     const isTouchDevice = !window.matchMedia(
         "(hover: hover) and (pointer: fine)"
     ).matches;
@@ -102,16 +130,21 @@ function TeamMemberCard({ member, index, isEven, totalMembers }) {
 
     // Click outside handler
     useEffect(() => {
-        function handleClickOutside(event) {
+        function handleClickOutside(event: MouseEvent) {
             if (isTouchDevice && isOpen) {
                 const floatingEl = refs.floating.current;
                 const referenceEl = refs.reference.current;
+                const target = event.target;
 
+                // Type guards to ensure elements are HTMLElements
                 if (
                     floatingEl &&
                     referenceEl &&
-                    !floatingEl.contains(event.target) &&
-                    !referenceEl.contains(event.target)
+                    target instanceof Node &&
+                    "contains" in floatingEl &&
+                    "contains" in referenceEl &&
+                    !floatingEl.contains(target) &&
+                    !referenceEl.contains(target)
                 ) {
                     setIsOpen(false);
                 }
@@ -135,7 +168,6 @@ function TeamMemberCard({ member, index, isEven, totalMembers }) {
             onMouseLeave={!isTouchDevice ? () => setIsOpen(false) : undefined}
             onClick={isTouchDevice ? () => setIsOpen(!isOpen) : undefined}
         >
-            {/* Original Card Design (completely unchanged) */}
             <div className="bg-white rounded-lg shadow-sm p-8 text-center relative z-10 group-hover:bg-[#303392] transition-all duration-300 border-b-2 border-l-2 border-gray-100">
                 <h3 className="text-xl font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
                     {member.name}
@@ -145,7 +177,6 @@ function TeamMemberCard({ member, index, isEven, totalMembers }) {
                 </p>
             </div>
 
-            {/* Floating Card (completely unchanged except for arrow positioning) */}
             {isOpen && (
                 <div
                     ref={refs.setFloating}
