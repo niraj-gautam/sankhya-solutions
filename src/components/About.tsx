@@ -35,6 +35,18 @@ interface TeamMemberCardProps {
 }
 
 export function About() {
+    useEffect(() => {
+        const handleScroll = () => {
+            document.documentElement.style.scrollBehavior = "smooth";
+            requestAnimationFrame(() => {
+                document.documentElement.style.scrollBehavior = "auto";
+            });
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     const teamMembers = content.team as TeamMember[];
     const isEven = teamMembers.length % 2 === 0;
 
@@ -55,7 +67,9 @@ export function About() {
                         <img
                             src={content.about.image}
                             alt="Market Research"
-                            className="rounded-lg shadow-lg object-cover w-full h-[300px]"
+                            className="rounded-lg shadow-lg object-cover w-full h-[300px] optimize-layer"
+                            loading="eager"
+                            decoding="sync"
                         />
                     </div>
                     <div className="space-y-4">
@@ -158,7 +172,7 @@ function TeamMemberCard({
 
     return (
         <div
-            className={`group relative ${
+            className={`group relative  ${
                 !isEven && index === totalMembers - 1
                     ? "lg:col-start-2 lg:col-span-1"
                     : ""
@@ -168,7 +182,7 @@ function TeamMemberCard({
             onMouseLeave={!isTouchDevice ? () => setIsOpen(false) : undefined}
             onClick={isTouchDevice ? () => setIsOpen(!isOpen) : undefined}
         >
-            <div className="bg-white rounded-lg shadow-sm p-8 text-center relative z-10 group-hover:bg-[#303392] transition-all duration-300 border-b-2 border-l-2 border-gray-100">
+            <div className="bg-white rounded-lg shadow-sm p-8 text-center relative z-10 optimize-transition group-hover:bg-[#303392] transition-all duration-300 border-b-2 border-l-2 border-gray-100">
                 <h3 className="text-xl font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
                     {member.name}
                 </h3>
@@ -181,13 +195,14 @@ function TeamMemberCard({
                 <div
                     ref={refs.setFloating}
                     style={floatingStyles}
-                    className="max-w-[90vw] w-72 bg-[#303392] rounded-lg shadow-xl p-6 z-50"
+                    className=" max-w-[90vw] w-72 bg-[#303392] rounded-lg shadow-xl p-6 z-50"
                 >
                     <div className="relative">
                         <img
                             src={member.image}
                             alt={member.name}
                             className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-2 border-white"
+                            loading="eager"
                         />
                         <h3 className="text-lg font-semibold text-white mb-1">
                             {member.name}

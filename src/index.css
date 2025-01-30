@@ -3,6 +3,30 @@
 @tailwind utilities;
 
 html {
-  scroll-padding-top: 5rem; /* This accounts for the fixed header height */
-  scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* This accounts for the fixed header height */
+    scroll-behavior: smooth;
+}
+
+/* GPU Layer Optimization */
+.optimize-layer {
+    /* Remove transform/perspective that create stacking contexts */
+    backface-visibility: hidden;
+    will-change: transform; /* Only hint for GPU acceleration */
+}
+
+/* Smoother Transitions */
+.optimize-transition {
+    transition-property: color, background-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+}
+
+/* Floating UI Fixes */
+[data-floating-ui-portal] {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+.group:hover .group-hover\:bg-\[\#303392\] {
+    transition-delay: 50ms;
 }
