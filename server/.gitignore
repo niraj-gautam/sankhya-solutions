@@ -1,0 +1,51 @@
+# General
+.DS_Store
+*.log
+*.pid
+*.seed
+*.env
+*.env.local
+*.env.*.local
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Backend specific
+/uploads
+/database.sqlite
+.env
+
+# Frontend specific
+/dist
+/build
+.cache
+.tmp
+.parcel-cache
+
+# IDE/Editor
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Testing
+/coverage
+.nyc_output
+
+# Local development
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug files
+debug.log
+*.pem
