@@ -1,5 +1,5 @@
 import { content } from "../data/content";
-import { OurTeam } from "./ourTeam";
+import { OurTeam } from "./Team";
 
 export function About() {
     return (
