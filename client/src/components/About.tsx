@@ -67,7 +67,7 @@ export function About() {
                         <img
                             src={content.about.image}
                             alt="Market Research"
-                            className="rounded-lg shadow-lg object-cover w-full h-[300px] optimize-layer"
+                            className="rounded-lg shadow-lg object-cover w-full h-[300px]"
                             loading="eager"
                             decoding="sync"
                         />

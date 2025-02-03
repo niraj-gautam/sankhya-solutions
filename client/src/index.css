@@ -21,9 +21,9 @@ html {
 
 /* Smoother Transitions */
 .optimize-transition {
-    transition-property: color, background-color, transform, opacity; /* Add transform and opacity for smoother transitions */
-    transition-duration: 200ms; /* Slightly reduce duration for snappier feel */
-    transition-timing-function: ease-out; /* Change timing function for smoother deceleration */
+    transition-property: color, background-color; /* Add transform and opacity for smoother transitions */
+    transition-duration: 300ms; /* Slightly reduce duration for snappier feel */
+    transition-timing-function: ease-in-out; /* Change timing function for smoother deceleration */
 }
 
 /* Floating UI Fixes */

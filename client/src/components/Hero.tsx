@@ -15,7 +15,7 @@ export function Hero() {
         if (!isTransitioning) {
             setIsTransitioning(true);
             setCurrentSlide((prev) => (prev + 1) % content.heroData.length);
-            setTimeout(() => setIsTransitioning(false), 300);
+            setTimeout(() => setIsTransitioning(false), 500);
         }
     }, [isTransitioning]);
 
@@ -27,7 +27,7 @@ export function Hero() {
                     (prev - 1 + content.heroData.length) %
                     content.heroData.length
             );
-            setTimeout(() => setIsTransitioning(false), 300);
+            setTimeout(() => setIsTransitioning(false), 500);
         }
     }, [isTransitioning]);
 
@@ -61,7 +61,7 @@ export function Hero() {
 
     return (
         <div
-            className="relative w-full overflow-hidden optimize-layer"
+            className="relative w-full overflow-hidden "
             style={{
                 height: "100vh",
             }}
@@ -73,7 +73,7 @@ export function Hero() {
             {content.heroData.map((slide, index) => (
                 <div
                     key={slide.id}
-                    className={`absolute inset-0 w-full h-full transform duration-300 ease-out ${
+                    className={`absolute inset-0 w-full h-full transform duration-300 ease-in-out ${
                         index === currentSlide
                             ? "translate-x-0 z-10"
                             : index < currentSlide
@@ -81,7 +81,7 @@ export function Hero() {
                             : "translate-x-full z-0"
                     }`}
                     style={{
-                        transition: "transform 300ms ease-out",
+                        transition: "transform 300ms ease-in-out",
                     }}
                 >
                     {/* Background Image */}
@@ -89,7 +89,7 @@ export function Hero() {
                         <img
                             src={slide.image}
                             alt={slide.alt}
-                            className="w-full h-full object-cover optimize-layer"
+                            className="w-full h-full object-cover "
                         />
                         <div className="absolute inset-0 bg-black bg-opacity-50" />
                     </div>
@@ -98,13 +98,13 @@ export function Hero() {
                     <div className="relative h-full flex items-center">
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="text-center">
-                                <h1 className="text-4xl md:text-6xl font-bold text-white mb-8 optimize-layer">
+                                <h1 className="text-4xl md:text-6xl font-bold text-white mb-8 ">
                                     {slide.title}
                                 </h1>
-                                <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto optimize-layer">
+                                <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto ">
                                     {slide.description}
                                 </p>
-                                <button className="inline-flex items-center px-8 py-3  text-base font-medium rounded-md text-white bg-[#303392] hover:bg-[#252a75] transition-colors duration-300 shadow-md optimize-transition">
+                                <button className="inline-flex items-center px-8 py-3  text-base font-medium rounded-md text-white bg-[#303392] hover:bg-[#252a75] transition-colors duration-300 shadow-md ">
                                     Get Started
                                     <ArrowRight className="ml-2 h-5 w-5" />
                                 </button>
@@ -117,14 +117,14 @@ export function Hero() {
             {/* Navigation Arrows - Hidden on mobile */}
             <button
                 onClick={prevSlide}
-                className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors duration-300 z-20 optimize-transition"
+                className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors duration-300 z-20"
                 aria-label="Previous slide"
             >
                 <ChevronLeft className="h-8 w-8 text-white" />
             </button>
             <button
                 onClick={nextSlide}
-                className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors duration-300 z-20 optimize-transition"
+                className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors duration-300 z-20 "
                 aria-label="Next slide"
             >
                 <ChevronRight className="h-8 w-8 text-white" />
@@ -136,7 +136,7 @@ export function Hero() {
                     <button
                         key={index}
                         onClick={() => setCurrentSlide(index)}
-                        className={`w-3 h-3 rounded-full transition-colors duration-300 optimize-transition ${
+                        className={`w-3 h-3 rounded-full transition-colors duration-300  ${
                             index === currentSlide ? "bg-white" : "bg-white/50"
                         }`}
                         aria-label={`Go to slide ${index + 1}`}
