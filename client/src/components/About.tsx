@@ -142,7 +142,6 @@ function TeamMemberCard({
         whileElementsMounted: autoUpdate,
     });
 
-    // Click outside handler
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
             if (isTouchDevice && isOpen) {
@@ -150,7 +149,6 @@ function TeamMemberCard({
                 const referenceEl = refs.reference.current;
                 const target = event.target;
 
-                // Type guards to ensure elements are HTMLElements
                 if (
                     floatingEl &&
                     referenceEl &&
@@ -172,7 +170,7 @@ function TeamMemberCard({
 
     return (
         <div
-            className={`group relative  ${
+            className={`group relative ${
                 !isEven && index === totalMembers - 1
                     ? "lg:col-start-2 lg:col-span-1"
                     : ""
@@ -182,7 +180,7 @@ function TeamMemberCard({
             onMouseLeave={!isTouchDevice ? () => setIsOpen(false) : undefined}
             onClick={isTouchDevice ? () => setIsOpen(!isOpen) : undefined}
         >
-            <div className="bg-white rounded-lg shadow-sm p-8 text-center relative z-10 optimize-transition group-hover:bg-[#303392] transition-all duration-300 border-b-2 border-l-2 border-gray-100">
+            <div className="bg-white rounded-lg p-8 text-center relative z-10 transition-all duration-300 border border-gray-100 hover:border-[#303392] group-hover:bg-[#303392] hover:shadow-md">
                 <h3 className="text-xl font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
                     {member.name}
                 </h3>
@@ -195,7 +193,7 @@ function TeamMemberCard({
                 <div
                     ref={refs.setFloating}
                     style={floatingStyles}
-                    className=" max-w-[90vw] w-72 bg-[#303392] rounded-lg shadow-xl p-6 z-50"
+                    className="max-w-[90vw] w-72 bg-[#303392] rounded-lg shadow-lg p-6 z-50"
                 >
                     <div className="relative">
                         <img

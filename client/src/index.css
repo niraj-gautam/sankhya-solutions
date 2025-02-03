@@ -10,7 +10,7 @@ body,
 
 html {
     scroll-padding-top: 5rem;
-    scroll-behavior: smooth; /* Ensure smooth scrolling is enabled */
+    /* scroll-behavior: smooth;*/ /* Ensure smooth scrolling is enabled */
 }
 
 /* GPU Layer Optimization */
