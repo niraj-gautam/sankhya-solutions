@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { content } from "../data/content";
+import { createSlug } from "../pages/ResourcePage";
 
 export function Resources() {
     // Get only the two latest resources
@@ -15,7 +16,7 @@ export function Resources() {
                         Resources
                     </h2>
                     <p className="mt-4 max-w-2cxl mx-auto text-xl text-gray-500">
-                        Real results from real clients
+                        Checkout our latest articles
                     </p>
                 </div>
 
@@ -40,14 +41,16 @@ export function Resources() {
                                     <p className="mt-3 text-base text-gray-500">
                                         {study.description}
                                     </p>
-                                    <p className="mt-3 text-sm font-medium text-blue-600">
-                                        {study.results}
+                                    <p className="mt-3 text-xs font-medium text-gray-400 ">
+                                        {study.publishedDate}
                                     </p>
                                 </div>
                                 <div className="mt-6">
                                     <Link
-                                        to={`/resources`}
-                                        className="inline-flex items-center text-blue-600 hover:text-blue-500"
+                                        to={`/resources/${createSlug(
+                                            study.title
+                                        )}`}
+                                        className="inline-flex items-center text-[#303392] hover:text-[#000000] "
                                     >
                                         Read full article
                                         <ArrowRight className="ml-2 h-4 w-4" />

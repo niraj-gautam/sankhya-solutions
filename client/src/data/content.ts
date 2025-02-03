@@ -218,8 +218,8 @@ export const content = {
             description:
                 "Statistical analysis and visualization of COVID-19 spread across different provinces of Nepal",
             image: "/images/resource1-min.jpg",
-            results:
-                "Identified critical infection patterns in Bagmati and Gandaki provinces",
+            publishedDate: "2025-02-03",
+            author: "Sankhya Solutions",
             articleContent: `
           <p>This is the full content of the article "Let's look at the Covid-19 cases in Nepal (Province wise)".</p>
           <p>More content goes here...</p>
@@ -233,7 +233,8 @@ export const content = {
             description:
                 "Economic impact analysis and recovery strategies during global health crisis",
             image: "images/resource2-min.jpg",
-            results: "Successfully implemented in three South Asian economies",
+            publishedDate: "2025-02-03",
+            author: "Sankhya Solutions",
             articleContent: `
           <p>This is the full content of the article "How to save the economy from the pandemic".</p>
           <p>More content about economic recovery...</p>
@@ -247,7 +248,8 @@ export const content = {
             description:
                 "Assessment of fundamental agricultural challenges and modernization opportunities",
             image: "images/resource1-min.jpg",
-            results: "Recommendations adopted by Ministry of Agriculture",
+            publishedDate: "2025-02-03",
+            author: "Sankhya Solutions",
             articleContent: `
           <p>Full article content for "Agriculture modernisation: Basic things should be fixed".</p>
           <p>Challenges in agriculture...</p>
@@ -261,7 +263,8 @@ export const content = {
             description:
                 "Evolution and impact of digital payment systems in India's financial landscape",
             image: "images/resource2-min.jpg",
-            results: "UPI becomes world's largest real-time payment system",
+            publishedDate: "2025-02-03",
+            author: "Sankhya Solutions",
             articleContent: `
           <p>In-depth article on "India's run for a digital payment and banking system".</p>
           <p>Evolution of digital payments...</p>
@@ -275,7 +278,8 @@ export const content = {
             description:
                 "Analysis of global food security challenges and mitigation strategies",
             image: "images/resource1-min.jpg",
-            results: "Key findings presented at World Food Summit",
+            publishedDate: "2025-02-03",
+            author: "Sankhya Solutions",
             articleContent: `
           <p>Detailed analysis on "Food insecurity likely in the post-corona world".</p>
           <p>Global food security challenges...</p>
@@ -289,7 +293,8 @@ export const content = {
             description:
                 "Modern interpretation of Marxist theory in contemporary economic systems",
             image: "images/resource2-min.jpg",
-            results: "Published in International Journal of Economic Theory",
+            publishedDate: "2025-02-03",
+            author: "Sankhya Solutions",
             articleContent: `
           <p>Academic article on "Capitalism: Analyzing through the Lens of Karl Marx".</p>
           <p>Marxist theory in modern context...</p>
@@ -303,7 +308,8 @@ export const content = {
             description:
                 "Comprehensive study of digital banking adoption and future prospects in Nepal",
             image: "images/resource1-min.jpg",
-            results: "Framework adopted by major commercial banks",
+            publishedDate: "2025-02-03",
+            author: "Sankhya Solutions",
             articleContent: `
           <p>Study on "Digital Banking in Nepal and its road ahead".</p>
           <p>Adoption of digital banking...</p>
@@ -317,7 +323,8 @@ export const content = {
             description:
                 "Investigation into farming culture and necessary mindset changes",
             image: "images/resource2-min.jpg",
-            results: "Successfully piloted in Terai region communities",
+            publishedDate: "2025-02-03",
+            author: "Sankhya Solutions",
             articleContent: `
           <p>Investigation on "Farming profession: There is need of attitudinal fix".</p>
           <p>Farming culture in Nepal...</p>
@@ -331,7 +338,8 @@ export const content = {
             description:
                 "Analysis of cryptocurrency market trends and future implications",
             image: "images/resource1-min.jpg",
-            results: "Featured in Forbes Asia financial analysis",
+            publishedDate: "2025-02-03",
+            author: "Sankhya Solutions",
             articleContent: `
           <p>Analysis on "Rise of Cryptocurrencies -Bubble or Beast".</p>
           <p>Cryptocurrency market trends...</p>
@@ -345,7 +353,8 @@ export const content = {
             description:
                 "Strategy study for modernizing postal services to enhance financial accessibility",
             image: "images/resource2-min.jpg",
-            results: "Pilot program launched in three districts",
+            publishedDate: "2025-02-03",
+            author: "Sankhya Solutions",
             articleContent: `
           <p>Strategy study for "Reviving Postal Services in Nepal for Financial Inclusion".</p>
           <p>Modernizing postal services...</p>
@@ -359,7 +368,9 @@ export const content = {
             description:
                 "Assessment of data literacy needs in the evolving job market",
             image: "images/resource1-min.jpg",
-            results: "Implemented in major technical universities",
+
+            publishedDate: "2025-02-03",
+            author: "Sankhya Solutions",
             articleContent: `
           <p>Assessment of "Importance of having data skills in the post-corona world".</p>
           <p>Data literacy needs...</p>

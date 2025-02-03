@@ -4,9 +4,10 @@ import { Header } from "../components/Header";
 import { Contact } from "../components/Contact";
 import { content } from "../data/content";
 import { Link } from "react-router-dom";
+import { Footer } from "../components/Footer";
 
 // Function to create a URL-friendly slug from a title
-const createSlug = (title: string) => {
+export const createSlug = (title: string) => {
     return title
         .toLowerCase()
         .replace(/[^a-z0-9\s-]/g, "") // remove invalid chars
@@ -25,8 +26,8 @@ export function ResourcePage() {
                             Resources
                         </h1>
                         <p className="mt-4 text-xl text-gray-500">
-                            Explore our success stories and learn how we've
-                            helped organizations achieve their goals
+                            Checkout all the articles we have published
+                            regarding our work.
                         </p>
                     </div>
 
@@ -46,26 +47,22 @@ export function ResourcePage() {
                                         />
                                     </div>
                                     <div className="flex-1 p-8">
-                                        <Link to={`/resources/${articleSlug}`}>
-                                            <h2 className="text-2xl font-bold text-gray-900 mb-4 hover:text-[#303392] transition-colors">
-                                                {study.title}
-                                            </h2>
-                                        </Link>
+                                        <h2 className="text-2xl font-bold text-[#303392] mb-4  transition-colors">
+                                            {study.title}
+                                        </h2>
+
                                         <p className="text-gray-600 mb-6">
                                             {study.description}
                                         </p>
                                         <div className="space-y-4">
-                                            <div className="flex items-center text-[#303392]">
-                                                <span className="font-semibold">
-                                                    Results:
-                                                </span>
+                                            <div className="flex items-center text-gray-400">
                                                 <span className="ml-2">
-                                                    {study.results}
+                                                    {study.publishedDate}
                                                 </span>
                                             </div>
                                             <Link
                                                 to={`/resources/${articleSlug}`}
-                                                className="inline-flex items-center text-[#303392] hover:text-[#252a75] font-medium transition-colors"
+                                                className="inline-flex items-center text-[#303392] hover:text-[#000000] font-medium transition-colors"
                                             >
                                                 Read full article
                                                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -82,6 +79,7 @@ export function ResourcePage() {
                     <Contact />
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }
