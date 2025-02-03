@@ -217,9 +217,15 @@ export const content = {
             title: "Let's look at the Covid-19 cases in Nepal (Province wise)",
             description:
                 "Statistical analysis and visualization of COVID-19 spread across different provinces of Nepal",
-            image: "images/resource1-min.jpg",
+            image: "/images/resource1-min.jpg",
             results:
                 "Identified critical infection patterns in Bagmati and Gandaki provinces",
+            articleContent: `
+          <p>This is the full content of the article "Let's look at the Covid-19 cases in Nepal (Province wise)".</p>
+          <p>More content goes here...</p>
+          <p>And even more content...</p>
+        `,
+            slug: "lets-look-at-the-covid-19-cases-in-nepal-province-wise", // Added slug
         },
         {
             id: 2,
@@ -228,6 +234,12 @@ export const content = {
                 "Economic impact analysis and recovery strategies during global health crisis",
             image: "images/resource2-min.jpg",
             results: "Successfully implemented in three South Asian economies",
+            articleContent: `
+          <p>This is the full content of the article "How to save the economy from the pandemic".</p>
+          <p>More content about economic recovery...</p>
+          <p>Strategies and analysis...</p>
+        `,
+            slug: "how-to-save-the-economy-from-the-pandemic", // Added slug
         },
         {
             id: 3,
@@ -236,6 +248,12 @@ export const content = {
                 "Assessment of fundamental agricultural challenges and modernization opportunities",
             image: "images/resource1-min.jpg",
             results: "Recommendations adopted by Ministry of Agriculture",
+            articleContent: `
+          <p>Full article content for "Agriculture modernisation: Basic things should be fixed".</p>
+          <p>Challenges in agriculture...</p>
+          <p>Modernization opportunities...</p>
+        `,
+            slug: "agriculture-modernisation-basic-things-should-be-fixed", // Added slug
         },
         {
             id: 4,
@@ -244,6 +262,12 @@ export const content = {
                 "Evolution and impact of digital payment systems in India's financial landscape",
             image: "images/resource2-min.jpg",
             results: "UPI becomes world's largest real-time payment system",
+            articleContent: `
+          <p>In-depth article on "India's run for a digital payment and banking system".</p>
+          <p>Evolution of digital payments...</p>
+          <p>Impact on Indian economy...</p>
+        `,
+            slug: "indias-run-for-a-digital-payment-and-banking-system", // Added slug
         },
         {
             id: 5,
@@ -252,6 +276,12 @@ export const content = {
                 "Analysis of global food security challenges and mitigation strategies",
             image: "images/resource1-min.jpg",
             results: "Key findings presented at World Food Summit",
+            articleContent: `
+          <p>Detailed analysis on "Food insecurity likely in the post-corona world".</p>
+          <p>Global food security challenges...</p>
+          <p>Mitigation strategies...</p>
+        `,
+            slug: "food-insecurity-likely-in-the-post-corona-world", // Added slug
         },
         {
             id: 6,
@@ -260,6 +290,12 @@ export const content = {
                 "Modern interpretation of Marxist theory in contemporary economic systems",
             image: "images/resource2-min.jpg",
             results: "Published in International Journal of Economic Theory",
+            articleContent: `
+          <p>Academic article on "Capitalism: Analyzing through the Lens of Karl Marx".</p>
+          <p>Marxist theory in modern context...</p>
+          <p>Economic systems analysis...</p>
+        `,
+            slug: "capitalism-analyzing-through-the-lens-of-karl-marx", // Added slug
         },
         {
             id: 7,
@@ -268,6 +304,12 @@ export const content = {
                 "Comprehensive study of digital banking adoption and future prospects in Nepal",
             image: "images/resource1-min.jpg",
             results: "Framework adopted by major commercial banks",
+            articleContent: `
+          <p>Study on "Digital Banking in Nepal and its road ahead".</p>
+          <p>Adoption of digital banking...</p>
+          <p>Future prospects in Nepal...</p>
+        `,
+            slug: "digital-banking-in-nepal-and-its-road-ahead", // Added slug
         },
         {
             id: 8,
@@ -276,6 +318,12 @@ export const content = {
                 "Investigation into farming culture and necessary mindset changes",
             image: "images/resource2-min.jpg",
             results: "Successfully piloted in Terai region communities",
+            articleContent: `
+          <p>Investigation on "Farming profession: There is need of attitudinal fix".</p>
+          <p>Farming culture in Nepal...</p>
+          <p>Mindset changes needed...</p>
+        `,
+            slug: "farming-profession-there-is-need-of-attitudinal-fix", // Added slug
         },
         {
             id: 9,
@@ -284,6 +332,12 @@ export const content = {
                 "Analysis of cryptocurrency market trends and future implications",
             image: "images/resource1-min.jpg",
             results: "Featured in Forbes Asia financial analysis",
+            articleContent: `
+          <p>Analysis on "Rise of Cryptocurrencies -Bubble or Beast".</p>
+          <p>Cryptocurrency market trends...</p>
+          <p>Future implications...</p>
+        `,
+            slug: "rise-of-cryptocurrencies-bubble-or-beast", // Added slug
         },
         {
             id: 10,
@@ -292,6 +346,12 @@ export const content = {
                 "Strategy study for modernizing postal services to enhance financial accessibility",
             image: "images/resource2-min.jpg",
             results: "Pilot program launched in three districts",
+            articleContent: `
+          <p>Strategy study for "Reviving Postal Services in Nepal for Financial Inclusion".</p>
+          <p>Modernizing postal services...</p>
+          <p>Enhancing financial accessibility...</p>
+        `,
+            slug: "reviving-postal-services-in-nepal-for-financial-inclusion", // Added slug
         },
         {
             id: 11,
@@ -300,9 +360,14 @@ export const content = {
                 "Assessment of data literacy needs in the evolving job market",
             image: "images/resource1-min.jpg",
             results: "Implemented in major technical universities",
+            articleContent: `
+          <p>Assessment of "Importance of having data skills in the post-corona world".</p>
+          <p>Data literacy needs...</p>
+          <p>Evolving job market skills...</p>
+        `,
+            slug: "importance-of-having-data-skills-in-the-post-corona-world", // Added slug
         },
     ],
-
     contact: {
         title: "Contact Us",
         subtitle: "Get in touch to discuss how we can help your organization",

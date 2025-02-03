@@ -12,12 +12,13 @@ import { ResourcePage } from "./pages/ResourcePage";
 import { BackToTop } from "./components/BackToTop";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { Footer } from "./components/Footer";
+import { ArticlePage } from "./pages/ArticlePage";
 
 function HomePage() {
     return (
         <>
             <Header />
-            <div className="pt-16">
+            <div>
                 <Hero />
                 <About />
                 <Services />
@@ -39,6 +40,10 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/services/:id" element={<ServicePage />} />
                     <Route path="/resources" element={<ResourcePage />} />
+                    <Route
+                        path="/resources/:articleTitle"
+                        element={<ArticlePage />}
+                    />
                 </Routes>
                 <BackToTop />
             </div>

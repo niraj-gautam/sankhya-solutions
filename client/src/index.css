@@ -2,23 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+#root {
+    height: 100%;
+}
+
 html {
-    scroll-padding-top: 5rem; /* This accounts for the fixed header height */
-    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    scroll-behavior: smooth; /* Ensure smooth scrolling is enabled */
 }
 
 /* GPU Layer Optimization */
 .optimize-layer {
-    /* Remove transform/perspective that create stacking contexts */
     backface-visibility: hidden;
-    will-change: transform; /* Only hint for GPU acceleration */
+    will-change: transform;
 }
 
 /* Smoother Transitions */
 .optimize-transition {
-    transition-property: color, background-color;
-    transition-duration: 300ms;
-    transition-timing-function: ease-in-out;
+    transition-property: color, background-color, transform, opacity; /* Add transform and opacity for smoother transitions */
+    transition-duration: 200ms; /* Slightly reduce duration for snappier feel */
+    transition-timing-function: ease-out; /* Change timing function for smoother deceleration */
 }
 
 /* Floating UI Fixes */
