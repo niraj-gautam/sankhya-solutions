@@ -90,7 +90,7 @@ export function About() {
                     </div>
                 </div>
 
-                <div className="mt-20 bg bg-gray-100">
+                <div className="mt-20 bg">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-extrabold text-gray-900">
                             Our Team
