@@ -111,7 +111,7 @@ export function Contact() {
         <section id="contact" className="relative bg-white py-14">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
                         {contact.title}
                     </h2>
                     <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
@@ -246,7 +246,7 @@ export function Contact() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#303392] hover:bg-[#252a75] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#303392] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 {isSubmitting ? "Sending..." : "Send Message"}
                             </button>
@@ -259,7 +259,7 @@ export function Contact() {
                     {/* Contact Info */}
                     <div className="space-y-8">
                         <div className="flex items-start">
-                            <Mail className="h-6 w-6 text-[#303392] mt-1" />
+                            <Mail className="h-6 w-6 text-orange-600 mt-1" />
                             <div className="ml-4">
                                 <h3 className="text-lg font-medium text-gray-900">
                                     {contact.email.label}
@@ -271,7 +271,7 @@ export function Contact() {
                         </div>
 
                         <div className="flex items-start">
-                            <Phone className="h-6 w-6 text-[#303392] mt-1" />
+                            <Phone className="h-6 w-6 text-orange-600 mt-1" />
                             <div className="ml-4">
                                 <h3 className="text-lg font-medium text-gray-900">
                                     {contact.phone.label}
@@ -283,7 +283,7 @@ export function Contact() {
                         </div>
 
                         <div className="flex items-start">
-                            <MapPin className="h-6 w-6 text-[#303392] mt-1" />
+                            <MapPin className="h-6 w-6 text-orange-600 mt-1" />
                             <div className="ml-4">
                                 <h3 className="text-lg font-medium text-gray-900">
                                     {contact.office.label}

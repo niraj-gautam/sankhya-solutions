@@ -6,7 +6,7 @@ export function About() {
         <section id="about" className="py-12 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-extrabold text-gray-900 mb-6">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6">
                         {content.about.title}
                     </h2>
                     <p className="text-lg text-gray-600 max-w-4xl mx-auto">
@@ -34,14 +34,13 @@ export function About() {
                         <div className="mt-6 flex justify-center lg:justify-start">
                             <a
                                 href="#contact"
-                                className="inline-block bg-[#303392] text-white px-8 py-3 rounded-md font-medium hover:bg-[#252a75] transition-colors "
+                                className="inline-block bg-orange-600 text-white px-8 py-3 rounded-xl font-medium hover:bg-orange-500 transition-colors "
                             >
                                 Learn More
                             </a>
                         </div>
                     </div>
                 </div>
-                <OurTeam />
             </div>
         </section>
     );

@@ -13,6 +13,8 @@ import { BackToTop } from "./components/BackToTop";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { Footer } from "./components/Footer";
 import { ArticlePage } from "./pages/ArticlePage";
+import Overview from "./components/Overview";
+import { OurTeam } from "./components/Team";
 
 function HomePage() {
     return (
@@ -20,7 +22,7 @@ function HomePage() {
             <Header />
             <div>
                 <Hero />
-                <About />
+                <Overview />
                 <Services />
                 <Stats />
                 <Resources />

@@ -5,7 +5,7 @@ import { content } from "../data/content";
 
 export function Footer() {
     return (
-        <footer className="bg-[#303392] text-white py-8">
+        <footer className="bg-gray-600 text-white py-8">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Company Info */}
@@ -24,7 +24,7 @@ export function Footer() {
                             {content.contact.phone.value}
                         </p>
                         <p className="text-sm">
-                            {content.contact.office.label}:
+                            {content.contact.office.label}:{" "}
                             {content.contact.office.address.map(
                                 (line, index) => (
                                     <React.Fragment key={index}>
@@ -45,7 +45,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     to="/"
-                                    className="text-sm hover:text-gray-300"
+                                    className="text-sm hover:text-orange-600"
                                 >
                                     Home
                                 </Link>
@@ -53,7 +53,7 @@ export function Footer() {
                             <li>
                                 <a
                                     href="#about"
-                                    className="text-sm hover:text-gray-300"
+                                    className="text-sm hover:text-orange-600"
                                 >
                                     About
                                 </a>
@@ -61,7 +61,7 @@ export function Footer() {
                             <li>
                                 <a
                                     href="#services"
-                                    className="text-sm hover:text-gray-300"
+                                    className="text-sm hover:text-orange-600"
                                 >
                                     Services
                                 </a>
@@ -69,7 +69,7 @@ export function Footer() {
                             <li>
                                 <a
                                     href="#resources"
-                                    className="text-sm hover:text-gray-300"
+                                    className="text-sm hover:text-orange-600"
                                 >
                                     Resources
                                 </a>
@@ -77,7 +77,7 @@ export function Footer() {
                             <li>
                                 <a
                                     href="#contact"
-                                    className="text-sm hover:text-gray-300"
+                                    className="text-sm hover:text-orange-600"
                                 >
                                     Contact
                                 </a>
@@ -85,7 +85,7 @@ export function Footer() {
                             <li>
                                 <a
                                     href="#team"
-                                    className="text-sm hover:text-gray-300"
+                                    className="text-sm hover:text-orange-600"
                                 >
                                     Our Team
                                 </a>
@@ -101,7 +101,7 @@ export function Footer() {
                                 <li key={service.id}>
                                     <Link
                                         to={`/services/${service.id}`}
-                                        className="text-sm hover:text-gray-300"
+                                        className="text-sm hover:text-orange-600"
                                     >
                                         {service.title}
                                     </Link>
@@ -142,11 +142,11 @@ export function Footer() {
                             &copy; {new Date().getFullYear()}{" "}
                             {content.company.name}. All rights reserved.
                         </p>
-                        <div className="mt-2 self-end md:self-auto md:absolute md:right-0 flex items-center text-xs text-gray-300 md:pr-2">
+                        <div className="mt-2 self-end md:self-auto md:absolute md:right-0 flex items-center group text-xs text-gray-300 md:pr-2">
                             <p>Developed by</p>
                             <a
                                 href="https://example.com"
-                                className="hover:underline ml-1 underline"
+                                className="text-gray-300 ml-1 underline group-hover:text-white"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -174,7 +174,7 @@ const SocialIcon = ({
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white transition-colors duration-300"
+            className="text-gray-300 hover:text-orange-600 transition-colors duration-300"
             aria-label={label}
         >
             <Icon className="h-5 w-5" />

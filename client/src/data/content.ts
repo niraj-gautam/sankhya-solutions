@@ -158,15 +158,15 @@ export const content = {
     services: [
         {
             id: 1,
-            title: "Research & Policy Analysis",
+            title: "Data Science & AI Solutions",
             description:
                 "We facilitate research and policy creation, offer macroeconomic advice, and assist governments and commercial companies in formulating data-driven policies.",
-            icon: "LineChart",
+            icon: "Brain",
             image: "images/service1-min.jpg",
         },
         {
             id: 2,
-            title: "Survey & Data Collection",
+            title: "Survey Design & Research Consulting",
             description:
                 "We offer comprehensive economic data, covering industry, company, and macro-level insights, using advanced technology and methodologies.",
             icon: "ClipboardList",
@@ -174,15 +174,15 @@ export const content = {
         },
         {
             id: 3,
-            title: "Evaluation & Learning",
+            title: "Business Intelligence & Data Visualization",
             description:
                 "We help businesses boost revenue, efficiency, and competitiveness through AI, machine learning, predictive analytics, and automation.",
-            icon: "FileText",
+            icon: "LineChart",
             image: "images/service3-min.jpg",
         },
         {
             id: 4,
-            title: "Training & Development",
+            title: "Strategy & Advisory Services",
             description:
                 "We provide hands-on training in survey design, data analysis, research methodology, and technical skill  for professionals, researchers, and students.",
             icon: "GraduationCap",
