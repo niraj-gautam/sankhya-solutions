@@ -101,7 +101,7 @@ export function Header() {
                         <Link
                             to="/"
                             onClick={handleHomeClick}
-                            className="text-base font-bold text-orange-600 uppercase tracking-wide"
+                            className="text-base font-bold text-orange-700 uppercase tracking-wide"
                         >
                             {content.company.name}
                         </Link>
