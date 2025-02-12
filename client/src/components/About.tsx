@@ -6,11 +6,11 @@ export function About() {
         <section id="about" className="py-10 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-10">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                    <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl mb-6">
                         {content.about.title}
                     </h2>
-                    <p className="text-md text-gray-600 max-w-4xl mx-auto">
-                        {content.about.mainText}
+                    <p className="text-xl text-gray-600 max-w-4xl mx-auto italic">
+                        " {content.company.tagline} "
                     </p>
                 </div>
 
@@ -26,10 +26,14 @@ export function About() {
                     </div>
                     <div className="space-y-4">
                         <p className="text-md text-gray-600 leading-relaxed">
+                            <span className="text-orange-600 font-semibold">
+                                {" "}
+                                Sankya Solutions{" "}
+                            </span>
                             {content.about.description}
                         </p>
                         <p className="text-md text-gray-600 leading-relaxed">
-                            {content.about.approach}
+                            {content.about.history}
                         </p>
                         <div className="mt-6 flex justify-center lg:justify-start">
                             <a

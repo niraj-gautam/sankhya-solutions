@@ -43,7 +43,7 @@ export const content = {
     ],
     company: {
         name: "Sankhya Solutions",
-        tagline: "Transforming Data into Strategic Decisions",
+        tagline: "Let Data Speak",
         logo: "images/logo.png",
         description:
             "Leading provider of research, analysis, and strategic consulting services helping organizations make data-driven decisions.",
@@ -52,14 +52,14 @@ export const content = {
         linkedin: "https://linkedin.com",
     },
     about: {
-        title: "We Do Market Research Differently.",
-        mainText:
-            "Sankhya Solutions is a data analytics and consultancy organization that helps enterprises and governments achieve accelerated impact by providing data driven insights.We are a team of young professionals, scholars, working towards a common goal of making a difference in society by harnessing the power of research and data.",
+        title: "About Us",
+
         image: "images/We Do Market Research Differently.-min.jpg",
+
         description:
-            "Sankhya was founded in 2019 to revolutionize decision-making in Nepal through data-driven solutions, Artificial Intelligence (AI), and machine learning (ML). We believe these technologies can transform organizations, boost the economy, and position Nepali businesses alongside global leaders. Our mission is to empower organizations with actionable insights, optimize operations, and foster growth through advanced analytics. By harnessing AI and ML, we aim to drive innovation, improve productivity, and enable smarter strategies. At Sankhya, we let data speak, guiding decisions that create meaningful change. Together, we’re building a data-driven future where Nepali organizations thrive on the global stage",
-        approach:
-            "Our clients depend on our firm to weed through the excess of available information so we can develop actionable strategies. Your target audience is people -that's why our research techniques are Tested on Humans.",
+            "is a data analytics and consultancy organization that helps enterprises and governments achieve accelerated impact by providing data driven insights.We are a team of young professionals, scholars, working towards a common goal of making a difference in society by harnessing the power of research and data.",
+        history:
+            "Sankhya was founded in 2019 to revolutionize decision-making in Nepal through data-driven solutions, Artificial Intelligence (AI), and machine learning (ML). We believe these technologies can transform organizations, boost the economy, and position Nepali businesses alongside global leaders. Our mission is to empower organizations with actionable insights, optimize operations, and foster growth through advanced analytics. By harnessing AI and ML, we aim to drive innovation, improve productivity, and enable smarter strategies. At Sankhya, we let data speak, guiding decisions that create meaningful change. Together, we’re building a data-driven future where Nepali organizations thrive on the global stage.",
     },
     team: [
         {

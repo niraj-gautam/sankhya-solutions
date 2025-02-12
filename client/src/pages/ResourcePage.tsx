@@ -47,7 +47,7 @@ export function ResourcePage() {
                                         />
                                     </div>
                                     <div className="flex-1 p-8">
-                                        <h2 className="text-2xl font-bold text-[#303392] mb-4  transition-colors">
+                                        <h2 className="text-2xl font-bold text-orange-700 mb-4  transition-colors">
                                             {study.title}
                                         </h2>
 
@@ -62,7 +62,7 @@ export function ResourcePage() {
                                             </div>
                                             <Link
                                                 to={`/resources/${articleSlug}`}
-                                                className="inline-flex items-center text-[#303392] hover:text-[#000000] font-medium transition-colors"
+                                                className="inline-flex items-center text-gray-600 hover:text-orange-600 font-medium transition-colors"
                                             >
                                                 Read full article
                                                 <ArrowRight className="ml-2 h-4 w-4" />

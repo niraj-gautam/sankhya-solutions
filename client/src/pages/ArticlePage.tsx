@@ -25,7 +25,7 @@ export function ArticlePage() {
                     <div className="mb-8">
                         <Link
                             to="/resources"
-                            className="inline-flex items-center text-[#35389d] hover:text-[#000000] font-medium transition-colors"
+                            className="inline-flex items-center text-gray-600 hover:text-orange-600 font-medium transition-colors"
                         >
                             <ArrowLeft className="mr-2 h-4 w-4" />
                             Back to Resources

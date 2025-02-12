@@ -119,200 +119,206 @@ export function Contact() {
                     </p>
                 </div>
 
-                {/* Form Section */}
-                <div className="max-w-xl mx-auto mb-20">
-                    <form className="space-y-6" onSubmit={handleSubmit}>
-                        <div>
-                            <label
-                                htmlFor="name"
-                                className="block text-sm font-medium text-gray-700"
-                            >
-                                Name
-                            </label>
-                            <input
-                                type="text"
-                                name="name"
-                                id="name"
-                                value={formData.name}
-                                onChange={handleInputChange}
-                                className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors ${
-                                    errors.name
-                                        ? "border-red-500 focus:ring-red-500"
-                                        : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
-                                }`}
-                                placeholder="Your Name"
-                            />
-                            {errors.name && (
-                                <p className="mt-1 text-sm text-red-600">
-                                    {errors.name}
-                                </p>
+                {/* Flex container for responsive layout */}
+                <div className="flex flex-col lg:flex-row lg:items-start gap-8 xl:gap-12 max-w-6xl mx-auto">
+                    {/* Left Column - Form */}
+                    <div className="lg:w-1/2 lg:sticky lg:top-24 h-fit">
+                        <form className="space-y-6" onSubmit={handleSubmit}>
+                            <div>
+                                <label
+                                    htmlFor="name"
+                                    className="block text-sm font-medium text-gray-700"
+                                >
+                                    Name
+                                </label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    id="name"
+                                    value={formData.name}
+                                    onChange={handleInputChange}
+                                    className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors ${
+                                        errors.name
+                                            ? "border-red-500 focus:ring-red-500"
+                                            : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
+                                    }`}
+                                    placeholder="Your Name"
+                                />
+                                {errors.name && (
+                                    <p className="mt-1 text-sm text-red-600">
+                                        {errors.name}
+                                    </p>
+                                )}
+                            </div>
+
+                            <div>
+                                <label
+                                    htmlFor="email"
+                                    className="block text-sm font-medium text-gray-700"
+                                >
+                                    Email
+                                </label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors ${
+                                        errors.email
+                                            ? "border-red-500 focus:ring-red-500"
+                                            : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
+                                    }`}
+                                    placeholder="name@example.com"
+                                />
+                                {errors.email && (
+                                    <p className="mt-1 text-sm text-red-600">
+                                        {errors.email}
+                                    </p>
+                                )}
+                            </div>
+
+                            <div>
+                                <label
+                                    htmlFor="phone"
+                                    className="block text-sm font-medium text-gray-700"
+                                >
+                                    Phone Number
+                                </label>
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    id="phone"
+                                    value={formData.phone}
+                                    onChange={handleInputChange}
+                                    className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors ${
+                                        errors.phone
+                                            ? "border-red-500 focus:ring-red-500"
+                                            : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
+                                    }`}
+                                    placeholder="+977-9812345678"
+                                />
+                                {errors.phone && (
+                                    <p className="mt-1 text-sm text-red-600">
+                                        {errors.phone}
+                                    </p>
+                                )}
+                            </div>
+
+                            <div>
+                                <label
+                                    htmlFor="message"
+                                    className="block text-sm font-medium text-gray-700"
+                                >
+                                    Message
+                                </label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows={4}
+                                    value={formData.message}
+                                    onChange={handleInputChange}
+                                    className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors resize-none ${
+                                        errors.message
+                                            ? "border-red-500 focus:ring-red-500"
+                                            : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
+                                    }`}
+                                    placeholder="How can we help you?"
+                                />
+                                {errors.message && (
+                                    <p className="mt-1 text-sm text-red-600">
+                                        {errors.message}
+                                    </p>
+                                )}
+                            </div>
+
+                            {submitError && (
+                                <div className="p-4 bg-red-100 text-red-800 rounded-md">
+                                    {submitError}
+                                </div>
                             )}
-                        </div>
 
-                        <div>
-                            <label
-                                htmlFor="email"
-                                className="block text-sm font-medium text-gray-700"
-                            >
-                                Email
-                            </label>
-                            <input
-                                type="email"
-                                name="email"
-                                id="email"
-                                value={formData.email}
-                                onChange={handleInputChange}
-                                className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors ${
-                                    errors.email
-                                        ? "border-red-500 focus:ring-red-500"
-                                        : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
-                                }`}
-                                placeholder="name@example.com"
-                            />
-                            {errors.email && (
-                                <p className="mt-1 text-sm text-red-600">
-                                    {errors.email}
-                                </p>
+                            {submitSuccess && (
+                                <div className="p-4 bg-green-100 text-green-800 rounded-md">
+                                    Message sent successfully!
+                                </div>
                             )}
-                        </div>
 
-                        <div>
-                            <label
-                                htmlFor="phone"
-                                className="block text-sm font-medium text-gray-700"
-                            >
-                                Phone Number
-                            </label>
-                            <input
-                                type="tel"
-                                name="phone"
-                                id="phone"
-                                value={formData.phone}
-                                onChange={handleInputChange}
-                                className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors ${
-                                    errors.phone
-                                        ? "border-red-500 focus:ring-red-500"
-                                        : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
-                                }`}
-                                placeholder="+977-9812345678"
-                            />
-                            {errors.phone && (
-                                <p className="mt-1 text-sm text-red-600">
-                                    {errors.phone}
-                                </p>
-                            )}
-                        </div>
-
-                        <div>
-                            <label
-                                htmlFor="message"
-                                className="block text-sm font-medium text-gray-700"
-                            >
-                                Message
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows={4}
-                                value={formData.message}
-                                onChange={handleInputChange}
-                                className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors resize-none ${
-                                    errors.message
-                                        ? "border-red-500 focus:ring-red-500"
-                                        : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
-                                }`}
-                                placeholder="How can we help you?"
-                            />
-                            {errors.message && (
-                                <p className="mt-1 text-sm text-red-600">
-                                    {errors.message}
-                                </p>
-                            )}
-                        </div>
-
-                        {submitError && (
-                            <div className="p-4 bg-red-100 text-red-800 rounded-md">
-                                {submitError}
+                            <div>
+                                <button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white bg-orange-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                                >
+                                    {isSubmitting
+                                        ? "Sending..."
+                                        : "Send Message"}
+                                </button>
                             </div>
-                        )}
-
-                        {submitSuccess && (
-                            <div className="p-4 bg-green-100 text-green-800 rounded-md">
-                                Message sent successfully!
-                            </div>
-                        )}
-
-                        <div>
-                            <button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white bg-orange-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                            >
-                                {isSubmitting ? "Sending..." : "Send Message"}
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-                {/* Info and Map Section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start max-w-6xl mx-auto">
-                    {/* Contact Info */}
-                    <div className="space-y-8">
-                        <div className="flex items-start">
-                            <Mail className="h-6 w-6 text-orange-600 mt-1" />
-                            <div className="ml-4">
-                                <h3 className="text-lg font-medium text-gray-900">
-                                    {contact.email.label}
-                                </h3>
-                                <p className="mt-1 text-gray-500">
-                                    {contact.email.value}
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-start">
-                            <Phone className="h-6 w-6 text-orange-600 mt-1" />
-                            <div className="ml-4">
-                                <h3 className="text-lg font-medium text-gray-900">
-                                    {contact.phone.label}
-                                </h3>
-                                <p className="mt-1 text-gray-500">
-                                    {contact.phone.value}
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-start">
-                            <MapPin className="h-6 w-6 text-orange-600 mt-1" />
-                            <div className="ml-4">
-                                <h3 className="text-lg font-medium text-gray-900">
-                                    {contact.office.label}
-                                </h3>
-                                <p className="mt-1 text-gray-500">
-                                    {contact.office.address.map(
-                                        (line, index) => (
-                                            <React.Fragment key={index}>
-                                                {line}
-                                                <br />
-                                            </React.Fragment>
-                                        )
-                                    )}
-                                </p>
-                            </div>
-                        </div>
+                        </form>
                     </div>
 
-                    {/* Map */}
-                    <div className="h-[300px] rounded-lg overflow-hidden shadow-md">
-                        <iframe
-                            src={contact.mapUrl}
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0 }}
-                            allowFullScreen
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                        ></iframe>
+                    {/* Right Column - Contact Info + Map */}
+                    <div className="lg:w-1/2 flex flex-col gap-8">
+                        {/* Contact Info */}
+                        <div className="space-y-8 bg-gray-50 p-6 rounded-xl">
+                            <div className="flex items-start">
+                                <Mail className="h-6 w-6 text-orange-600 mt-1" />
+                                <div className="ml-4">
+                                    <h3 className="text-lg font-medium text-gray-900">
+                                        {contact.email.label}
+                                    </h3>
+                                    <p className="mt-1 text-gray-500">
+                                        {contact.email.value}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-start">
+                                <Phone className="h-6 w-6 text-orange-600 mt-1" />
+                                <div className="ml-4">
+                                    <h3 className="text-lg font-medium text-gray-900">
+                                        {contact.phone.label}
+                                    </h3>
+                                    <p className="mt-1 text-gray-500">
+                                        {contact.phone.value}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-start">
+                                <MapPin className="h-6 w-6 text-orange-600 mt-1" />
+                                <div className="ml-4">
+                                    <h3 className="text-lg font-medium text-gray-900">
+                                        {contact.office.label}
+                                    </h3>
+                                    <p className="mt-1 text-gray-500">
+                                        {contact.office.address.map(
+                                            (line, index) => (
+                                                <React.Fragment key={index}>
+                                                    {line}
+                                                    <br />
+                                                </React.Fragment>
+                                            )
+                                        )}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Map */}
+                        <div className="flex-1 min-h-[300px] rounded-xl overflow-hidden shadow-lg">
+                            <iframe
+                                src={contact.mapUrl}
+                                width="100%"
+                                height="100%"
+                                className="min-h-[300px]"
+                                style={{ border: 0 }}
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
                     </div>
                 </div>
             </div>

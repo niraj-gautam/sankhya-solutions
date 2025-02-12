@@ -1,30 +1,78 @@
-import React from "react";
-import { Menu, X, Facebook, Linkedin, MessageSquare } from "lucide-react";
+import React, { useEffect, useRef } from "react";
+import {
+    Menu,
+    X,
+    Facebook,
+    Linkedin,
+    MessageSquare,
+    ChevronDown,
+    ChevronUp,
+} from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { content } from "../data/content";
 
+const INDUSTRY_ITEMS = [
+    { name: "Banking & Financials", path: "/industries/healthcare" },
+    { name: "Industrials", path: "/industries/technology" },
+    { name: "Travel & Hospitality", path: "/industries/finance" },
+];
+
+const DropdownMenu = ({
+    items,
+}: {
+    items: { name: string; path: string }[];
+}) => {
+    return (
+        <div className="absolute top-full left-0 w-48 py-2  bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-10">
+            {items.map((item) => (
+                <Link
+                    key={item.name}
+                    to={item.path}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+                >
+                    {item.name}
+                </Link>
+            ))}
+        </div>
+    );
+};
+
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [mobileDropdownOpen, setMobileDropdownOpen] = React.useState(false);
     const location = useLocation();
     const navigate = useNavigate();
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target as Node)
+            ) {
+                setMobileDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         if (location.pathname === "/") {
             e.preventDefault();
-            // Remove the hash from URL without scrolling
             window.history.pushState(
                 "",
                 document.title,
                 window.location.pathname
             );
-            // Explicitly navigate to home to ensure proper state update
             navigate("/");
-            // Smooth scroll to top
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
     };
 
-    // Function to check if a nav item is active
     const isActive = (path: string) => {
         if (path === "/") {
             return location.pathname === "/" && !location.hash;
@@ -70,23 +118,68 @@ export function Header() {
         path,
         isLink = false,
         onClick,
+        hasDropdown = false,
+        dropdownItems,
     }: {
         name: string;
         path: string;
         isLink?: boolean;
         onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+        hasDropdown?: boolean;
+        dropdownItems?: { name: string; path: string }[];
     }) => {
+        const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
         const active = isActive(path);
-        const className = `text-sm font-regular font-poppins  transition-colors duration-300 whitespace-nowrap lg:px-0 ${
+        const baseClassName = `text-sm font-regular font-poppins transition-colors duration-300 whitespace-nowrap lg:px-0 ${
             active ? "text-orange-600" : "text-gray-800 hover:text-orange-700"
         } block w-full py-2 px-4 lg:py-0 lg:w-auto`;
 
+        if (hasDropdown) {
+            return (
+                <div
+                    ref={dropdownRef}
+                    className="relative"
+                    onMouseEnter={() =>
+                        window.innerWidth >= 1024 && setIsDropdownOpen(true)
+                    }
+                    onMouseLeave={() =>
+                        window.innerWidth >= 1024 && setIsDropdownOpen(false)
+                    }
+                >
+                    <button
+                        className={`${baseClassName} flex items-center gap-1`}
+                        onClick={() => {
+                            if (window.innerWidth < 1024) {
+                                setMobileDropdownOpen(!mobileDropdownOpen);
+                            }
+                        }}
+                    >
+                        {name}
+                        {window.innerWidth >= 1024 ? (
+                            isDropdownOpen ? (
+                                <ChevronUp className="h-4 w-4" />
+                            ) : (
+                                <ChevronDown className="h-4 w-4" />
+                            )
+                        ) : mobileDropdownOpen ? (
+                            <ChevronUp className="h-4 w-4" />
+                        ) : (
+                            <ChevronDown className="h-4 w-4" />
+                        )}
+                    </button>
+                    {((window.innerWidth >= 1024 && isDropdownOpen) ||
+                        (window.innerWidth < 1024 && mobileDropdownOpen)) && (
+                        <DropdownMenu items={dropdownItems || []} />
+                    )}
+                </div>
+            );
+        }
         return isLink ? (
-            <Link to={path} onClick={onClick} className={className}>
+            <Link to={path} onClick={onClick} className={baseClassName}>
                 {name}
             </Link>
         ) : (
-            <a href={path} className={className}>
+            <a href={path} className={baseClassName}>
                 {name}
             </a>
         );
@@ -96,7 +189,6 @@ export function Header() {
         <header className="fixed w-full bg-white/95 backdrop-blur-sm z-50 shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="flex justify-between items-center py-6">
-                    {/* Logo/Company Name */}
                     <div className="flex-shrink-0">
                         <Link
                             to="/"
@@ -107,7 +199,6 @@ export function Header() {
                         </Link>
                     </div>
 
-                    {/* Mobile menu button */}
                     <div className="-mr-2 -my-2 lg:hidden">
                         <button
                             type="button"
@@ -134,7 +225,6 @@ export function Header() {
                         </button>
                     </div>
 
-                    {/* Desktop Navigation */}
                     <nav className="hidden lg:flex items-center justify-center flex-grow mx-4 xl:mx-8 space-x-4 xl:space-x-8">
                         {[
                             {
@@ -144,7 +234,12 @@ export function Header() {
                                 onClick: handleHomeClick,
                             },
                             { name: "About", isLink: true, path: "about" },
-                            { name: "Industries", path: "#industries" },
+                            {
+                                name: "Industries",
+                                path: "",
+                                hasDropdown: true,
+                                dropdownItems: INDUSTRY_ITEMS,
+                            },
                             { name: "Services", path: "#services" },
                             { name: "Resources", path: "#resources" },
                             { name: "Contact", path: "#contact" },
@@ -153,7 +248,6 @@ export function Header() {
                         ))}
                     </nav>
 
-                    {/* Desktop Social Icons */}
                     <div className="hidden lg:flex items-center space-x-2 flex-shrink-0">
                         <SocialIcon
                             href={content.company.facebook}
@@ -174,7 +268,6 @@ export function Header() {
                 </div>
             </div>
 
-            {/* Mobile menu */}
             <div
                 className={`overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
                     isMenuOpen
@@ -190,7 +283,13 @@ export function Header() {
                             isLink: true,
                             onClick: handleHomeClick,
                         },
-                        { name: "About", path: "#about" },
+                        { name: "About", path: "/about" },
+                        {
+                            name: "Industries",
+                            path: "",
+                            hasDropdown: true,
+                            dropdownItems: INDUSTRY_ITEMS,
+                        },
                         { name: "Services", path: "#services" },
                         { name: "Resources", path: "#resources" },
                         { name: "Contact", path: "#contact" },
@@ -199,7 +298,6 @@ export function Header() {
                     ))}
                 </div>
 
-                {/* Mobile Social Icons */}
                 <div className="flex justify-center space-x-4 py-4">
                     <SocialIcon
                         href={content.company.facebook}
