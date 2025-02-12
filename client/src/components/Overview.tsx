@@ -63,27 +63,27 @@ export default function LastMileSection() {
 
                 <div className="mt-6 space-y-6 my-6">
                     <div className="flex items-center space-x-4">
-                        <Target className="text-orange-600" size={36} />
+                        <Target className="text-orange-700" size={36} />
                         <span className="text-lg font-medium text-gray-800">
                             Speed to action through accelerators
                         </span>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <Star className="text-orange-600" size={36} />
+                        <Star className="text-orange-700" size={36} />
                         <span className="text-lg font-medium text-gray-800">
                             Speed to value through industry & functional
                             expertise
                         </span>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <Handshake className="text-orange-600" size={36} />
+                        <Handshake className="text-orange-700" size={36} />
                         <span className="text-lg font-medium text-gray-800">
                             Speed to scale through deep Data & AI partnerships
                         </span>
                     </div>
                 </div>
 
-                <button className="mt-8 bg-orange-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-gray-600 transition duration-300">
+                <button className="mt-8 bg-orange-700 text-white px-6 py-3 rounded-xl shadow-md hover:bg-gray-600 transition duration-300">
                     Explore our success stories
                 </button>
             </motion.div>
