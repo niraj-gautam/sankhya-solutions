@@ -15,6 +15,7 @@ import { Footer } from "./components/Footer";
 import { ArticlePage } from "./pages/ArticlePage";
 import Overview from "./components/Overview";
 import { OurTeam } from "./components/Team";
+import { AboutPage } from "./pages/AboutPage";
 
 function HomePage() {
     return (
@@ -40,6 +41,7 @@ function App() {
             <div className="min-h-screen bg-white">
                 <Routes>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="/about" element={<AboutPage />} />
                     <Route path="/services/:id" element={<ServicePage />} />
                     <Route path="/resources" element={<ResourcePage />} />
                     <Route

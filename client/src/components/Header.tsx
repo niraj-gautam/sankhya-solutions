@@ -143,7 +143,7 @@ export function Header() {
                                 isLink: true,
                                 onClick: handleHomeClick,
                             },
-                            { name: "About", path: "#about" },
+                            { name: "About", isLink: true, path: "about" },
                             { name: "Industries", path: "#industries" },
                             { name: "Services", path: "#services" },
                             { name: "Resources", path: "#resources" },
