@@ -26,13 +26,12 @@ export function Contact() {
         if (submitSuccess) {
             timer = setTimeout(() => {
                 setSubmitSuccess(false);
-            }, 10000); // 10 seconds
+            }, 10000);
         }
-        return () => clearTimeout(timer); // Cleanup on unmount
+        return () => clearTimeout(timer);
     }, [submitSuccess]);
 
-    // Initialize EmailJS with your Public Key
-    emailjs.init("ev0rNYcZrNW4EHGcI"); // Replace with your EmailJS public key
+    emailjs.init("ev0rNYcZrNW4EHGcI");
 
     const validateForm = () => {
         let isValid = true;
@@ -81,11 +80,7 @@ export function Contact() {
         setSubmitSuccess(false);
 
         try {
-            await emailjs.send(
-                "service_kpzdwx4", // Replace with your EmailJS service ID
-                "template_zf8rldr", // Replace with your EmailJS template ID
-                formData
-            );
+            await emailjs.send("service_kpzdwx4", "template_zf8rldr", formData);
 
             setFormData({ name: "", email: "", phone: "", message: "" });
             setSubmitSuccess(true);
@@ -108,197 +103,230 @@ export function Contact() {
     };
 
     return (
-        <section id="contact" className="relative bg-white py-14">
+        <section id="contact" className="relative bg-white py-20 lg:py-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+                <div className="text-center mb-12 lg:mb-20">
+                    <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
                         {contact.title}
                     </h2>
-                    <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+                    <p className="mt-4 max-w-2xl mx-auto text-lg lg:text-xl text-gray-600">
                         {contact.subtitle}
                     </p>
                 </div>
 
-                {/* Flex container for responsive layout */}
-                <div className="flex flex-col lg:flex-row lg:items-start gap-8 xl:gap-12 max-w-6xl mx-auto">
-                    {/* Left Column - Form */}
-                    <div className="lg:w-1/2 lg:sticky lg:top-24 h-fit">
+                <div className="grid lg:grid-cols-2 gap-10 xl:gap-16 max-w-6xl mx-auto">
+                    {/* Contact Form */}
+                    <div className="space-y-8">
                         <form className="space-y-6" onSubmit={handleSubmit}>
-                            <div>
-                                <label
-                                    htmlFor="name"
-                                    className="block text-sm font-medium text-gray-700"
-                                >
-                                    Name
-                                </label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    id="name"
-                                    value={formData.name}
-                                    onChange={handleInputChange}
-                                    className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors ${
-                                        errors.name
-                                            ? "border-red-500 focus:ring-red-500"
-                                            : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
-                                    }`}
-                                    placeholder="Your Name"
-                                />
-                                {errors.name && (
-                                    <p className="mt-1 text-sm text-red-600">
-                                        {errors.name}
-                                    </p>
-                                )}
-                            </div>
-
-                            <div>
-                                <label
-                                    htmlFor="email"
-                                    className="block text-sm font-medium text-gray-700"
-                                >
-                                    Email
-                                </label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    value={formData.email}
-                                    onChange={handleInputChange}
-                                    className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors ${
-                                        errors.email
-                                            ? "border-red-500 focus:ring-red-500"
-                                            : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
-                                    }`}
-                                    placeholder="name@example.com"
-                                />
-                                {errors.email && (
-                                    <p className="mt-1 text-sm text-red-600">
-                                        {errors.email}
-                                    </p>
-                                )}
-                            </div>
-
-                            <div>
-                                <label
-                                    htmlFor="phone"
-                                    className="block text-sm font-medium text-gray-700"
-                                >
-                                    Phone Number
-                                </label>
-                                <input
-                                    type="tel"
-                                    name="phone"
-                                    id="phone"
-                                    value={formData.phone}
-                                    onChange={handleInputChange}
-                                    className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors ${
-                                        errors.phone
-                                            ? "border-red-500 focus:ring-red-500"
-                                            : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
-                                    }`}
-                                    placeholder="+977-9812345678"
-                                />
-                                {errors.phone && (
-                                    <p className="mt-1 text-sm text-red-600">
-                                        {errors.phone}
-                                    </p>
-                                )}
-                            </div>
-
-                            <div>
-                                <label
-                                    htmlFor="message"
-                                    className="block text-sm font-medium text-gray-700"
-                                >
-                                    Message
-                                </label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    rows={4}
-                                    value={formData.message}
-                                    onChange={handleInputChange}
-                                    className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm transition-colors resize-none ${
-                                        errors.message
-                                            ? "border-red-500 focus:ring-red-500"
-                                            : "border-gray-200 focus:border-[#303392] focus:ring-[#303392]"
-                                    }`}
-                                    placeholder="How can we help you?"
-                                />
-                                {errors.message && (
-                                    <p className="mt-1 text-sm text-red-600">
-                                        {errors.message}
-                                    </p>
-                                )}
-                            </div>
-
-                            {submitError && (
-                                <div className="p-4 bg-red-100 text-red-800 rounded-md">
-                                    {submitError}
+                            <div className="space-y-4">
+                                <div>
+                                    <label
+                                        htmlFor="name"
+                                        className="block text-sm font-medium text-gray-700 mb-2"
+                                    >
+                                        Name
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        id="name"
+                                        value={formData.name}
+                                        onChange={handleInputChange}
+                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 ${
+                                            errors.name
+                                                ? "border-red-500 focus:ring-red-500"
+                                                : "border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                                        }`}
+                                        placeholder="John Doe"
+                                    />
+                                    {errors.name && (
+                                        <p className="mt-2 text-sm text-red-600">
+                                            {errors.name}
+                                        </p>
+                                    )}
                                 </div>
-                            )}
 
-                            {submitSuccess && (
-                                <div className="p-4 bg-green-100 text-green-800 rounded-md">
-                                    Message sent successfully!
+                                <div>
+                                    <label
+                                        htmlFor="email"
+                                        className="block text-sm font-medium text-gray-700 mb-2"
+                                    >
+                                        Email
+                                    </label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        value={formData.email}
+                                        onChange={handleInputChange}
+                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 ${
+                                            errors.email
+                                                ? "border-red-500 focus:ring-red-500"
+                                                : "border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                                        }`}
+                                        placeholder="john@example.com"
+                                    />
+                                    {errors.email && (
+                                        <p className="mt-2 text-sm text-red-600">
+                                            {errors.email}
+                                        </p>
+                                    )}
                                 </div>
-                            )}
 
-                            <div>
+                                <div>
+                                    <label
+                                        htmlFor="phone"
+                                        className="block text-sm font-medium text-gray-700 mb-2"
+                                    >
+                                        Phone Number
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        id="phone"
+                                        value={formData.phone}
+                                        onChange={handleInputChange}
+                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 ${
+                                            errors.phone
+                                                ? "border-red-500 focus:ring-red-500"
+                                                : "border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                                        }`}
+                                        placeholder="+1 (555) 123-4567"
+                                    />
+                                    {errors.phone && (
+                                        <p className="mt-2 text-sm text-red-600">
+                                            {errors.phone}
+                                        </p>
+                                    )}
+                                </div>
+
+                                <div>
+                                    <label
+                                        htmlFor="message"
+                                        className="block text-sm font-medium text-gray-700 mb-2"
+                                    >
+                                        Message
+                                    </label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        rows={4}
+                                        value={formData.message}
+                                        onChange={handleInputChange}
+                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 resize-none ${
+                                            errors.message
+                                                ? "border-red-500 focus:ring-red-500"
+                                                : "border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                                        }`}
+                                        placeholder="Share your inquiry..."
+                                    />
+                                    {errors.message && (
+                                        <p className="mt-2 text-sm text-red-600">
+                                            {errors.message}
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="space-y-4">
+                                {submitError && (
+                                    <div className="p-4 bg-red-50 text-red-800 rounded-lg border border-red-100">
+                                        {submitError}
+                                    </div>
+                                )}
+
+                                {submitSuccess && (
+                                    <div className="p-4 bg-green-50 text-green-800 rounded-lg border border-green-100">
+                                        Message sent successfully! We'll respond
+                                        within 24 hours.
+                                    </div>
+                                )}
+
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white bg-orange-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full py-3 px-6 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
-                                    {isSubmitting
-                                        ? "Sending..."
-                                        : "Send Message"}
+                                    {isSubmitting ? (
+                                        <span className="flex items-center justify-center">
+                                            <svg
+                                                className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <circle
+                                                    className="opacity-25"
+                                                    cx="12"
+                                                    cy="12"
+                                                    r="10"
+                                                    stroke="currentColor"
+                                                    strokeWidth="4"
+                                                ></circle>
+                                                <path
+                                                    className="opacity-75"
+                                                    fill="currentColor"
+                                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                                ></path>
+                                            </svg>
+                                            Sending...
+                                        </span>
+                                    ) : (
+                                        "Send Message"
+                                    )}
                                 </button>
                             </div>
                         </form>
                     </div>
 
-                    {/* Right Column - Contact Info + Map */}
-                    <div className="lg:w-1/2 flex flex-col gap-8">
-                        {/* Contact Info */}
-                        <div className="space-y-8 bg-gray-50 p-6 rounded-xl">
-                            <div className="flex items-start">
-                                <Mail className="h-6 w-6 text-orange-600 mt-1" />
-                                <div className="ml-4">
-                                    <h3 className="text-lg font-medium text-gray-900">
+                    {/* Contact Information */}
+                    <div className="space-y-8">
+                        <div className="bg-gray-50 rounded-xl p-6 lg:p-8 space-y-6 border border-gray-100">
+                            <div className="flex items-start gap-4">
+                                <div className="flex-shrink-0">
+                                    <Mail className="w-6 h-6 text-orange-500 mt-1" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-semibold text-gray-900">
                                         {contact.email.label}
                                     </h3>
-                                    <p className="mt-1 text-gray-500">
+                                    <p className="mt-1 text-gray-600">
                                         {contact.email.value}
                                     </p>
                                 </div>
                             </div>
 
-                            <div className="flex items-start">
-                                <Phone className="h-6 w-6 text-orange-600 mt-1" />
-                                <div className="ml-4">
-                                    <h3 className="text-lg font-medium text-gray-900">
+                            <div className="flex items-start gap-4">
+                                <div className="flex-shrink-0">
+                                    <Phone className="w-6 h-6 text-orange-500 mt-1" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-semibold text-gray-900">
                                         {contact.phone.label}
                                     </h3>
-                                    <p className="mt-1 text-gray-500">
+                                    <p className="mt-1 text-gray-600">
                                         {contact.phone.value}
                                     </p>
                                 </div>
                             </div>
 
-                            <div className="flex items-start">
-                                <MapPin className="h-6 w-6 text-orange-600 mt-1" />
-                                <div className="ml-4">
-                                    <h3 className="text-lg font-medium text-gray-900">
+                            <div className="flex items-start gap-4">
+                                <div className="flex-shrink-0">
+                                    <MapPin className="w-6 h-6 text-orange-500 mt-1" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-semibold text-gray-900">
                                         {contact.office.label}
                                     </h3>
-                                    <p className="mt-1 text-gray-500">
+                                    <p className="mt-1 text-gray-600 space-y-1">
                                         {contact.office.address.map(
                                             (line, index) => (
-                                                <React.Fragment key={index}>
+                                                <span
+                                                    key={index}
+                                                    className="block"
+                                                >
                                                     {line}
-                                                    <br />
-                                                </React.Fragment>
+                                                </span>
                                             )
                                         )}
                                     </p>
@@ -306,15 +334,12 @@ export function Contact() {
                             </div>
                         </div>
 
-                        {/* Map */}
-                        <div className="flex-1 min-h-[300px] rounded-xl overflow-hidden shadow-lg">
+                        <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200">
                             <iframe
                                 src={contact.mapUrl}
                                 width="100%"
-                                height="100%"
-                                className="min-h-[300px]"
-                                style={{ border: 0 }}
-                                allowFullScreen
+                                height="400"
+                                className="border-0"
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
                             ></iframe>

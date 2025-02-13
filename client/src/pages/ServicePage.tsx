@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { content } from "../data/content";
 import { Header } from "../components/Header";
 import { Contact } from "../components/Contact";
+import { Footer } from "../components/Footer";
 
 export function ServicePage() {
     const { id } = useParams();
@@ -15,10 +16,10 @@ export function ServicePage() {
     return (
         <div className="min-h-screen bg-white">
             <Header />
-            <div className="pt-24">
+            <div className="pt-28">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">
+                        <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
                             {service.title}
                         </h1>
                         <p className="mt-4 text-xl text-gray-500">
@@ -58,7 +59,7 @@ export function ServicePage() {
                             <div className="mt-12">
                                 <a
                                     href="#contact"
-                                    className="inline-block bg-[#303392] text-white px-8 py-3 rounded-xl font-medium hover:bg-[#252a75] transition-colors no-underline"
+                                    className="inline-block bg-orange-500 text-white px-8 py-3 rounded-xl font-medium hover:bg-orange-600 shadow-md transition-colors duration-300 no-underline"
                                 >
                                     Get Started
                                 </a>
@@ -80,6 +81,7 @@ export function ServicePage() {
                     <Contact />
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

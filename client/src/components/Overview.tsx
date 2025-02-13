@@ -83,7 +83,7 @@ export default function LastMileSection() {
                     </div>
                 </div>
 
-                <button className="mt-8 bg-orange-700 text-white px-6 py-3 rounded-xl shadow-md hover:bg-gray-600 transition duration-300">
+                <button className="mt-8 bg-orange-500 text-white px-6 py-3 rounded-xl shadow-md hover:bg-orange-600 transition duration-300">
                     Explore our success stories
                 </button>
             </motion.div>

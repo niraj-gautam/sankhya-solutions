@@ -23,7 +23,7 @@ export const AboutCards = () => {
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
                         Empowering organizations to{" "}
-                        <span className="text-orange-700">
+                        <span className="text-orange-500">
                             leverage data-driven insights
                         </span>{" "}
                         for smarter, more informed decision-making.
@@ -50,7 +50,7 @@ export const AboutCards = () => {
                     </h3>
                     <p className="text-gray-600 leading-relaxed">
                         To be a{" "}
-                        <span className="text-orange-700">
+                        <span className="text-orange-500">
                             leading hub for data science, AI, and machine
                             learning solutions
                         </span>

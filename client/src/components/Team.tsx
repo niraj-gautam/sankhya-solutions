@@ -151,7 +151,7 @@ function TeamMemberCard({
                         <h3 className="text-lg font-semibold text-orange-500 mb-1">
                             {member.name}
                         </h3>
-                        <p className="text-orange-50 text-sm mb-3">
+                        <p className="text-white text-sm mb-3">
                             {member.position}
                         </p>
                         <p className="text-white/80 text-sm mb-4">

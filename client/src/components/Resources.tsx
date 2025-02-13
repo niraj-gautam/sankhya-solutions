@@ -50,7 +50,7 @@ export function Resources() {
                                         to={`/resources/${createSlug(
                                             study.title
                                         )}`}
-                                        className="inline-flex items-center text-orange-700 hover:text-gray-600 transition-colors"
+                                        className="inline-flex items-center text-orange-500 hover:text-orange-600 transition-colors"
                                     >
                                         Read full article
                                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -64,7 +64,7 @@ export function Resources() {
                 <div className="mt-12 text-center">
                     <Link
                         to="/resources"
-                        className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-orange-700 hover:bg-gray-600 transition-colors duration-300"
+                        className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-orange-500 hover:bg-orange-600 transition-colors duration-300"
                     >
                         View All Resources
                         <ArrowRight className="ml-2 h-5 w-5" />

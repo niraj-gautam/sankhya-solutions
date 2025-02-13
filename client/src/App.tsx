@@ -16,6 +16,7 @@ import { ArticlePage } from "./pages/ArticlePage";
 import Overview from "./components/Overview";
 import { OurTeam } from "./components/Team";
 import { AboutPage } from "./pages/AboutPage";
+import { JoinUs } from "./components/JoinUs";
 
 function HomePage() {
     return (
@@ -27,6 +28,7 @@ function HomePage() {
                 <Services />
                 <Stats />
                 <Resources />
+                <JoinUs />
                 <Contact />
             </div>
             <Footer />

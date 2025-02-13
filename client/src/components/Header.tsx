@@ -63,13 +63,29 @@ export function Header() {
     const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         if (location.pathname === "/") {
             e.preventDefault();
-            window.history.pushState(
-                "",
-                document.title,
-                window.location.pathname
-            );
-            navigate("/");
             window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
+
+    const handleSectionLink = (
+        e: React.MouseEvent<HTMLAnchorElement>,
+        sectionId: string
+    ) => {
+        e.preventDefault();
+        if (location.pathname !== "/") {
+            navigate("/");
+            // Wait for navigation to complete before scrolling
+            setTimeout(() => {
+                const element = document.querySelector(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }, 100);
+        } else {
+            const element = document.querySelector(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
         }
     };
 
@@ -80,7 +96,8 @@ export function Header() {
         if (path.startsWith("#")) {
             return location.hash === path;
         }
-        return location.pathname === path;
+        const targetPath = path.startsWith("/") ? path : `/${path}`;
+        return location.pathname === targetPath;
     };
 
     const SocialIcon = ({
@@ -120,6 +137,7 @@ export function Header() {
         onClick,
         hasDropdown = false,
         dropdownItems,
+        isSection = false,
     }: {
         name: string;
         path: string;
@@ -127,11 +145,14 @@ export function Header() {
         onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
         hasDropdown?: boolean;
         dropdownItems?: { name: string; path: string }[];
+        isSection?: boolean;
     }) => {
         const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
-        const active = isActive(path);
+        const active = hasDropdown
+            ? dropdownItems?.some((item) => isActive(item.path)) || false
+            : isActive(path);
         const baseClassName = `text-sm font-regular font-poppins transition-colors duration-300 whitespace-nowrap lg:px-0 ${
-            active ? "text-orange-600" : "text-gray-800 hover:text-orange-700"
+            active ? "text-orange-500" : "text-gray-900 hover:text-orange-600"
         } block w-full py-2 px-4 lg:py-0 lg:w-auto`;
 
         if (hasDropdown) {
@@ -174,8 +195,21 @@ export function Header() {
                 </div>
             );
         }
+
+        if (isSection) {
+            return (
+                <a
+                    href={path}
+                    className={baseClassName}
+                    onClick={(e) => handleSectionLink(e, path)}
+                >
+                    {name}
+                </a>
+            );
+        }
+
         return isLink ? (
-            <Link to={path} onClick={onClick} className={baseClassName}>
+            <Link to={`/${path}`} onClick={onClick} className={baseClassName}>
                 {name}
             </Link>
         ) : (
@@ -193,7 +227,7 @@ export function Header() {
                         <Link
                             to="/"
                             onClick={handleHomeClick}
-                            className="text-base font-bold text-orange-700 uppercase tracking-wide"
+                            className="text-base font-bold text-orange-500 uppercase tracking-wide"
                         >
                             {content.company.name}
                         </Link>
@@ -229,20 +263,32 @@ export function Header() {
                         {[
                             {
                                 name: "Home",
-                                path: "/",
+                                path: "",
                                 isLink: true,
                                 onClick: handleHomeClick,
                             },
-                            { name: "About", isLink: true, path: "about" },
+                            { name: "About", path: "about", isLink: true },
                             {
                                 name: "Industries",
                                 path: "",
                                 hasDropdown: true,
                                 dropdownItems: INDUSTRY_ITEMS,
                             },
-                            { name: "Services", path: "#services" },
-                            { name: "Resources", path: "#resources" },
-                            { name: "Contact", path: "#contact" },
+                            {
+                                name: "Services",
+                                path: "#services",
+                                isSection: true,
+                            },
+                            {
+                                name: "Resources",
+                                path: "#resources",
+                                isSection: true,
+                            },
+                            {
+                                name: "Contact",
+                                path: "#contact",
+                                isSection: true,
+                            },
                         ].map((item) => (
                             <NavItem key={item.name} {...item} />
                         ))}
@@ -279,20 +325,28 @@ export function Header() {
                     {[
                         {
                             name: "Home",
-                            path: "/",
+                            path: "",
                             isLink: true,
                             onClick: handleHomeClick,
                         },
-                        { name: "About", path: "/about" },
+                        { name: "About", path: "about", isLink: true },
                         {
                             name: "Industries",
                             path: "",
                             hasDropdown: true,
                             dropdownItems: INDUSTRY_ITEMS,
                         },
-                        { name: "Services", path: "#services" },
-                        { name: "Resources", path: "#resources" },
-                        { name: "Contact", path: "#contact" },
+                        {
+                            name: "Services",
+                            path: "#services",
+                            isSection: true,
+                        },
+                        {
+                            name: "Resources",
+                            path: "#resources",
+                            isSection: true,
+                        },
+                        { name: "Contact", path: "#contact", isSection: true },
                     ].map((item) => (
                         <NavItem key={item.name} {...item} />
                     ))}

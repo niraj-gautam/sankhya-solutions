@@ -1,9 +1,33 @@
 import { content } from "../data/content";
-import { OurTeam } from "./Team";
+import { motion } from "framer-motion";
 
 export function About() {
+    const containerVariants = {
+        hidden: {},
+        visible: {
+            transition: {
+                staggerChildren: 0.2,
+            },
+        },
+    };
+
+    const textVariants = {
+        hidden: {
+            opacity: 0,
+            x: 50,
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut",
+            },
+        },
+    };
+
     return (
-        <section id="about" className="py-10 bg-white">
+        <section id="about" className="pt-10 pb-16 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-10">
                     <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl mb-6">
@@ -14,7 +38,7 @@ export function About() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <div className="relative">
                         <img
                             src={content.about.image}
@@ -24,26 +48,30 @@ export function About() {
                             decoding="sync"
                         />
                     </div>
-                    <div className="space-y-4">
-                        <p className="text-md text-gray-600 leading-relaxed">
-                            <span className="text-orange-600 font-semibold">
+                    <motion.div
+                        className="space-y-4"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
+                        <motion.p
+                            className="text-md text-gray-600 leading-relaxed"
+                            variants={textVariants}
+                        >
+                            <span className="text-orange-500 font-semibold">
                                 {" "}
                                 Sankya Solutions{" "}
                             </span>
                             {content.about.description}
-                        </p>
-                        <p className="text-md text-gray-600 leading-relaxed">
+                        </motion.p>
+                        <motion.p
+                            className="text-md text-gray-600 leading-relaxed"
+                            variants={textVariants}
+                        >
                             {content.about.history}
-                        </p>
-                        <div className="mt-6 flex justify-center lg:justify-start">
-                            <a
-                                href="#contact"
-                                className="inline-block bg-orange-700 text-white px-8 py-3 rounded-xl font-medium hover:bg-gray-600 transition-colors "
-                            >
-                                Learn More
-                            </a>
-                        </div>
-                    </div>
+                        </motion.p>
+                    </motion.div>
                 </div>
             </div>
         </section>
