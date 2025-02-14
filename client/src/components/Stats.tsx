@@ -8,10 +8,10 @@ export function Stats() {
                 <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                     {content.stats.map((stat, index) => (
                         <div key={index} className="text-center">
-                            <p className="text-3xl font-extrabold text-white">
+                            <p className="text-3xl font-extrabold text-orange-500">
                                 {stat.value}
                             </p>
-                            <p className="mt-2 text-sm font-medium text-blue-100">
+                            <p className="mt-2 text-sm font-medium text-orange-50">
                                 {stat.label}
                             </p>
                         </div>

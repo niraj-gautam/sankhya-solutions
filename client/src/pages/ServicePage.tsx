@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { content } from "../data/content";
 import { Header } from "../components/Header";
-import { Contact } from "../components/Contact";
+
 import { Footer } from "../components/Footer";
 
 export function ServicePage() {
@@ -16,45 +16,49 @@ export function ServicePage() {
     return (
         <div className="min-h-screen bg-white">
             <Header />
-            <div className="pt-28">
+            <div className="pt-28 pb-24">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
                             {service.title}
                         </h1>
-                        <p className="mt-4 text-xl text-gray-500">
-                            {service.description}
-                        </p>
                     </div>
 
                     {/* Service Content and Image */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div className="prose prose-lg mx-auto">
-                            <h2>What We Offer</h2>
-                            <p>
-                                Our {service.title.toLowerCase()} services are
-                                designed to help your organization succeed
-                                through data-driven insights and strategic
-                                planning.
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                        <div className="space-y-6">
+                            <p className="text-gray-700 text-lg">
+                                {service.description}
                             </p>
 
-                            <h2>Our Approach</h2>
-                            <p>
-                                We combine industry expertise with cutting-edge
-                                methodologies to deliver results that matter.
-                            </p>
+                            <div className="space-y-4 mt-20">
+                                <h2 className="text-2xl font-bold text-gray-900 mt-10">
+                                    What We Provide
+                                </h2>
+                                <ul className="text-lg text-gray-700 space-y-4 list-disc pl-5 disc marker:text-orange-500">
+                                    {service.whatWeProvide.map(
+                                        (item, index) => (
+                                            <li key={index}>
+                                                <span className="text-orange-500 font-bold">
+                                                    {item.title}
+                                                </span>{" "}
+                                                – {item.description}
+                                            </li>
+                                        )
+                                    )}
+                                </ul>
+                            </div>
 
-                            <h2>Why Choose Us</h2>
-                            <ul>
-                                <li>Expert team with years of experience</li>
-                                <li>
-                                    Customized solutions for your specific needs
-                                </li>
-                                <li>
-                                    Data-driven insights and recommendations
-                                </li>
-                                <li>Proven track record of success</li>
-                            </ul>
+                            <div className="space-y-4">
+                                <h2 className="text-2xl font-bold text-gray-900 mt-10">
+                                    Why Choose Us
+                                </h2>
+                                <ul className="text-lg text-gray-700 space-y-4 list-disc pl-5 marker:text-orange-500">
+                                    {service.whyChooseUs.map((item, index) => (
+                                        <li key={index}>{item}</li>
+                                    ))}
+                                </ul>
+                            </div>
 
                             <div className="mt-12">
                                 <a
@@ -67,7 +71,7 @@ export function ServicePage() {
                         </div>
 
                         {/* Image */}
-                        <div className="lg:justify-self-end">
+                        <div className="lg:justify-self-end lg:top-28">
                             <img
                                 src={service.image}
                                 alt={service.title}
@@ -75,10 +79,6 @@ export function ServicePage() {
                             />
                         </div>
                     </div>
-                </div>
-
-                <div className="mt-20">
-                    <Contact />
                 </div>
             </div>
             <Footer />

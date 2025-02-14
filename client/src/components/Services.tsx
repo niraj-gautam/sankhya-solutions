@@ -28,16 +28,16 @@ export function Services() {
                                 <Link
                                     key={service.id}
                                     to={`/services/${service.id}`}
-                                    className="group block"
+                                    className="group block h-full"
                                 >
-                                    <div className="h-full bg-white rounded-lg shadow-sm p-6 group-hover:bg-gray-600 transition-all duration-300 ease-in-out">
-                                        <div className="text-orange-600  transition-colors group-hover:text-orange-600 duration-300 mb-4">
+                                    <div className="h-full bg-white rounded-lg shadow-sm p-6 group-hover:bg-gray-600 transition-all duration-300 ease-in-out flex flex-col">
+                                        <div className="text-orange-600 transition-colors group-hover:text-orange-600 duration-300 mb-4">
                                             <Icon className="h-8 w-8" />
                                         </div>
                                         <h3 className="text-lg font-medium text-gray-900 mb-2 group-hover:text-white transition-colors duration-300">
                                             {service.title}
                                         </h3>
-                                        <p className="text-gray-500 group-hover:text-white/90 transition-colors duration-300">
+                                        <p className="text-gray-500 group-hover:text-white/90 transition-colors duration-300 line-clamp-5">
                                             {service.description}
                                         </p>
                                     </div>

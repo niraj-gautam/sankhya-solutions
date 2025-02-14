@@ -14,9 +14,11 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import { Footer } from "./components/Footer";
 import { ArticlePage } from "./pages/ArticlePage";
 import Overview from "./components/Overview";
-import { OurTeam } from "./components/Team";
+
 import { AboutPage } from "./pages/AboutPage";
 import { JoinUs } from "./components/JoinUs";
+import { ContactPage } from "./pages/ContactPage";
+import { IndustryPage } from "./pages/IndustryPage";
 
 function HomePage() {
     return (
@@ -29,7 +31,6 @@ function HomePage() {
                 <Stats />
                 <Resources />
                 <JoinUs />
-                <Contact />
             </div>
             <Footer />
         </>
@@ -45,11 +46,13 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/services/:id" element={<ServicePage />} />
+                    <Route path="/industries/:id" element={<IndustryPage />} />
                     <Route path="/resources" element={<ResourcePage />} />
                     <Route
                         path="/resources/:articleTitle"
                         element={<ArticlePage />}
                     />
+                    <Route path="/contact" element={<ContactPage />} />
                 </Routes>
                 <BackToTop />
             </div>

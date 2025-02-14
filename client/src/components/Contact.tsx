@@ -103,10 +103,10 @@ export function Contact() {
     };
 
     return (
-        <section id="contact" className="relative bg-white py-20 lg:py-24">
+        <section id="contact" className="relative bg-white py-20 lg:py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12 lg:mb-20">
-                    <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                    <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 ">
                         {contact.title}
                     </h2>
                     <p className="mt-4 max-w-2xl mx-auto text-lg lg:text-xl text-gray-600">
@@ -135,7 +135,7 @@ export function Contact() {
                                         className={`w-full px-4 py-3 border rounded-lg focus:ring-2 ${
                                             errors.name
                                                 ? "border-red-500 focus:ring-red-500"
-                                                : "border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                                                : "border-gray-300 focus:border-orange-500 focus:ring-orange-500 outline-none"
                                         }`}
                                         placeholder="Your Name"
                                     />
@@ -162,7 +162,7 @@ export function Contact() {
                                         className={`w-full px-4 py-3 border rounded-lg focus:ring-2 ${
                                             errors.email
                                                 ? "border-red-500 focus:ring-red-500"
-                                                : "border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                                                : "border-gray-300 focus:border-orange-500 focus:ring-orange-500 outline-none"
                                         }`}
                                         placeholder="mail@example.com"
                                     />
@@ -189,7 +189,7 @@ export function Contact() {
                                         className={`w-full px-4 py-3 border rounded-lg focus:ring-2 ${
                                             errors.phone
                                                 ? "border-red-500 focus:ring-red-500"
-                                                : "border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                                                : "border-gray-300 focus:border-orange-500 focus:ring-orange-500 outline-none"
                                         }`}
                                         placeholder="9812345678"
                                     />
@@ -216,7 +216,7 @@ export function Contact() {
                                         className={`w-full px-4 py-3 border rounded-lg focus:ring-2 resize-none ${
                                             errors.message
                                                 ? "border-red-500 focus:ring-red-500"
-                                                : "border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                                                : "border-gray-300 focus:border-orange-500 focus:ring-orange-500 outline-none"
                                         }`}
                                         placeholder="Share your inquiry..."
                                     />

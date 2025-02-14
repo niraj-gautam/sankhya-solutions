@@ -12,9 +12,17 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { content } from "../data/content";
 
 const INDUSTRY_ITEMS = [
-    { name: "Banking & Financials", path: "/industries/healthcare" },
-    { name: "Industrials", path: "/industries/technology" },
-    { name: "Travel & Hospitality", path: "/industries/finance" },
+    {
+        name: "Banking & Financials",
+        path: "/industries/1",
+    },
+    { name: "Retail", path: "/industries/2" },
+
+    { name: "Industry", path: "/industries/3" },
+    {
+        name: "Travel & Hospitality",
+        path: "/industries/4",
+    },
 ];
 
 const DropdownMenu = ({
@@ -281,13 +289,13 @@ export function Header() {
                             },
                             {
                                 name: "Resources",
-                                path: "#resources",
-                                isSection: true,
+                                path: "resources",
+                                isLink: true,
                             },
                             {
                                 name: "Contact",
-                                path: "#contact",
-                                isSection: true,
+                                path: "contact",
+                                isLink: true,
                             },
                         ].map((item) => (
                             <NavItem key={item.name} {...item} />

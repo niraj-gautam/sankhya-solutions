@@ -1,3 +1,25 @@
+import {
+    Banknote,
+    Bot,
+    CableCar,
+    CircleDollarSign,
+    Database,
+    DollarSign,
+    GanttChart,
+    Landmark,
+    LayoutDashboard,
+    LightbulbOff,
+    Link,
+    Network,
+    NotebookPen,
+    Package,
+    Table,
+    TableColumnsSplit,
+    TrendingUp,
+    Warehouse,
+    Wrench,
+} from "lucide-react";
+
 export const content = {
     heroData: [
         {
@@ -155,38 +177,254 @@ export const content = {
         },
     ],
 
+    industries: [
+        {
+            id: 1,
+            title: "Banking & Financials",
+            heading1:
+                "Driving exceptional customer experiences with AI-led analytics",
+            heading2:
+                "Our team professionals work with clients to transform their business processes, optimize operations, and drive growth in the constantly evolving financial services landscape.",
+            challenges: [
+                {
+                    icon: DollarSign,
+                    title: "Default loan prediction",
+                    description: "minmize NPAs",
+                },
+                {
+                    icon: TableColumnsSplit,
+                    title: "Customer Segmentation",
+                    description: "for product recommendation",
+                },
+
+                {
+                    icon: Landmark,
+                    title: "Loan & Mortgage Approval Automation",
+                    description: "",
+                },
+            ],
+        },
+        {
+            id: 2,
+            title: "Retail",
+            heading1:
+                "Turn your  enterprise data into actionable insights that drive top-line growth and bottom-line savings",
+            heading2:
+                "Power your data strategies with our retail data analytics solutions, so you can navigate complex data ecosystems, monetize enterprise data, improve time to insights, and maximize ROI.",
+            challenges: [
+                {
+                    icon: TableColumnsSplit,
+                    title: "Customer Segmentation",
+                    description: "",
+                },
+                {
+                    icon: TrendingUp,
+                    title: "Churn Prediction",
+                    description: "",
+                },
+                {
+                    icon: Warehouse,
+                    title: "Demand Forecasting & Inventory Management",
+                    description: "",
+                },
+                {
+                    icon: LayoutDashboard,
+                    title: "Dashboard & Reporting",
+                    description: "",
+                },
+                {
+                    icon: CircleDollarSign,
+                    title: "Dynamic Pricing",
+                    description: "",
+                },
+            ],
+        },
+        {
+            id: 3,
+            title: "Industry",
+            heading1:
+                "Make AI your engine for high-speed performance with manufacturing analytics as you fast-track value in your production",
+            heading2:
+                "With the right AI and data strategy powered by automation, industrial businesses can run smart operations. You need end-to-end industrial analytics capabilities that can harness your data, solve your use cases, and help you run operations cost-effectively.",
+            challenges: [
+                {
+                    icon: Wrench,
+                    title: "Predictive Maintenance & Equipment Monitoring",
+                    description: "",
+                },
+                {
+                    icon: Link,
+                    title: "Supply Chain Optimization",
+                    description: "",
+                },
+            ],
+        },
+        {
+            id: 4,
+            title: "Travel & Hospitality",
+            heading1:
+                "Get prescriptive recommendations at the inflection point of decision to deliver better travel and hospitality experiences to customers",
+            heading2:
+                "We provide AI and advanced analytics for the hospitality and travel management industry to mitigate risks and accentuate their profitability, so they can focus on turning insights into action and realize value faster.",
+            challenges: [
+                {
+                    icon: CableCar,
+                    title: "Personalized Travel Itenary",
+                    description: "",
+                },
+                {
+                    icon: DollarSign,
+                    title: "Dynamic Pricing & Revenue Management",
+                    description: "",
+                },
+                {
+                    icon: NotebookPen,
+                    title: "Demand Forecasting & Capacity Planning",
+                    description: "",
+                },
+                {
+                    icon: Bot,
+                    title: "Chatbots & Virtual Travel Assistants",
+                    description: "",
+                },
+            ],
+        },
+    ],
+
     services: [
         {
             id: 1,
             title: "Data Science & AI Solutions",
             description:
-                "We facilitate research and policy creation, offer macroeconomic advice, and assist governments and commercial companies in formulating data-driven policies.",
+                "Harness the power of data-driven intelligence to unlock new opportunities and optimize decision-making. Our expertise in artificial intelligence, machine learning, and statistical modeling enables businesses to stay ahead of the competition.",
             icon: "Brain",
+            whatWeProvide: [
+                {
+                    title: "Forecasting",
+                    description:
+                        "Develop time-series models and trend analysis to anticipate future outcomes, from market trends to operational demands.",
+                },
+                {
+                    title: "Predictive Modeling",
+                    description:
+                        "Use advanced machine learning algorithms to uncover patterns, detect risks, and improve decision-making.",
+                },
+                {
+                    title: "Customer Analytics",
+                    description:
+                        "Gain deep insights into customer behavior, segmentation, and lifetime value to enhance engagement and retention strategies.",
+                },
+                {
+                    title: "Generative AI Implementation",
+                    description:
+                        "Leverage cutting-edge AI models for content generation, automation, and process optimization, ensuring seamless business innovation.",
+                },
+            ],
+
+            whyChooseUs: [
+                "Expert team with years of experience",
+                "Customized solutions for your specific needs",
+                "Data-driven insights and recommendations",
+                "Proven track record of success",
+            ],
             image: "/images/service1.jpg",
         },
         {
             id: 2,
             title: "Survey Design & Research Consulting",
             description:
-                "We offer comprehensive economic data, covering industry, company, and macro-level insights, using advanced technology and methodologies.",
+                "We specialize in data collection, research methodologies, and survey analytics to provide robust, evidence-based insights for businesses, policymakers, and researchers.",
             icon: "ClipboardList",
-            image: "images/service2-min.jpg",
+
+            whatWeProvide: [
+                {
+                    title: "Survey Design & Execution",
+                    description:
+                        " Develop scientifically sound survey frameworks that ensure accurate and meaningful responses.",
+                },
+                {
+                    title: "Data Collection & Cleaning",
+                    description:
+                        " Implement structured and unstructured data gathering techniques, ensuring high-quality datasets for analysis.",
+                },
+                {
+                    title: "Statistical Analysis & Interpretation",
+                    description:
+                        "Conduct quantitative and qualitative analysis, helping clients draw meaningful conclusions from research data.",
+                },
+            ],
+
+            whyChooseUs: [
+                "Expert team with years of experience",
+                "Customized solutions for your specific needs",
+                "Data-driven insights and recommendations",
+                "Proven track record of success",
+            ],
+
+            image: "/images/service2.jpg",
         },
         {
             id: 3,
             title: "Business Intelligence & Data Visualization",
             description:
-                "We help businesses boost revenue, efficiency, and competitiveness through AI, machine learning, predictive analytics, and automation.",
+                "Transform raw data into actionable insights through interactive dashboards and reporting tools.",
             icon: "LineChart",
-            image: "images/service3-min.jpg",
+
+            whatWeProvide: [
+                {
+                    title: "Executive Dashboards",
+                    description:
+                        "Create customized, real-time dashboards to track key performance indicators (KPIs) and enhance decision-making.",
+                },
+                {
+                    title: "Reporting & Monitoring",
+                    description:
+                        "Automate business reporting with real-time data updates, ensuring consistent monitoring of key metrics.",
+                },
+            ],
+
+            whyChooseUs: [
+                "Expert team with years of experience",
+                "Customized solutions for your specific needs",
+                "Data-driven insights and recommendations",
+                "Proven track record of success",
+            ],
+
+            image: "/images/service3.jpg",
         },
         {
             id: 4,
             title: "Strategy & Advisory Services",
             description:
-                "We provide hands-on training in survey design, data analysis, research methodology, and technical skill  for professionals, researchers, and students.",
+                "We provide data-driven strategic consulting to help businesses optimize operations, identify growth opportunities, and navigate the evolving AI landscape.",
             icon: "GraduationCap",
-            image: "images/service4-min.jpg",
+
+            whatWeProvide: [
+                {
+                    title: "Data Strategy & Governance",
+                    description:
+                        "Develop frameworks for data security, compliance, and effective data management.from market trends to operational demands.",
+                },
+                {
+                    title: "AI & Digital Transformation Roadmaps",
+                    description:
+                        " Assist organizations in adopting AI solutions, automating workflows, and scaling digital initiatives.",
+                },
+                {
+                    title: "Market & Competitive Analysis",
+                    description:
+                        " Leverage data science to assess industry trends, customer preferences, and competitor movements for informed decision-making.",
+                },
+            ],
+
+            whyChooseUs: [
+                "Expert team with years of experience",
+                "Customized solutions for your specific needs",
+                "Data-driven insights and recommendations",
+                "Proven track record of success",
+            ],
+
+            image: "/images/service4.jpg",
         },
     ],
     stats: [
