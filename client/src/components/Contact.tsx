@@ -137,7 +137,7 @@ export function Contact() {
                                                 ? "border-red-500 focus:ring-red-500"
                                                 : "border-gray-300 focus:border-orange-500 focus:ring-orange-500"
                                         }`}
-                                        placeholder="John Doe"
+                                        placeholder="Your Name"
                                     />
                                     {errors.name && (
                                         <p className="mt-2 text-sm text-red-600">
@@ -164,7 +164,7 @@ export function Contact() {
                                                 ? "border-red-500 focus:ring-red-500"
                                                 : "border-gray-300 focus:border-orange-500 focus:ring-orange-500"
                                         }`}
-                                        placeholder="john@example.com"
+                                        placeholder="mail@example.com"
                                     />
                                     {errors.email && (
                                         <p className="mt-2 text-sm text-red-600">
@@ -191,7 +191,7 @@ export function Contact() {
                                                 ? "border-red-500 focus:ring-red-500"
                                                 : "border-gray-300 focus:border-orange-500 focus:ring-orange-500"
                                         }`}
-                                        placeholder="+1 (555) 123-4567"
+                                        placeholder="9812345678"
                                     />
                                     {errors.phone && (
                                         <p className="mt-2 text-sm text-red-600">

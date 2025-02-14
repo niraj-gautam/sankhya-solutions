@@ -47,7 +47,7 @@ export function ResourcePage() {
                                         />
                                     </div>
                                     <div className="flex-1 p-8">
-                                        <h2 className="text-2xl font-bold text-gray-600 mb-4  transition-colors">
+                                        <h2 className="text-2xl font-bold text-gray-900 mb-4  transition-colors">
                                             {study.title}
                                         </h2>
 

@@ -162,7 +162,7 @@ export const content = {
             description:
                 "We facilitate research and policy creation, offer macroeconomic advice, and assist governments and commercial companies in formulating data-driven policies.",
             icon: "Brain",
-            image: "images/service1-min.jpg",
+            image: "/images/service1.jpg",
         },
         {
             id: 2,
