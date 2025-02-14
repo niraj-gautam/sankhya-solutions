@@ -36,7 +36,7 @@ export default function LastMileSection() {
             >
                 <img
                     src={content.about.image}
-                    alt="Professional Woman with Tablet"
+                    alt="Office Room"
                     className="rounded-lg shadow-lg  object-cover h-[30vh] w-5/6  md:h-[70vh] lg:h-[75vh]"
                 />
             </motion.div>

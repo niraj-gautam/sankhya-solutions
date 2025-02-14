@@ -6,6 +6,7 @@ import { Contact } from "../components/Contact";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
+import { Footer } from "../components/Footer";
 
 export function ArticlePage() {
     const { articleTitle } = useParams();
@@ -61,11 +62,8 @@ export function ArticlePage() {
                         {article.articleContent}
                     </div>
                 </div>
-
-                <div className="mt-20">
-                    <Contact />
-                </div>
             </div>
+            <Footer />
         </div>
     );
 }

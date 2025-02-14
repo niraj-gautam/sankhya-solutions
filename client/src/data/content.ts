@@ -1,19 +1,12 @@
 import {
-    Banknote,
     Bot,
     CableCar,
     CircleDollarSign,
-    Database,
     DollarSign,
-    GanttChart,
     Landmark,
     LayoutDashboard,
-    LightbulbOff,
     Link,
-    Network,
     NotebookPen,
-    Package,
-    Table,
     TableColumnsSplit,
     TrendingUp,
     Warehouse,
@@ -76,19 +69,29 @@ export const content = {
     about: {
         title: "About Us",
 
-        image: "images/We Do Market Research Differently.-min.jpg",
+        image: "/images/about.jpg",
 
         description:
             "is a data analytics and consultancy organization that helps enterprises and governments achieve accelerated impact by providing data driven insights.We are a team of young professionals, scholars, working towards a common goal of making a difference in society by harnessing the power of research and data.",
         history:
             "Sankhya was founded in 2019 to revolutionize decision-making in Nepal through data-driven solutions, Artificial Intelligence (AI), and machine learning (ML). We believe these technologies can transform organizations, boost the economy, and position Nepali businesses alongside global leaders. Our mission is to empower organizations with actionable insights, optimize operations, and foster growth through advanced analytics. By harnessing AI and ML, we aim to drive innovation, improve productivity, and enable smarter strategies. At Sankhya, we let data speak, guiding decisions that create meaningful change. Together, we’re building a data-driven future where Nepali organizations thrive on the global stage.",
+
+        aboutCards: {
+            mission: {
+                img: "/images/mission.jpg",
+            },
+            vision: {
+                img: "/images/vision.jpg",
+            },
+        },
     },
+
     team: [
         {
             id: 1,
             name: "Bishu Giri",
             position: "Statistician & AI/ML Enthusiast",
-            image: "images/employee-min.jpg",
+            image: "images/employee.jpg",
             description:
                 "Statistician & AI/ML Enthusiast having 5+ years of experience working in the field of Data analytics and machine learning. Passionate about leveraging statistical models and AI techniques for data-driven decision-making.",
             social: {
@@ -101,7 +104,7 @@ export const content = {
             id: 2,
             name: "Indra Giri",
             position: "Research & Policy Design Expert",
-            image: "images/employee-min.jpg",
+            image: "images/employee.jpg",
             description:
                 "7+ years of experience working in public policy, survey design, and data collection. Skilled in policy evaluation and strategic research methodologies.",
             social: {
@@ -114,7 +117,7 @@ export const content = {
             id: 3,
             name: "Krishna Sharma",
             position: "Researcher & Policy Analyst",
-            image: "images/employee-min.jpg",
+            image: "images/employee.jpg",
             description:
                 "Researcher specializing in macroeconomic policy analysis with expertise in financial modeling and economic forecasting.",
             social: {
@@ -127,7 +130,7 @@ export const content = {
             id: 4,
             name: "Praval Sharma",
             position: "Data Analytics & AI/ML Enthusiast",
-            image: "images/employee-min.jpg",
+            image: "images/employee.jpg",
             description:
                 "Experienced in spatial analysis and modeling, with a focus on applying AI/ML techniques to data-driven decision-making.",
             social: {
@@ -140,7 +143,7 @@ export const content = {
             id: 5,
             name: "Ram N. Shrestha",
             position: "Researcher & Policy Analysis Expert",
-            image: "images/employee-min.jpg",
+            image: "images/employee.jpg",
             description:
                 "Expert in policy research and analysis, specializing in evidence-based policymaking and impact assessment.",
             social: {
@@ -153,7 +156,7 @@ export const content = {
             id: 6,
             name: "Sumit Sharma",
             position: "Economist",
-            image: "images/employee-min.jpg",
+            image: "images/employee.jpg",
             description:
                 "Economist with 6+ years of experience working with multinational companies in the Banking & Finance industry. Specializes in economic forecasting and financial risk analysis.",
             social: {
@@ -166,7 +169,7 @@ export const content = {
             id: 7,
             name: "Bijeta Shrestha",
             position: "Economist & GESI Expert",
-            image: "images/employee-min.jpg",
+            image: "images/employee.jpg",
             description:
                 "Economist with expertise in Gender Equality and Social Inclusion (GESI). Focuses on sustainable economic policies and inclusive growth strategies.",
             social: {
@@ -455,7 +458,7 @@ export const content = {
             title: "Let's look at the Covid-19 cases in Nepal (Province wise)",
             description:
                 "Statistical analysis and visualization of COVID-19 spread across different provinces of Nepal",
-            image: "/images/resource1-min.jpg",
+            image: "/images/resource1.jpg",
             publishedDate: "2025-02-03",
             author: "Sankhya Solutions",
             articleContent: `
@@ -470,7 +473,7 @@ export const content = {
             title: "How to save the economy from the pandemic",
             description:
                 "Economic impact analysis and recovery strategies during global health crisis",
-            image: "images/resource2-min.jpg",
+            image: "images/resource2.jpg",
             publishedDate: "2025-02-03",
             author: "Sankhya Solutions",
             articleContent: `
@@ -485,7 +488,7 @@ export const content = {
             title: "Agriculture modernisation: Basic things should be fixed",
             description:
                 "Assessment of fundamental agricultural challenges and modernization opportunities",
-            image: "images/resource1-min.jpg",
+            image: "images/resource1.jpg",
             publishedDate: "2025-02-03",
             author: "Sankhya Solutions",
             articleContent: `
@@ -500,7 +503,7 @@ export const content = {
             title: "India's run for a digital payment and banking system",
             description:
                 "Evolution and impact of digital payment systems in India's financial landscape",
-            image: "images/resource2-min.jpg",
+            image: "images/resource2.jpg",
             publishedDate: "2025-02-03",
             author: "Sankhya Solutions",
             articleContent: `
@@ -515,7 +518,7 @@ export const content = {
             title: "Food insecurity likely in the post-corona world",
             description:
                 "Analysis of global food security challenges and mitigation strategies",
-            image: "images/resource1-min.jpg",
+            image: "images/resource1.jpg",
             publishedDate: "2025-02-03",
             author: "Sankhya Solutions",
             articleContent: `
@@ -530,7 +533,7 @@ export const content = {
             title: "Capitalism: Analyzing through the Lens of Karl Marx",
             description:
                 "Modern interpretation of Marxist theory in contemporary economic systems",
-            image: "images/resource2-min.jpg",
+            image: "images/resource2.jpg",
             publishedDate: "2025-02-03",
             author: "Sankhya Solutions",
             articleContent: `
@@ -545,7 +548,7 @@ export const content = {
             title: "Digital Banking in Nepal and its road ahead",
             description:
                 "Comprehensive study of digital banking adoption and future prospects in Nepal",
-            image: "images/resource1-min.jpg",
+            image: "images/resource1.jpg",
             publishedDate: "2025-02-03",
             author: "Sankhya Solutions",
             articleContent: `
@@ -560,7 +563,7 @@ export const content = {
             title: "Farming profession: There is need of attitudinal fix",
             description:
                 "Investigation into farming culture and necessary mindset changes",
-            image: "images/resource2-min.jpg",
+            image: "images/resource2.jpg",
             publishedDate: "2025-02-03",
             author: "Sankhya Solutions",
             articleContent: `
@@ -575,7 +578,7 @@ export const content = {
             title: "Rise of Cryptocurrencies -Bubble or Beast",
             description:
                 "Analysis of cryptocurrency market trends and future implications",
-            image: "images/resource1-min.jpg",
+            image: "images/resource1.jpg",
             publishedDate: "2025-02-03",
             author: "Sankhya Solutions",
             articleContent: `
@@ -590,7 +593,7 @@ export const content = {
             title: "Reviving Postal Services in Nepal for Financial Inclusion",
             description:
                 "Strategy study for modernizing postal services to enhance financial accessibility",
-            image: "images/resource2-min.jpg",
+            image: "images/resource2.jpg",
             publishedDate: "2025-02-03",
             author: "Sankhya Solutions",
             articleContent: `
@@ -605,7 +608,7 @@ export const content = {
             title: "Importance of having data skills in the post-corona world",
             description:
                 "Assessment of data literacy needs in the evolving job market",
-            image: "images/resource1-min.jpg",
+            image: "images/resource1.jpg",
 
             publishedDate: "2025-02-03",
             author: "Sankhya Solutions",

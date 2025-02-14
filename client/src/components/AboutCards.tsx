@@ -1,5 +1,6 @@
 import React from "react";
 import { Target, Eye } from "lucide-react";
+import { content } from "../data/content";
 
 export const AboutCards = () => {
     return (
@@ -8,7 +9,7 @@ export const AboutCards = () => {
             <div className="group rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative h-48 overflow-hidden">
                     <img
-                        src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80"
+                        src={content.about.aboutCards.mission.img}
                         alt="Team collaborating"
                         className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />
@@ -35,7 +36,7 @@ export const AboutCards = () => {
             <div className="group rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative h-48 overflow-hidden">
                     <img
-                        src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&q=80"
+                        src={content.about.aboutCards.vision.img}
                         alt="Future technology concept"
                         className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />

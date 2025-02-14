@@ -74,10 +74,6 @@ export function ResourcePage() {
                         })}
                     </div>
                 </div>
-
-                <div className="mt-20">
-                    <Contact />
-                </div>
             </div>
             <Footer />
         </div>
