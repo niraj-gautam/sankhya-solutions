@@ -1,5 +1,6 @@
 import React from "react";
 import { Users, Rocket, Brain } from "lucide-react";
+import { content } from "../data/content";
 
 export const JoinUs = () => {
     return (
@@ -58,7 +59,7 @@ export const JoinUs = () => {
                         <div className="relative">
                             <img
                                 className="rounded-lg shadow-xl w-full object-cover h-[500px]"
-                                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800"
+                                src={content.joinUs.image}
                                 alt="Team collaboration"
                             />
                             <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-black/20 to-transparent" />

@@ -334,7 +334,7 @@ export function Contact() {
                             </div>
                         </div>
 
-                        <div className="rounded-xl overflow-hidden shadow-lg border border-gray-200">
+                        <div className="rounded-xl overflow-hidden shadow-lg border border-gray-600">
                             <iframe
                                 src={contact.mapUrl}
                                 width="100%"
