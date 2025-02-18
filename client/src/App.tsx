@@ -29,7 +29,7 @@ function HomePage() {
                 <Overview />
                 <Services />
                 <Stats />
-                <Resources />
+
                 <JoinUs />
             </div>
             <Footer />

@@ -13,6 +13,106 @@ import {
     Wrench,
 } from "lucide-react";
 
+export interface TeamMember {
+    id: number;
+    name: string;
+    position: string;
+    bio: string;
+    education?: string[];
+    imageUrl: string;
+    socialLinks: {
+        linkedin?: string;
+        twitter?: string;
+        instagram?: string;
+    };
+}
+
+export const teamMembers: TeamMember[] = [
+    {
+        id: 1,
+        name: "Bishu Giri",
+        position: "Co-founder",
+        imageUrl: "images/employee.jpg",
+        bio: "Bishu Giri is a seasoned data scientist and AI expert with over eight years of experience in data science, analytics, and research. He has worked with esteemed organizations like the World Bank and Bridgei2i Analytics Solutions (now Accenture AI). At Bridgei2i, Bishu worked as a data scientist, helping Fortune 500 organizations to adapt to data driven solutions. Some of the projects he worked on: developing fraud detection models using text analytics, demand forecasting using time series data, loan default prediction using credit history, optimizing lead time in supply chain for a CPG organization. His expertise extends to generative AI, machine learning, database management, visualization, and optimization.",
+        education: [
+            "MS in Public Policy, Carnegie Mellon University, Pittsburgh, USA",
+            "MS in Economics, Madras School of Economics, Chennai, India",
+        ],
+        socialLinks: {
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+        },
+    },
+    {
+        id: 2,
+        name: "Indra Giri",
+        position: "Co-founder",
+        imageUrl: "images/employee.jpg",
+        bio: "7+ years of experience working in public policy, survey design, and data collection. Skilled in policy evaluation and strategic research methodologies.",
+        socialLinks: {
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+        },
+    },
+    {
+        id: 3,
+        name: "Krishna Sharma",
+        position: "Co-founder",
+        imageUrl: "images/employee.jpg",
+        bio: " Krishna Sharma is a Policy Fellow at the Hoover Institution, Stanford University. With extensive experience in research and data analytics, he has worked with leading organizations such as the United Nations and the Ministry of Finance, Government of India. His research focuses on migration, innovation, and economic development, with a special emphasis on global investment dynamics and public policy. Krishna is also a regular commentator on fiscal federalism and agricultural issues in Nepal. He holds a Master's in Economics from South Asian University-New Delhi and has a proven track record of bridging academic insights with practical policy solutions.",
+        education: ["Phd Economics, Clemson University"],
+        socialLinks: {
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+        },
+    },
+    {
+        id: 4,
+        name: "Maheswar Giri",
+        position: "Co-founder",
+        imageUrl: "images/employee.jpg",
+        bio: `Maheshwar Giri is an agricultural economist specializing in economic research and policy analysis. He recently completed his PhD thesis at the Faculty of Economics, South Asian University, New Delhi, where he examined agrarian institutions in Nepal and their impact on agricultural performance. His research employed advanced quantitative methods to provide policy insights on land tenure, extension services, and agricultural market dynamics.\n\n Giri has expertise in survey design, econometrics, data analysis, and impact evaluation. His research interests include agricultural economics, land relations, extension services, marketing channels, energy transitions, and rural livelihoods.
+`,
+        socialLinks: {
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+        },
+    },
+    {
+        id: 5,
+        name: "Praval Sharma",
+        position: "Co-founder",
+        imageUrl: "images/employee.jpg",
+        bio: "Praval Sharma has a Ph.D. in Computer Science. His research interests lie at the intersection of natural language processing and spatial data mining. He has worked extensively on developing novel data-driven algorithms that leverage machine learning, large language models, and spatial statistics to extract meaningful insights from  large-scale datasets. In addition to his research expertise, Praval has worked as a software engineer and gained hands-on experience in professional software development. He has worked on a variety of projects for international clients based in Europe and the USA. Overall, his experience spans various domains that include artificial intelligence, geospatial analysis, and software development.",
+        socialLinks: {
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+        },
+    },
+    {
+        id: 6,
+        name: "Dr. Ram N. Shrestha",
+        position: "Co-founder",
+        imageUrl: "images/employee.jpg",
+        bio: " Ram Narayan Shrestha is an Economist by training with research interest in the areas of development economics, labour economics and related areas. Dr. Shrestha specialises in survey designing, data collection tools and labour market analysis.",
+        socialLinks: {
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+        },
+    },
+    {
+        id: 7,
+        name: "Sumit Sharma",
+        position: "Co-founder",
+        imageUrl: "images/employee.jpg",
+        bio: " Sumit Sharma is an economist at ICICI Bank in Mumbai, India, with over 11 years of experience in data analysis and research. He has previously worked with EY and Capgemini Consulting, as a data analyst. He completed his masters in economics from Delhi School of Economics in 2013. He has been associated with Sankhya Solutions since 2020, with an aim to promote data centred analysis of developmental issues.",
+        socialLinks: {
+            linkedin: "https://linkedin.com",
+            twitter: "https://twitter.com",
+        },
+    },
+];
+
 export const content = {
     heroData: [
         {
@@ -58,7 +158,7 @@ export const content = {
     ],
     company: {
         name: "Sankhya Solutions",
-        tagline: "Let Data Speak",
+        tagline: "Your Intelligence Partner",
         logo: "images/logo.png",
         description:
             "Leading provider of research, analysis, and strategic consulting services helping organizations make data-driven decisions.",
@@ -85,100 +185,6 @@ export const content = {
             },
         },
     },
-
-    team: [
-        {
-            id: 1,
-            name: "Bishu Giri",
-            position: "Statistician & AI/ML Enthusiast",
-            image: "images/employee.jpg",
-            description:
-                "Statistician & AI/ML Enthusiast having 5+ years of experience working in the field of Data analytics and machine learning. Passionate about leveraging statistical models and AI techniques for data-driven decision-making.",
-            social: {
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                email: "bishu.giri@example.com",
-            },
-        },
-        {
-            id: 2,
-            name: "Indra Giri",
-            position: "Research & Policy Design Expert",
-            image: "images/employee.jpg",
-            description:
-                "7+ years of experience working in public policy, survey design, and data collection. Skilled in policy evaluation and strategic research methodologies.",
-            social: {
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                email: "indra.giri@example.com",
-            },
-        },
-        {
-            id: 3,
-            name: "Krishna Sharma",
-            position: "Researcher & Policy Analyst",
-            image: "images/employee.jpg",
-            description:
-                "Researcher specializing in macroeconomic policy analysis with expertise in financial modeling and economic forecasting.",
-            social: {
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                email: "krishna.sharma@example.com",
-            },
-        },
-        {
-            id: 4,
-            name: "Praval Sharma",
-            position: "Data Analytics & AI/ML Enthusiast",
-            image: "images/employee.jpg",
-            description:
-                "Experienced in spatial analysis and modeling, with a focus on applying AI/ML techniques to data-driven decision-making.",
-            social: {
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                email: "praval.sharma@example.com",
-            },
-        },
-        {
-            id: 5,
-            name: "Ram N. Shrestha",
-            position: "Researcher & Policy Analysis Expert",
-            image: "images/employee.jpg",
-            description:
-                "Expert in policy research and analysis, specializing in evidence-based policymaking and impact assessment.",
-            social: {
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                email: "ram.shrestha@example.com",
-            },
-        },
-        {
-            id: 6,
-            name: "Sumit Sharma",
-            position: "Economist",
-            image: "images/employee.jpg",
-            description:
-                "Economist with 6+ years of experience working with multinational companies in the Banking & Finance industry. Specializes in economic forecasting and financial risk analysis.",
-            social: {
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                email: "sumit.sharma@example.com",
-            },
-        },
-        {
-            id: 7,
-            name: "Bijeta Shrestha",
-            position: "Economist & GESI Expert",
-            image: "images/employee.jpg",
-            description:
-                "Economist with expertise in Gender Equality and Social Inclusion (GESI). Focuses on sustainable economic policies and inclusive growth strategies.",
-            social: {
-                linkedin: "https://linkedin.com",
-                twitter: "https://twitter.com",
-                email: "bijeta.shrestha@example.com",
-            },
-        },
-    ],
 
     industries: [
         {

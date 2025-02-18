@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Target, Star, Handshake } from "lucide-react";
 import { motion } from "framer-motion";
 import { content } from "../data/content";
+import { Link } from "react-router-dom";
 
 export default function LastMileSection() {
     const [isVisible, setIsVisible] = useState(false);
@@ -83,9 +84,12 @@ export default function LastMileSection() {
                     </div>
                 </div>
 
-                <button className="mt-8 bg-orange-500 text-white px-6 py-3 rounded-xl shadow-md hover:bg-orange-600 transition duration-300">
-                    Explore our success stories
-                </button>
+                <Link
+                    to="/about"
+                    className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-orange-500 hover:bg-orange-600 transition-colors duration-300"
+                >
+                    Learn More{" "}
+                </Link>
             </motion.div>
         </div>
     );

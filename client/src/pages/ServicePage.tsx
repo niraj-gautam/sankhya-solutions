@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { content } from "../data/content";
 import { Header } from "../components/Header";
 
@@ -61,12 +61,12 @@ export function ServicePage() {
                             </div>
 
                             <div className="mt-12">
-                                <a
-                                    href="#contact"
+                                <Link
+                                    to="/contact"
                                     className="inline-block bg-orange-500 text-white px-8 py-3 rounded-xl font-medium hover:bg-orange-600 shadow-md transition-colors duration-300 no-underline"
                                 >
                                     Get Started
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
