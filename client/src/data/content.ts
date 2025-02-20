@@ -167,6 +167,10 @@ export const content = {
             alt: "Professional training session",
         },
     ],
+
+    overview: {
+        image: "/images/overview.jpg",
+    },
     company: {
         name: "Sankhya Solutions",
         tagline: "Your Intelligence Partner",
