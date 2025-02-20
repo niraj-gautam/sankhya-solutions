@@ -1,14 +1,25 @@
 import {
+    ActivitySquare,
+    BookOpenCheck,
     Bot,
+    Brain,
+    BrainCircuit,
+    Building2,
     CableCar,
+    CandlestickChart,
     CircleDollarSign,
+    ClipboardPlus,
     DollarSign,
+    Grid2x2Icon,
     Landmark,
     LayoutDashboard,
+    LineChart,
     Link,
     NotebookPen,
+    Sparkles,
     TableColumnsSplit,
     TrendingUp,
+    Users,
     Warehouse,
     Wrench,
 } from "lucide-react";
@@ -117,33 +128,33 @@ export const content = {
     heroData: [
         {
             id: 1,
-            title: "Research & Policy Analysis",
+            title: "AI Agents",
             description:
-                "Comprehensive research solutions and evidence-based policy recommendations for informed decision-making",
+                "Custom intelligent assistants that automate complex tasks for your business",
             image: "/images/hero1.jpg",
             alt: "Research team analyzing policy documents",
         },
         {
             id: 2,
-            title: "Monitoring Evaluation & Learning",
+            title: "Business Intelligence",
             description:
-                "Track progress, measure impact, and implement data-driven improvements for optimal results",
+                "Transform raw data into actionable insights through analytics and real-time reporting",
             image: "/images/hero2.jpg",
             alt: "Team reviewing evaluation metrics",
         },
         {
             id: 3,
-            title: "Survey Designing & Data Collection",
+            title: "Data Engineering",
             description:
-                "Expert survey design and comprehensive data collection methodologies",
+                "Build scalable data infrastructure to efficiently process and manage your data",
             image: "/images/hero3.jpg",
             alt: "Data collection and survey process",
         },
         {
             id: 4,
-            title: "Training & Skills Development",
+            title: "Data Annotation",
             description:
-                "Empowering professionals with cutting-edge skills and knowledge transfer programs",
+                "Expert labeling of data to create high-quality training datasets for machine learning",
             image: "images/hero4.jpg",
             alt: "Professional training session",
         },
@@ -298,6 +309,36 @@ export const content = {
                 },
             ],
         },
+        {
+            id: 5,
+            title: "Education",
+            heading1:
+                "Gain actionable insights at the critical moment of decision-making to boost enrollment rates and enhance the student experience in education",
+            heading2:
+                "We provide AI and advanced analytics for the education sector to predict enrollment rates and optimize resource allocation, enabling institutions to turn insights into action and achieve measurable outcomes faster.",
+            challenges: [
+                {
+                    icon: BookOpenCheck,
+                    title: "Enrollment Rate Prediction",
+                    description: "",
+                },
+            ],
+        },
+        {
+            id: 6,
+            title: "Health",
+            heading1:
+                "Leverage ML/AI in healthcare by organizing, integrating, and decoding health data for value-driven patient insights",
+            heading2:
+                "Our solutions help healthcare organizations create scalable, simplified, and integrated data analytics and management processes that can provide operationalize data insights and help you provide the right care, at the right time, in the right way.",
+            challenges: [
+                {
+                    icon: ActivitySquare,
+                    title: "Image analysis for disease detection",
+                    description: "(X-rays, ultrasound, etc.)",
+                },
+            ],
+        },
     ],
 
     services: [
@@ -307,23 +348,27 @@ export const content = {
             description:
                 "Harness the power of data-driven intelligence to unlock new opportunities and optimize decision-making. Our expertise in artificial intelligence, machine learning, and statistical modeling enables businesses to stay ahead of the competition.",
             icon: "Brain",
-            whatWeProvide: [
+            features: [
                 {
+                    icon: LineChart,
                     title: "Forecasting",
                     description:
                         "Develop time-series models and trend analysis to anticipate future outcomes, from market trends to operational demands.",
                 },
                 {
+                    icon: Brain,
                     title: "Predictive Modeling",
                     description:
                         "Use advanced machine learning algorithms to uncover patterns, detect risks, and improve decision-making.",
                 },
                 {
+                    icon: Users,
                     title: "Customer Analytics",
                     description:
                         "Gain deep insights into customer behavior, segmentation, and lifetime value to enhance engagement and retention strategies.",
                 },
                 {
+                    icon: Sparkles,
                     title: "Generative AI Implementation",
                     description:
                         "Leverage cutting-edge AI models for content generation, automation, and process optimization, ensuring seamless business innovation.",
@@ -345,18 +390,21 @@ export const content = {
                 "We specialize in data collection, research methodologies, and survey analytics to provide robust, evidence-based insights for businesses, policymakers, and researchers.",
             icon: "ClipboardList",
 
-            whatWeProvide: [
+            features: [
                 {
+                    icon: NotebookPen,
                     title: "Survey Design & Execution",
                     description:
                         " Develop scientifically sound survey frameworks that ensure accurate and meaningful responses.",
                 },
                 {
+                    icon: Grid2x2Icon,
                     title: "Data Collection & Cleaning",
                     description:
                         " Implement structured and unstructured data gathering techniques, ensuring high-quality datasets for analysis.",
                 },
                 {
+                    icon: LineChart,
                     title: "Statistical Analysis & Interpretation",
                     description:
                         "Conduct quantitative and qualitative analysis, helping clients draw meaningful conclusions from research data.",
@@ -379,13 +427,15 @@ export const content = {
                 "Transform raw data into actionable insights through interactive dashboards and reporting tools.",
             icon: "LineChart",
 
-            whatWeProvide: [
+            features: [
                 {
+                    icon: LayoutDashboard,
                     title: "Executive Dashboards",
                     description:
                         "Create customized, real-time dashboards to track key performance indicators (KPIs) and enhance decision-making.",
                 },
                 {
+                    icon: ClipboardPlus,
                     title: "Reporting & Monitoring",
                     description:
                         "Automate business reporting with real-time data updates, ensuring consistent monitoring of key metrics.",
@@ -408,18 +458,21 @@ export const content = {
                 "We provide data-driven strategic consulting to help businesses optimize operations, identify growth opportunities, and navigate the evolving AI landscape.",
             icon: "GraduationCap",
 
-            whatWeProvide: [
+            features: [
                 {
+                    icon: Building2,
                     title: "Data Strategy & Governance",
                     description:
                         "Develop frameworks for data security, compliance, and effective data management.from market trends to operational demands.",
                 },
                 {
+                    icon: BrainCircuit,
                     title: "AI & Digital Transformation Roadmaps",
                     description:
                         " Assist organizations in adopting AI solutions, automating workflows, and scaling digital initiatives.",
                 },
                 {
+                    icon: CandlestickChart,
                     title: "Market & Competitive Analysis",
                     description:
                         " Leverage data science to assess industry trends, customer preferences, and competitor movements for informed decision-making.",

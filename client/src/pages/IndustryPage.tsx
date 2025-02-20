@@ -49,7 +49,7 @@ export const IndustryPage = () => {
                     ))}
                 </div>
 
-                <div className="text-center mt-16">
+                <div className="text-center mt-12">
                     <button className="bg-orange-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition-colors duration-300">
                         See how we make it happen
                     </button>

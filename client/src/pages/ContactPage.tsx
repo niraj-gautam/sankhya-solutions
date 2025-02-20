@@ -8,8 +8,8 @@ export function ContactPage() {
         <div className="min-h-screen bg-white">
             <Header />
             <div className="pt-16">
-                <JoinUs />
                 <Contact />
+                <JoinUs />
             </div>
             <Footer />
         </div>

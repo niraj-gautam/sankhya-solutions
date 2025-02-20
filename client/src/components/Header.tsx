@@ -23,6 +23,14 @@ const INDUSTRY_ITEMS = [
         name: "Travel & Hospitality",
         path: "/industries/4",
     },
+    {
+        name: "Education",
+        path: "/industries/5",
+    },
+    {
+        name: "Health",
+        path: "/industries/6",
+    },
 ];
 
 const DropdownMenu = ({

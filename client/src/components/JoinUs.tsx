@@ -1,6 +1,7 @@
 import React from "react";
 import { Users, Rocket, Brain } from "lucide-react";
 import { content } from "../data/content";
+import { Link } from "react-router-dom";
 
 export const JoinUs = () => {
     return (
@@ -48,9 +49,12 @@ export const JoinUs = () => {
                                 />
                             </div>
 
-                            <button className="mt-8 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-orange-500 hover:bg-orange-600  transition-colors duration-300">
+                            <Link
+                                to="/contact"
+                                className="mt-8 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-orange-500 hover:bg-orange-600  transition-colors duration-300"
+                            >
                                 Apply to our jobs
-                            </button>
+                            </Link>
                         </div>
                     </div>
 

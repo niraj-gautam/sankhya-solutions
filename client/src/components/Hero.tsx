@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { content } from "../data/content";
 import { Dispatch, SetStateAction } from "react";
+import { Link } from "react-router-dom";
 
 export function Hero() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -104,10 +105,13 @@ export function Hero() {
                                 <p className="text-lg  font-normal text-gray-200 mb-12 max-w-2xl mx-auto ">
                                     {slide.description}
                                 </p>
-                                <button className="inline-flex items-center px-8 py-3  text-base font-medium rounded-xl text-white bg-orange-500 hover:bg-orange-600 transition-colors duration-300 shadow-md  ">
+                                <Link
+                                    to="/contact"
+                                    className="inline-flex items-center px-8 py-3  text-base font-medium rounded-xl text-white bg-orange-500 hover:bg-orange-600 transition-colors duration-300 shadow-md  "
+                                >
                                     Get Started
                                     <ArrowRight className="ml-2 h-5 w-5" />
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

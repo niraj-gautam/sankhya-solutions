@@ -36,7 +36,7 @@ export default function LastMileSection() {
                 transition={{ duration: 1, ease: "easeOut" }}
             >
                 <img
-                    src={content.about.image}
+                    src="/images/overview.jpg"
                     alt="Office Room"
                     className="rounded-lg shadow-lg  object-cover h-[30vh] w-5/6  md:h-[70vh] lg:h-[75vh]"
                 />
