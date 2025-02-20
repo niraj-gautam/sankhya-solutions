@@ -92,7 +92,7 @@ export function Hero() {
                             alt={slide.alt}
                             className="w-full h-full object-cover "
                         />
-                        <div className="absolute inset-0 bg-black bg-opacity-50" />
+                        <div className="absolute inset-0 bg-black bg-opacity-60" />
                     </div>
 
                     {/* Content */}

@@ -174,7 +174,7 @@ export const content = {
     company: {
         name: "Sankhya Solutions",
         tagline: "Your Intelligence Partner",
-        logo: "images/logo.png",
+        logo: "/images/logo.png",
         description:
             "Leading provider of research, analysis, and strategic consulting services helping organizations make data-driven decisions.",
         facebook: "https://facebook.com",
