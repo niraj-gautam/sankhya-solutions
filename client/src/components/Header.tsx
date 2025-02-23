@@ -240,13 +240,18 @@ export function Header() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="flex justify-between items-center py-6">
                     <div className="flex-shrink-0">
-                        <Link
-                            to="/"
-                            onClick={handleHomeClick}
-                            className="text-base font-bold text-orange-500 uppercase tracking-wide"
-                        >
-                            {content.company.name}
-                        </Link>
+                        <div className="flex flex-col">
+                            <Link
+                                to="/"
+                                onClick={handleHomeClick}
+                                className="text-base font-bold text-orange-500 uppercase tracking-wide"
+                            >
+                                {content.company.name}
+                            </Link>
+                            <span className="text-xs text-gray-500 mt-0.5 font-normal">
+                                {content.company.tagline}
+                            </span>
+                        </div>
                     </div>
 
                     <div className="-mr-2 -my-2 lg:hidden">

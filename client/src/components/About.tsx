@@ -61,7 +61,7 @@ export function About() {
                         >
                             <span className="text-orange-500 font-semibold">
                                 {" "}
-                                Sankya Solutions{" "}
+                                {content.company.name}{" "}
                             </span>
                             {content.about.description}
                         </motion.p>

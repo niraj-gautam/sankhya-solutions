@@ -43,7 +43,7 @@ export const teamMembers: TeamMember[] = [
         id: 1,
         name: "Bishu Giri",
         position: "Co-founder",
-        imageUrl: "images/employee.jpg",
+        imageUrl: "images/Bishu.png",
         bio: "Bishu Giri is a seasoned data scientist and AI expert with over eight years of experience in data science, analytics, and research. He has worked with esteemed organizations like the World Bank and Bridgei2i Analytics Solutions (now Accenture AI). At Bridgei2i, Bishu worked as a data scientist, helping Fortune 500 organizations to adapt to data driven solutions. Some of the projects he worked on: developing fraud detection models using text analytics, demand forecasting using time series data, loan default prediction using credit history, optimizing lead time in supply chain for a CPG organization. His expertise extends to generative AI, machine learning, database management, visualization, and optimization.",
         education: [
             "MS in Public Policy, Carnegie Mellon University, Pittsburgh, USA",
@@ -58,7 +58,7 @@ export const teamMembers: TeamMember[] = [
         id: 2,
         name: "Indra Giri",
         position: "Co-founder",
-        imageUrl: "images/employee.jpg",
+        imageUrl: "images/Indra.jpg",
         bio: "7+ years of experience working in public policy, survey design, and data collection. Skilled in policy evaluation and strategic research methodologies.",
         socialLinks: {
             linkedin: "https://linkedin.com",
@@ -69,7 +69,7 @@ export const teamMembers: TeamMember[] = [
         id: 3,
         name: "Krishna Sharma",
         position: "Co-founder",
-        imageUrl: "images/employee.jpg",
+        imageUrl: "images/krishna.jpg",
         bio: " Krishna Sharma is a Policy Fellow at the Hoover Institution, Stanford University. With extensive experience in research and data analytics, he has worked with leading organizations such as the United Nations and the Ministry of Finance, Government of India. His research focuses on migration, innovation, and economic development, with a special emphasis on global investment dynamics and public policy. Krishna is also a regular commentator on fiscal federalism and agricultural issues in Nepal. He holds a Master's in Economics from South Asian University-New Delhi and has a proven track record of bridging academic insights with practical policy solutions.",
         education: ["Phd Economics, Clemson University"],
         socialLinks: {
@@ -81,7 +81,7 @@ export const teamMembers: TeamMember[] = [
         id: 4,
         name: "Maheswar Giri",
         position: "Co-founder",
-        imageUrl: "images/employee.jpg",
+        imageUrl: "images/maheshwar.jpg",
         bio: `Maheshwar Giri is an agricultural economist specializing in economic research and policy analysis. He recently completed his PhD thesis at the Faculty of Economics, South Asian University, New Delhi, where he examined agrarian institutions in Nepal and their impact on agricultural performance. His research employed advanced quantitative methods to provide policy insights on land tenure, extension services, and agricultural market dynamics.\n\n Giri has expertise in survey design, econometrics, data analysis, and impact evaluation. His research interests include agricultural economics, land relations, extension services, marketing channels, energy transitions, and rural livelihoods.
 `,
         socialLinks: {
@@ -93,7 +93,7 @@ export const teamMembers: TeamMember[] = [
         id: 5,
         name: "Praval Sharma",
         position: "Co-founder",
-        imageUrl: "images/employee.jpg",
+        imageUrl: "images/Praval.png",
         bio: "Praval Sharma has a Ph.D. in Computer Science. His research interests lie at the intersection of natural language processing and spatial data mining. He has worked extensively on developing novel data-driven algorithms that leverage machine learning, large language models, and spatial statistics to extract meaningful insights from  large-scale datasets. In addition to his research expertise, Praval has worked as a software engineer and gained hands-on experience in professional software development. He has worked on a variety of projects for international clients based in Europe and the USA. Overall, his experience spans various domains that include artificial intelligence, geospatial analysis, and software development.",
         socialLinks: {
             linkedin: "https://linkedin.com",
@@ -104,7 +104,7 @@ export const teamMembers: TeamMember[] = [
         id: 6,
         name: "Dr. Ram N. Shrestha",
         position: "Co-founder",
-        imageUrl: "images/employee.jpg",
+        imageUrl: "images/Ram.jpeg",
         bio: " Ram Narayan Shrestha is an Economist by training with research interest in the areas of development economics, labour economics and related areas. Dr. Shrestha specialises in survey designing, data collection tools and labour market analysis.",
         socialLinks: {
             linkedin: "https://linkedin.com",
@@ -115,7 +115,7 @@ export const teamMembers: TeamMember[] = [
         id: 7,
         name: "Sumit Sharma",
         position: "Co-founder",
-        imageUrl: "images/employee.jpg",
+        imageUrl: "images/sumit1.jpg",
         bio: " Sumit Sharma is an economist at ICICI Bank in Mumbai, India, with over 11 years of experience in data analysis and research. He has previously worked with EY and Capgemini Consulting, as a data analyst. He completed his masters in economics from Delhi School of Economics in 2013. He has been associated with Sankhya Solutions since 2020, with an aim to promote data centred analysis of developmental issues.",
         socialLinks: {
             linkedin: "https://linkedin.com",
@@ -172,7 +172,7 @@ export const content = {
         image: "/images/overview.jpg",
     },
     company: {
-        name: "Sankhya Solutions",
+        name: "Sankhya AI",
         tagline: "Your Intelligence Partner",
         logo: "/images/logo.png",
         description:
@@ -387,43 +387,7 @@ export const content = {
             ],
             image: "/images/service1.jpg",
         },
-        {
-            id: 2,
-            title: "Survey Design & Research Consulting",
-            description:
-                "We specialize in data collection, research methodologies, and survey analytics to provide robust, evidence-based insights for businesses, policymakers, and researchers.",
-            icon: "ClipboardList",
 
-            features: [
-                {
-                    icon: NotebookPen,
-                    title: "Survey Design & Execution",
-                    description:
-                        " Develop scientifically sound survey frameworks that ensure accurate and meaningful responses.",
-                },
-                {
-                    icon: Grid2x2Icon,
-                    title: "Data Collection & Cleaning",
-                    description:
-                        " Implement structured and unstructured data gathering techniques, ensuring high-quality datasets for analysis.",
-                },
-                {
-                    icon: LineChart,
-                    title: "Statistical Analysis & Interpretation",
-                    description:
-                        "Conduct quantitative and qualitative analysis, helping clients draw meaningful conclusions from research data.",
-                },
-            ],
-
-            whyChooseUs: [
-                "Expert team with years of experience",
-                "Customized solutions for your specific needs",
-                "Data-driven insights and recommendations",
-                "Proven track record of success",
-            ],
-
-            image: "/images/service2.jpg",
-        },
         {
             id: 3,
             title: "Business Intelligence & Data Visualization",

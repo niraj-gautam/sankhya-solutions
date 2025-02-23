@@ -18,7 +18,7 @@ export function Services() {
                 </div>
 
                 <div className="mt-20">
-                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                    <div className="flex flex-wrap justify-center gap-8">
                         {content.services.map((service) => {
                             const Icon =
                                 LucideIcons[
@@ -28,7 +28,7 @@ export function Services() {
                                 <Link
                                     key={service.id}
                                     to={`/services/${service.id}`}
-                                    className="group block h-full"
+                                    className="group block w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-24px)]"
                                 >
                                     <div className="h-full bg-white rounded-lg shadow-sm p-6 group-hover:bg-gray-600 transition-all duration-300 ease-in-out flex flex-col">
                                         <div className="text-orange-600 transition-colors group-hover:text-orange-600 duration-300 mb-4">

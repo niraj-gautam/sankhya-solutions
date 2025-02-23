@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const JoinUs = () => {
     return (
-        <div className="relative bg-gray-50 overflow-hidden">
+        <div className="relative bg-white overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-5">
                 <div className="absolute inset-0 transform -skew-y-6 bg-gradient-to-r from-orange-100 to-orange-50" />

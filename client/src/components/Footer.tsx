@@ -1,9 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Facebook, Linkedin, MessageSquare } from "lucide-react";
 import { content } from "../data/content";
 
 export function Footer() {
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleSectionLink = (
+        e: React.MouseEvent<HTMLAnchorElement>,
+        sectionId: string
+    ) => {
+        e.preventDefault();
+        if (location.pathname !== "/") {
+            navigate("/");
+            setTimeout(() => {
+                const element = document.querySelector(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }, 100);
+        } else {
+            const element = document.querySelector(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    };
+
     return (
         <footer className="bg-gray-600 text-white py-8">
             <div className="max-w-7xl mx-auto px-4">
@@ -51,44 +75,39 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <a
-                                    href="#about"
+                                <Link
+                                    to="/about"
                                     className="text-sm hover:text-orange-600"
                                 >
                                     About
-                                </a>
+                                </Link>
                             </li>
                             <li>
                                 <a
                                     href="#services"
                                     className="text-sm hover:text-orange-600"
+                                    onClick={(e) =>
+                                        handleSectionLink(e, "#services")
+                                    }
                                 >
                                     Services
                                 </a>
                             </li>
                             <li>
-                                <a
-                                    href="#resources"
+                                <Link
+                                    to="/resources"
                                     className="text-sm hover:text-orange-600"
                                 >
                                     Resources
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="#contact"
+                                <Link
+                                    to="/contact"
                                     className="text-sm hover:text-orange-600"
                                 >
                                     Contact
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#team"
-                                    className="text-sm hover:text-orange-600"
-                                >
-                                    Our Team
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
