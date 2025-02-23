@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useRef } from "react";
 import {
     Menu,
@@ -11,47 +12,60 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { content } from "../data/content";
 
-const INDUSTRY_ITEMS = [
-    {
-        name: "Banking & Financials",
-        path: "/industries/1",
+// Animation configurations
+const animationConfig = {
+    navItem: {
+        hover: { scale: 1.05 },
+        tap: { scale: 0.95 },
     },
-    { name: "Retail", path: "/industries/2" },
+    dropdown: {
+        initial: { opacity: 0, y: -10 },
+        animate: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -10 },
+        transition: { duration: 0.2, ease: "easeInOut" },
+    },
+    mobileMenu: {
+        initial: { opacity: 0, height: 0 },
+        animate: { opacity: 1, height: "auto" },
+        exit: { opacity: 0, height: 0 },
+        transition: { duration: 0.3, ease: "easeInOut" },
+    },
+    icon: {
+        hover: { scale: 1.1 },
+        tap: { scale: 0.9 },
+        transition: { type: "spring", stiffness: 300 },
+    },
+};
 
+const INDUSTRY_ITEMS = [
+    { name: "Banking & Financials", path: "/industries/1" },
+    { name: "Retail", path: "/industries/2" },
     { name: "Industry", path: "/industries/3" },
-    {
-        name: "Travel & Hospitality",
-        path: "/industries/4",
-    },
-    {
-        name: "Education",
-        path: "/industries/5",
-    },
-    {
-        name: "Health",
-        path: "/industries/6",
-    },
+    { name: "Travel & Hospitality", path: "/industries/4" },
+    { name: "Education", path: "/industries/5" },
+    { name: "Health", path: "/industries/6" },
 ];
 
 const DropdownMenu = ({
     items,
 }: {
     items: { name: string; path: string }[];
-}) => {
-    return (
-        <div className="absolute top-full left-0 w-48 py-2  bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-10">
-            {items.map((item) => (
-                <Link
-                    key={item.name}
-                    to={item.path}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600"
-                >
-                    {item.name}
-                </Link>
-            ))}
-        </div>
-    );
-};
+}) => (
+    <motion.div
+        {...animationConfig.dropdown}
+        className="absolute top-full left-0 w-48 py-2 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-10"
+    >
+        {items.map((item) => (
+            <Link
+                key={item.name}
+                to={item.path}
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 motion-safe:transition-colors motion-safe:duration-300"
+            >
+                {item.name}
+            </Link>
+        ))}
+    </motion.div>
+);
 
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -69,11 +83,9 @@ export function Header() {
                 setMobileDropdownOpen(false);
             }
         };
-
         document.addEventListener("mousedown", handleClickOutside);
-        return () => {
+        return () =>
             document.removeEventListener("mousedown", handleClickOutside);
-        };
     }, []);
 
     const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -90,7 +102,6 @@ export function Header() {
         e.preventDefault();
         if (location.pathname !== "/") {
             navigate("/");
-            // Wait for navigation to complete before scrolling
             setTimeout(() => {
                 const element = document.querySelector(sectionId);
                 if (element) {
@@ -125,25 +136,30 @@ export function Header() {
         icon: any;
         label: string;
     }) => (
-        <div className="relative group">
+        <motion.div
+            whileHover="hover"
+            whileTap="tap"
+            variants={animationConfig.icon}
+            className="relative group"
+        >
             <a
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-2 text-gray-500 hover:text-orange-600 transition-colors duration-300 rounded-full hover:bg-gray-100"
+                className="block p-2 text-gray-500 hover:text-orange-600 motion-safe:transition-colors motion-safe:duration-300 rounded-full hover:bg-gray-100"
                 aria-label={label}
             >
                 <Icon className="h-5 w-5" />
             </a>
-            <div className="absolute z-50 hidden  group-hover:block w-auto left-1/2 transform -translate-x-1/2 top-full pt-2">
-                <div className="bg-orange-900 text-white text-xs py-1.5 px-3 rounded-md shadow-lg hidden lg:block">
-                    <div className="absolute w-2 h-2 bg-orange-600 transform rotate-45 -translate-x-1/2 -top-1 left-1/2" />
+            <div className="absolute z-50 opacity-0 group-hover:opacity-100 motion-safe:transition-opacity motion-safe:duration-300 w-auto left-1/2 -translate-x-1/2 top-full pt-2 pointer-events-none group-hover:pointer-events-auto">
+                <div className="bg-orange-900 text-white text-xs py-1.5 px-3 rounded-md shadow-lg">
+                    <div className="absolute w-2 h-2 bg-orange-600 rotate-45 -translate-x-1/2 -top-1 left-1/2" />
                     <span className="relative z-10 whitespace-nowrap">
                         {label}
                     </span>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 
     const NavItem = ({
@@ -164,26 +180,37 @@ export function Header() {
         isSection?: boolean;
     }) => {
         const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
+
         const active = hasDropdown
-            ? dropdownItems?.some((item) => isActive(item.path)) || false
+            ? dropdownItems?.some((item) => isActive(item.path))
             : isActive(path);
-        const baseClassName = `text-sm font-regular font-poppins transition-colors duration-300 whitespace-nowrap lg:px-0 ${
+
+        const baseClassName = `text-sm font-regular font-poppins motion-safe:transition-colors motion-safe:duration-300 whitespace-nowrap lg:px-0 ${
             active ? "text-orange-500" : "text-gray-900 hover:text-orange-600"
-        } block w-full py-2 px-4 lg:py-0 lg:w-auto`;
+        } block w-full py-2 px-4 lg:py-0 lg:w-auto relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-orange-600 motion-safe:after:transition-all motion-safe:after:duration-300 ${
+            active ? "after:w-full" : "hover:after:w-full"
+        } ${hasDropdown ? "" : "after:content-['']"}`;
 
         if (hasDropdown) {
             return (
                 <div
                     ref={dropdownRef}
                     className="relative"
-                    onMouseEnter={() =>
-                        window.innerWidth >= 1024 && setIsDropdownOpen(true)
-                    }
-                    onMouseLeave={() =>
-                        window.innerWidth >= 1024 && setIsDropdownOpen(false)
-                    }
+                    onMouseEnter={() => {
+                        if (window.innerWidth >= 1024) {
+                            setIsDropdownOpen(true);
+                        }
+                    }}
+                    onMouseLeave={() => {
+                        if (window.innerWidth >= 1024) {
+                            setIsDropdownOpen(false);
+                        }
+                    }}
                 >
-                    <button
+                    <motion.button
+                        whileHover="hover"
+                        whileTap="tap"
+                        variants={animationConfig.navItem}
                         className={`${baseClassName} flex items-center gap-1`}
                         onClick={() => {
                             if (window.innerWidth < 1024) {
@@ -203,11 +230,14 @@ export function Header() {
                         ) : (
                             <ChevronDown className="h-4 w-4" />
                         )}
-                    </button>
-                    {((window.innerWidth >= 1024 && isDropdownOpen) ||
-                        (window.innerWidth < 1024 && mobileDropdownOpen)) && (
-                        <DropdownMenu items={dropdownItems || []} />
-                    )}
+                    </motion.button>
+                    <AnimatePresence>
+                        {((window.innerWidth >= 1024 && isDropdownOpen) ||
+                            (window.innerWidth < 1024 &&
+                                mobileDropdownOpen)) && (
+                            <DropdownMenu items={dropdownItems || []} />
+                        )}
+                    </AnimatePresence>
                 </div>
             );
         }
@@ -254,31 +284,31 @@ export function Header() {
                         </div>
                     </div>
 
-                    <div className="-mr-2 -my-2 lg:hidden">
-                        <button
-                            type="button"
-                            className="relative inline-flex items-center justify-center  p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none transition-colors duration-300"
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            aria-label="Toggle navigation"
-                        >
-                            <div className="relative w-6 h-6">
-                                <Menu
-                                    className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${
-                                        isMenuOpen
-                                            ? "opacity-0 rotate-90 scale-90"
-                                            : "opacity-100 rotate-0 scale-100"
-                                    }`}
-                                />
-                                <X
-                                    className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${
-                                        isMenuOpen
-                                            ? "opacity-100 rotate-0 scale-100"
-                                            : "opacity-0 -rotate-90 scale-90"
-                                    }`}
-                                />
-                            </div>
-                        </button>
-                    </div>
+                    <motion.button
+                        whileHover="hover"
+                        whileTap="tap"
+                        variants={animationConfig.icon}
+                        className="-mr-2 -my-2 lg:hidden"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        aria-label="Toggle navigation"
+                    >
+                        <div className="relative w-6 h-6">
+                            <Menu
+                                className={`absolute inset-0 h-6 w-6 motion-safe:transition-transform motion-safe:duration-300 ${
+                                    isMenuOpen
+                                        ? "opacity-0 rotate-180 scale-90"
+                                        : "opacity-100 rotate-0 scale-100"
+                                }`}
+                            />
+                            <X
+                                className={`absolute inset-0 h-6 w-6 motion-safe:transition-transform motion-safe:duration-300 ${
+                                    isMenuOpen
+                                        ? "opacity-100 rotate-0 scale-100"
+                                        : "opacity-0 -rotate-180 scale-90"
+                                }`}
+                            />
+                        </div>
+                    </motion.button>
 
                     <nav className="hidden lg:flex items-center justify-center flex-grow mx-4 xl:mx-8 space-x-4 xl:space-x-8">
                         {[
@@ -335,62 +365,67 @@ export function Header() {
                 </div>
             </div>
 
-            <div
-                className={`overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                    isMenuOpen
-                        ? "opacity-100 max-h-[500px]"
-                        : "opacity-0 max-h-0"
-                } lg:hidden`}
-            >
-                <div className="flex flex-col px-2 pt-2 pb-3 sm:px-3">
-                    {[
-                        {
-                            name: "Home",
-                            path: "",
-                            isLink: true,
-                            onClick: handleHomeClick,
-                        },
-                        { name: "About", path: "about", isLink: true },
-                        {
-                            name: "Industries",
-                            path: "",
-                            hasDropdown: true,
-                            dropdownItems: INDUSTRY_ITEMS,
-                        },
-                        {
-                            name: "Services",
-                            path: "#services",
-                            isSection: true,
-                        },
-                        {
-                            name: "Resources",
-                            path: "#resources",
-                            isSection: true,
-                        },
-                        { name: "Contact", path: "#contact", isSection: true },
-                    ].map((item) => (
-                        <NavItem key={item.name} {...item} />
-                    ))}
-                </div>
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.div
+                        {...animationConfig.mobileMenu}
+                        className="lg:hidden"
+                    >
+                        <div className="flex flex-col px-2 pt-2 pb-3 sm:px-3">
+                            {[
+                                {
+                                    name: "Home",
+                                    path: "",
+                                    isLink: true,
+                                    onClick: handleHomeClick,
+                                },
+                                { name: "About", path: "about", isLink: true },
+                                {
+                                    name: "Industries",
+                                    path: "",
+                                    hasDropdown: true,
+                                    dropdownItems: INDUSTRY_ITEMS,
+                                },
+                                {
+                                    name: "Services",
+                                    path: "#services",
+                                    isSection: true,
+                                },
+                                {
+                                    name: "Resources",
+                                    path: "#resources",
+                                    isSection: true,
+                                },
+                                {
+                                    name: "Contact",
+                                    path: "#contact",
+                                    isSection: true,
+                                },
+                            ].map((item) => (
+                                <NavItem key={item.name} {...item} />
+                            ))}
+                        </div>
 
-                <div className="flex justify-center space-x-4 py-4">
-                    <SocialIcon
-                        href={content.company.facebook}
-                        icon={Facebook}
-                        label="Follow us on Facebook"
-                    />
-                    <SocialIcon
-                        href={content.company.whatsapp}
-                        icon={MessageSquare}
-                        label="Chat with us on WhatsApp"
-                    />
-                    <SocialIcon
-                        href={content.company.linkedin}
-                        icon={Linkedin}
-                        label="Connect on LinkedIn"
-                    />
-                </div>
-            </div>
+                        <div className="flex justify-center space-x-4 py-4">
+                            <SocialIcon
+                                href={content.company.facebook}
+                                icon={Facebook}
+                                label="Follow us on Facebook"
+                            />
+                            <SocialIcon
+                                href={content.company.whatsapp}
+                                icon={MessageSquare}
+                                label="Chat with us on WhatsApp"
+                            />
+                            <SocialIcon
+                                href={content.company.linkedin}
+                                icon={Linkedin}
+                                label="Connect on LinkedIn"
+                            />
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 }
