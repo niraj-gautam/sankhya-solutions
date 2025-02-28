@@ -1,5 +1,6 @@
 import {
     ActivitySquare,
+    Binary,
     BookOpenCheck,
     Bot,
     Brain,
@@ -16,8 +17,11 @@ import {
     LineChart,
     Link,
     NotebookPen,
+    Scaling,
     Sparkles,
+    Store,
     TableColumnsSplit,
+    TextSearch,
     TrendingUp,
     Users,
     Warehouse,
@@ -348,9 +352,9 @@ export const content = {
     services: [
         {
             id: 1,
-            title: "Data Science & AI Solutions",
+            title: "Data & AI Solutions",
             description:
-                "Harness the power of data-driven intelligence to unlock new opportunities and optimize decision-making. Our expertise in artificial intelligence, machine learning, and statistical modeling enables businesses to stay ahead of the competition.",
+                "Harness the power of data-driven intelligence to unlock new opportunities and optimize decision-making.",
             icon: "Brain",
             features: [
                 {
@@ -377,6 +381,12 @@ export const content = {
                     description:
                         "Leverage cutting-edge AI models for content generation, automation, and process optimization, ensuring seamless business innovation.",
                 },
+                // {
+                //     icon: Binary,
+                //     title: "Digital Transformation Roadmaps",
+                //     description:
+                //         "Assist organization in adopting AI solutions, automating workflows, and scaling digital initiatives.",
+                // },
             ],
 
             whyChooseUs: [
@@ -390,7 +400,7 @@ export const content = {
 
         {
             id: 3,
-            title: "Business Intelligence & Data Visualization",
+            title: "Business Intelligence",
             description:
                 "Transform raw data into actionable insights through interactive dashboards and reporting tools.",
             icon: "LineChart",
@@ -403,10 +413,16 @@ export const content = {
                         "Create customized, real-time dashboards to track key performance indicators (KPIs) and enhance decision-making.",
                 },
                 {
-                    icon: ClipboardPlus,
+                    icon: TextSearch,
                     title: "Reporting & Monitoring",
                     description:
                         "Automate business reporting with real-time data updates, ensuring consistent monitoring of key metrics.",
+                },
+                {
+                    icon: Store,
+                    title: "Market & Competitive Analysis",
+                    description:
+                        " Leverage data science to assess industry trends, customer preferences, and competitor movements for informed decision-making.",
                 },
             ],
 
@@ -421,29 +437,29 @@ export const content = {
         },
         {
             id: 4,
-            title: "Strategy & Advisory Services",
+            title: "Data Engineering, Storage & Annotation",
             description:
-                "We provide data-driven strategic consulting to help businesses optimize operations, identify growth opportunities, and navigate the evolving AI landscape.",
+                "Build a solid data infrastructure to fuel your advanced analytics and AI projects.",
             icon: "GraduationCap",
 
             features: [
                 {
                     icon: Building2,
-                    title: "Data Strategy & Governance",
+                    title: "Data Architecture & Modeling",
                     description:
-                        "Develop frameworks for data security, compliance, and effective data management.from market trends to operational demands.",
+                        " Design blueprint for data flows, integration, and storage systems.",
                 },
                 {
                     icon: BrainCircuit,
-                    title: "AI & Digital Transformation Roadmaps",
+                    title: "Data Engineering & ETL",
                     description:
-                        " Assist organizations in adopting AI solutions, automating workflows, and scaling digital initiatives.",
+                        " Develop end-to-end solutions for data collection, quality assurance, and data warehouse development.",
                 },
                 {
-                    icon: CandlestickChart,
-                    title: "Market & Competitive Analysis",
+                    icon: Scaling,
+                    title: "Scalable Dataset Development",
                     description:
-                        " Leverage data science to assess industry trends, customer preferences, and competitor movements for informed decision-making.",
+                        "Establish frameworks for large-scale data labeling and ground truthing, ensuring your data is primed for machine learning applications.",
                 },
             ],
 

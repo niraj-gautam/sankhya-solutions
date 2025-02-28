@@ -26,7 +26,7 @@ export function ServicePage() {
 
                     {/* Service Content */}
                     <div className="space-y-6">
-                        <p className="text-gray-700 text-lg">
+                        <p className="text-gray-700 text-lg grid place-items-center">
                             {service.description}
                         </p>
 
@@ -47,7 +47,7 @@ export function ServicePage() {
                                 <div className="mt-8 flex justify-start">
                                     <Link
                                         to="/contact"
-                                        className="inline-block bg-orange-500 text-white px-8 py-3 rounded-xl font-medium hover:bg-orange-600 shadow-md transition-colors duration-300 no-underline"
+                                        className="inline-block bg-orange-600 text-white px-8 py-3 rounded-xl font-medium hover:bg-orange-700 shadow-md transition-colors duration-300 no-underline"
                                     >
                                         Get Started
                                     </Link>

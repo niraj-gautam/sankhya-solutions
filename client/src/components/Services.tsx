@@ -77,9 +77,18 @@ export function Services() {
                                 >
                                     <Link to={`/services/${service.id}`}>
                                         <motion.div
-                                            className="h-full bg-white rounded-lg shadow-sm p-6 group-hover:bg-gray-600 transition-all duration-300 ease-in-out flex flex-col relative overflow-hidden"
+                                            className="h-full bg-gray-50 rounded-lg shadow-xl p-6  flex flex-col relative overflow-hidden"
                                             whileHover="hover"
                                             whileTap="tap"
+                                            initial="initial"
+                                            whileInView="animate"
+                                            viewport={{
+                                                once: true,
+                                                margin: "-100px",
+                                            }}
+                                            transition={{
+                                                staggerChildren: 0.2,
+                                            }}
                                             variants={animationConfig.hover}
                                         >
                                             {/* Hover overlay effect */}
@@ -93,15 +102,17 @@ export function Services() {
                                                 {service.title}
                                             </h3>
 
-                                            <p className="text-gray-500 group-hover:text-white/90 motion-safe:transition-colors duration-300 line-clamp-5 z-10">
-                                                {service.description}
-                                            </p>
+                                            {/* Fixed height container for description */}
+                                            <div className="min-h-[100px] z-10">
+                                                <p className="text-gray-500 group-hover:text-white/90 motion-safe:transition-colors duration-300 line-clamp-5 z-10">
+                                                    {service.description}
+                                                </p>
+                                            </div>
 
-                                            {/* Animated chevron */}
+                                            {/* Animated chevron - now in a fixed position */}
                                             <motion.div
-                                                className="ml-auto mt-4 text-orange-600 group-hover:text-white"
-                                                initial={{ x: 0 }}
-                                                whileHover={{ x: 5 }}
+                                                className="ml-auto text-orange-600 group-hover:text-white"
+                                                whileHover={{ scale: 1.02 }}
                                                 transition={{
                                                     type: "spring",
                                                     stiffness: 300,

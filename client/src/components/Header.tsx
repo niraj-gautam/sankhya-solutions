@@ -269,7 +269,7 @@ export function Header() {
         <header className="fixed w-full bg-white/95 backdrop-blur-sm z-50 shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="flex justify-between items-center py-6">
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 flex items-center">
                         <div className="flex flex-col">
                             <Link
                                 to="/"
@@ -282,6 +282,22 @@ export function Header() {
                                 {content.company.tagline}
                             </span>
                         </div>
+
+                        {/* Vertical separator line */}
+                        <div className="h-10 w-px bg-gray-300 mx-4"></div>
+
+                        {/* Company logo */}
+                        <Link
+                            to="/"
+                            onClick={handleHomeClick}
+                            className="h-12 w-12 flex-shrink-0"
+                        >
+                            <img
+                                src="/images/logo.png"
+                                alt="Company Logo"
+                                className="h-12 w-12 object-contain"
+                            />
+                        </Link>
                     </div>
 
                     <motion.button
