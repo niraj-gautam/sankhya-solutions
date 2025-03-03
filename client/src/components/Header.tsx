@@ -269,35 +269,37 @@ export function Header() {
         <header className="fixed w-full bg-white/95 backdrop-blur-sm z-50 shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="flex justify-between items-center py-6">
-                    <div className="flex-shrink-0 flex items-center">
+                    <div className="flex-shrink-0 flex items-center relative">
+                        {/* Company logo */}
+                        <div className="relative h-10 md:h-12 lg:h-12 w-12 md:w-12 lg:w-12 flex-shrink-0">
+                            <Link
+                                to="/"
+                                onClick={handleHomeClick}
+                                className="block h-full w-full"
+                            >
+                                <img
+                                    src="/images/logo.png"
+                                    alt="Company Logo"
+                                    className="h-full w-full object-contain"
+                                />
+                            </Link>
+                        </div>
+
+                        {/* Vertical separator line */}
+                        <div className="h-10 w-px bg-gray-300 mx-3 md:mx-4"></div>
+
                         <div className="flex flex-col">
                             <Link
                                 to="/"
                                 onClick={handleHomeClick}
-                                className="text-base font-bold text-orange-500 uppercase tracking-wide"
+                                className="text-sm md:text-base font-bold text-orange-500 uppercase tracking-wide"
                             >
                                 {content.company.name}
                             </Link>
-                            <span className="text-xs text-gray-500 mt-0.5 font-normal">
+                            <span className="text-xs text-gray-500 mt-0.5 font-normal hidden sm:block">
                                 {content.company.tagline}
                             </span>
                         </div>
-
-                        {/* Vertical separator line */}
-                        <div className="h-10 w-px bg-gray-300 mx-4"></div>
-
-                        {/* Company logo */}
-                        <Link
-                            to="/"
-                            onClick={handleHomeClick}
-                            className="h-12 w-12 flex-shrink-0"
-                        >
-                            <img
-                                src="/images/logo.png"
-                                alt="Company Logo"
-                                className="h-12 w-12 object-contain"
-                            />
-                        </Link>
                     </div>
 
                     <motion.button
