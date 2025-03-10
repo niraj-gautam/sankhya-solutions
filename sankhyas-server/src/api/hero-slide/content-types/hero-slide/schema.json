@@ -4,7 +4,8 @@
   "info": {
     "singularName": "hero-slide",
     "pluralName": "hero-slides",
-    "displayName": "Hero Slide"
+    "displayName": "Hero Slide",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,23 +19,27 @@
       "type": "text"
     },
     "Image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "Alt": {
       "type": "string"
     },
     "Order": {
-      "type": "integer"
+      "type": "integer",
+      "unique": true,
+      "required": true
     },
     "Active": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": true
     }
   }
 }

@@ -6,29 +6,73 @@ import { motion, AnimatePresence } from "framer-motion";
 const TeamMemberCard: React.FC<{
     member: TeamMember;
     onClick: () => void;
-}> = ({ member, onClick }) => (
-    <div className="flex flex-col items-center mb-10">
-        <div
-            className="relative w-56 h-56 mb-4 rounded-full overflow-hidden border-2 border-gray-400 hover:border-orange-500 transition-all duration-300 cursor-pointer group"
-            onClick={onClick}
-        >
-            <img
-                src={member.imageUrl}
-                alt={member.name}
-                className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                <span className="text-white opacity-0 group-hover:opacity-100 font-semibold transition-opacity duration-300">
-                    View Profile
-                </span>
+}> = ({ member, onClick }) => {
+    const [showViewProfile, setShowViewProfile] = useState(false);
+
+    // Function to handle mobile touch and click behavior
+    const handleImageClick = () => {
+        if (window.innerWidth <= 768) {
+            // If on mobile, toggle the "View Profile" text
+            if (!showViewProfile) {
+                setShowViewProfile(true);
+                return;
+            }
+        }
+        // If already showing view profile or if on desktop, proceed to open modal
+        onClick();
+    };
+
+    // Reset showViewProfile state when user clicks elsewhere
+    useEffect(() => {
+        const handleClickOutside = () => {
+            setShowViewProfile(false);
+        };
+
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
+
+    // Prevent the click outside handler from triggering when clicking the image
+    const handleCardClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        handleImageClick();
+    };
+
+    return (
+        <div className="flex flex-col items-center mb-10">
+            <div
+                className="relative w-56 h-56 mb-4 rounded-full overflow-hidden border-2 border-gray-400 hover:border-orange-500 transition-all duration-300 cursor-pointer group"
+                onClick={handleCardClick}
+            >
+                <img
+                    src={member.imageUrl}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                />
+                <div
+                    className={`absolute inset-0 bg-black ${
+                        showViewProfile
+                            ? "bg-opacity-30"
+                            : "bg-opacity-0 group-hover:bg-opacity-30"
+                    } transition-all duration-300 flex items-center justify-center`}
+                >
+                    <span
+                        className={`text-white ${
+                            showViewProfile
+                                ? "opacity-100"
+                                : "opacity-0 group-hover:opacity-100"
+                        } font-semibold transition-opacity duration-300`}
+                    >
+                        View Profile
+                    </span>
+                </div>
             </div>
+            <h3 className="text-xl font-bold text-gray-800">{member.name}</h3>
         </div>
-        <h3 className="text-xl font-bold text-gray-800">{member.name}</h3>
-        <p className="text-sm text-gray-500 text-center max-w-xs">
-            {member.position}
-        </p>
-    </div>
-);
+    );
+};
 
 const TeamMemberModal: React.FC<{
     member: TeamMember | null;
@@ -57,20 +101,23 @@ const TeamMemberModal: React.FC<{
                 exit={{ opacity: 0 }}
             >
                 <motion.div
-                    className="bg-white rounded-lg shadow-xl w-full max-w-5xl max-h-[90vh] overflow-y-auto"
+                    className="bg-white rounded-lg shadow-xl w-full max-w-5xl max-h-[90vh] overflow-y-auto relative"
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.9, opacity: 0 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
                 >
-                    <div className="relative p-6 md:p-8">
+                    {/* Sticky close button for mobile */}
+                    <div className="sticky top-0 right-0 z-10 flex justify-end bg-white bg-opacity-90 p-4">
                         <button
                             onClick={onClose}
-                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                            className="text-gray-500 hover:text-gray-700 p-2 rounded-full bg-white shadow-md"
                         >
                             <X size={24} />
                         </button>
+                    </div>
 
+                    <div className="p-6 md:p-8 pt-0">
                         <div className="flex flex-col md:flex-row">
                             <div className="md:w-1/4 flex justify-center">
                                 <div className="w-48 h-48 mb-6 md:mb-0 rounded-full overflow-hidden border-4 border-gray-500">

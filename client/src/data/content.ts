@@ -11,6 +11,7 @@ import {
     CircleDollarSign,
     ClipboardPlus,
     DollarSign,
+    FileSearch2,
     Grid2x2Icon,
     Landmark,
     LayoutDashboard,
@@ -27,6 +28,8 @@ import {
     Warehouse,
     Wrench,
 } from "lucide-react";
+
+import XIcon from "/images/x-twitter.svg";
 
 export interface TeamMember {
     id: number;
@@ -46,7 +49,7 @@ export const teamMembers: TeamMember[] = [
     {
         id: 1,
         name: "Bishu Giri",
-        position: "Co-founder",
+        position: "Chief Operating Officer (COO)",
         imageUrl: "images/Bishu.png",
         bio: "Bishu Giri is a seasoned data scientist and AI expert with over eight years of experience in data science, analytics, and research. He has worked with esteemed organizations like the World Bank and Bridgei2i Analytics Solutions (now Accenture AI). At Bridgei2i, Bishu worked as a data scientist, helping Fortune 500 organizations to adapt to data driven solutions. Some of the projects he worked on: developing fraud detection models using text analytics, demand forecasting using time series data, loan default prediction using credit history, optimizing lead time in supply chain for a CPG organization. His expertise extends to generative AI, machine learning, database management, visualization, and optimization.",
         education: [
@@ -61,7 +64,7 @@ export const teamMembers: TeamMember[] = [
     {
         id: 2,
         name: "Indra Giri",
-        position: "Co-founder",
+        position: "Chief Executive Officer (CEO)",
         imageUrl: "images/Indra.jpg",
         bio: "7+ years of experience working in public policy, survey design, and data collection. Skilled in policy evaluation and strategic research methodologies.",
         socialLinks: {
@@ -72,7 +75,7 @@ export const teamMembers: TeamMember[] = [
     {
         id: 3,
         name: "Krishna Sharma",
-        position: "Co-founder",
+        position: "Chief Strategy Officer",
         imageUrl: "images/krishna.jpg",
         bio: " Krishna Sharma is a Policy Fellow at the Hoover Institution, Stanford University. With extensive experience in research and data analytics, he has worked with leading organizations such as the United Nations and the Ministry of Finance, Government of India. His research focuses on migration, innovation, and economic development, with a special emphasis on global investment dynamics and public policy. Krishna is also a regular commentator on fiscal federalism and agricultural issues in Nepal. He holds a Master's in Economics from South Asian University-New Delhi and has a proven track record of bridging academic insights with practical policy solutions.",
         education: ["Phd Economics, Clemson University"],
@@ -84,7 +87,7 @@ export const teamMembers: TeamMember[] = [
     {
         id: 4,
         name: "Maheswar Giri",
-        position: "Co-founder",
+        position: "Chief Marketing Officer (CMO)",
         imageUrl: "images/maheshwar.jpg",
         bio: `Maheshwar Giri is an agricultural economist specializing in economic research and policy analysis. He recently completed his PhD thesis at the Faculty of Economics, South Asian University, New Delhi, where he examined agrarian institutions in Nepal and their impact on agricultural performance. His research employed advanced quantitative methods to provide policy insights on land tenure, extension services, and agricultural market dynamics.\n\n Giri has expertise in survey design, econometrics, data analysis, and impact evaluation. His research interests include agricultural economics, land relations, extension services, marketing channels, energy transitions, and rural livelihoods.
 `,
@@ -96,7 +99,7 @@ export const teamMembers: TeamMember[] = [
     {
         id: 5,
         name: "Praval Sharma",
-        position: "Co-founder",
+        position: "Chief Intelligence Officer",
         imageUrl: "images/Praval.png",
         bio: "Praval Sharma has a Ph.D. in Computer Science. His research interests lie at the intersection of natural language processing and spatial data mining. He has worked extensively on developing novel data-driven algorithms that leverage machine learning, large language models, and spatial statistics to extract meaningful insights from  large-scale datasets. In addition to his research expertise, Praval has worked as a software engineer and gained hands-on experience in professional software development. He has worked on a variety of projects for international clients based in Europe and the USA. Overall, his experience spans various domains that include artificial intelligence, geospatial analysis, and software development.",
         socialLinks: {
@@ -107,7 +110,7 @@ export const teamMembers: TeamMember[] = [
     {
         id: 6,
         name: "Dr. Ram N. Shrestha",
-        position: "Co-founder",
+        position: "Chief Growth Officer",
         imageUrl: "images/Ram.jpeg",
         bio: " Ram Narayan Shrestha is an Economist by training with research interest in the areas of development economics, labour economics and related areas. Dr. Shrestha specialises in survey designing, data collection tools and labour market analysis.",
         socialLinks: {
@@ -118,7 +121,7 @@ export const teamMembers: TeamMember[] = [
     {
         id: 7,
         name: "Sumit Sharma",
-        position: "Co-founder",
+        position: "Vice President, Executive Director",
         imageUrl: "images/sumit1.jpg",
         bio: " Sumit Sharma is an economist at ICICI Bank in Mumbai, India, with over 11 years of experience in data analysis and research. He has previously worked with EY and Capgemini Consulting, as a data analyst. He completed his masters in economics from Delhi School of Economics in 2013. He has been associated with Sankhya Solutions since 2020, with an aim to promote data centred analysis of developmental issues.",
         socialLinks: {
@@ -129,48 +132,48 @@ export const teamMembers: TeamMember[] = [
 ];
 
 export const content = {
-    heroData: [
-        {
-            id: 1,
-            title: "AI Agents",
-            description:
-                "Custom intelligent assistants that automate complex tasks for your business",
-            image: "/images/hero1.jpg",
-            alt: "Research team analyzing policy documents",
-        },
-        {
-            id: 2,
-            title: "Business Intelligence",
-            description:
-                "Transform raw data into actionable insights through analytics and real-time reporting",
-            image: "/images/hero2.jpg",
-            alt: "Team reviewing evaluation metrics",
-        },
-        {
-            id: 3,
-            title: "Data Engineering",
-            description:
-                "Build scalable data infrastructure to efficiently process and manage your data",
-            image: "/images/hero3.jpg",
-            alt: "Data collection and survey process",
-        },
-        {
-            id: 4,
-            title: "Data Annotation",
-            description:
-                "Expert labeling of data to create high-quality training datasets for machine learning",
-            image: "images/hero4.jpg",
-            alt: "Professional training session",
-        },
-        {
-            id: 5,
-            title: "Custom Message",
-            description:
-                "You can put your custom message or latest news/ article here",
-            image: "images/hero4.jpg",
-            alt: "Professional training session",
-        },
-    ],
+    // heroData: [
+    //     {
+    //         id: 1,
+    //         title: "AI Agents",
+    //         description:
+    //             "Custom intelligent assistants that automate complex tasks for your business",
+    //         image: "/images/hero1.jpg",
+    //         alt: "Research team analyzing policy documents",
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "Business Intelligence",
+    //         description:
+    //             "Transform raw data into actionable insights through analytics and real-time reporting",
+    //         image: "/images/hero2.jpg",
+    //         alt: "Team reviewing evaluation metrics",
+    //     },
+    //     {
+    //         id: 3,
+    //         title: "Data Engineering",
+    //         description:
+    //             "Build scalable data infrastructure to efficiently process and manage your data",
+    //         image: "/images/hero3.jpg",
+    //         alt: "Data collection and survey process",
+    //     },
+    //     {
+    //         id: 4,
+    //         title: "Data Annotation",
+    //         description:
+    //             "Expert labeling of data to create high-quality training datasets for machine learning",
+    //         image: "images/hero4.jpg",
+    //         alt: "Professional training session",
+    //     },
+    //     {
+    //         id: 5,
+    //         title: "Custom Message",
+    //         description:
+    //             "You can put your custom message or latest news/ article here",
+    //         image: "images/hero4.jpg",
+    //         alt: "Professional training session",
+    //     },
+    // ],
 
     overview: {
         image: "/images/overview.jpg",
@@ -184,17 +187,15 @@ export const content = {
         facebook: "https://facebook.com",
         whatsapp: "https://whatsapp.com",
         linkedin: "https://linkedin.com",
+        X: "https://x.com/",
     },
     about: {
         title: "About Us",
 
         image: "/images/about.jpg",
 
-        description:
-            "is a data analytics and consultancy organization that helps enterprises and governments achieve accelerated impact by providing data driven insights.We are a team of young professionals, scholars, working towards a common goal of making a difference in society by harnessing the power of research and data.",
         history:
-            "Sankhya was founded in 2019 to revolutionize decision-making in Nepal through data-driven solutions, Artificial Intelligence (AI), and machine learning (ML). We believe these technologies can transform organizations, boost the economy, and position Nepali businesses alongside global leaders. Our mission is to empower organizations with actionable insights, optimize operations, and foster growth through advanced analytics. By harnessing AI and ML, we aim to drive innovation, improve productivity, and enable smarter strategies. At Sankhya, we let data speak, guiding decisions that create meaningful change. Together, we’re building a data-driven future where Nepali organizations thrive on the global stage.",
-
+            " was founded in 2019 to revolutionize decision-making in Nepal through data-driven solutions, Artificial Intelligence (AI), and machine learning (ML). We believe these technologies can transform organizations, boost the economy, and position Nepali businesses alongside global leaders.At Sankhya, we let data speak, guiding decisions that create meaningful change. Together, we’re building a data-driven future to make businesses thrive on the global stage.",
         aboutCards: {
             mission: {
                 img: "/images/mission.jpg",
@@ -344,6 +345,26 @@ export const content = {
                     icon: ActivitySquare,
                     title: "Image analysis for disease detection",
                     description: "(X-rays, ultrasound, etc.)",
+                },
+            ],
+        },
+        {
+            id: 7,
+            title: "Legal",
+            heading1:
+                "Transform your legal practice with AI-powered analytics that streamline document review and enhance case outcomes",
+            heading2:
+                "Our legal analytics solutions help law firms and legal departments automate routine tasks, extract valuable insights from complex documentation, and make data-driven decisions that improve client service and operational efficiency.",
+            challenges: [
+                {
+                    icon: Brain,
+                    title: "AI assistant for Lawyers",
+                    description: "",
+                },
+                {
+                    icon: FileSearch2,
+                    title: "Document summarization",
+                    description: "",
                 },
             ],
         },
@@ -665,7 +686,7 @@ export const content = {
     ],
     contact: {
         title: "Contact Us",
-        subtitle: "Get in touch to discuss how we can help your organization",
+        subtitle: "Get in touch.",
         email: {
             label: "Email",
             value: "info@sankhyasolutions.com.np",

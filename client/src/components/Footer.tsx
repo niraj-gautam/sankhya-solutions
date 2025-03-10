@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Facebook, Linkedin, MessageSquare } from "lucide-react";
+import { Facebook, Linkedin, MessageSquare, Twitter } from "lucide-react";
 import { content } from "../data/content";
 
 export function Footer() {
@@ -37,7 +37,7 @@ export function Footer() {
                         <img
                             src={content.company.logo}
                             alt="Company Logo"
-                            className="h-20 mb-4"
+                            className="h-28 mb-1 rounded-sm bg-slate-50 px-4"
                         />
                         <p className="text-sm mb-2">
                             {content.contact.email.label}:{" "}
@@ -150,6 +150,11 @@ export function Footer() {
                                 icon={Linkedin}
                                 label="LinkedIn"
                             />
+                            <SocialIcon
+                                href={content.company.X}
+                                icon={Twitter}
+                                label="X (Twitter)"
+                            />
                         </div>
                     </div>
                 </div>
@@ -164,7 +169,7 @@ export function Footer() {
                         <div className="mt-2 self-end md:self-auto md:absolute md:right-0 flex items-center group text-xs text-gray-300 md:pr-2">
                             <p>Developed by</p>
                             <a
-                                href="https://example.com"
+                                href="https://knitbytes.com/"
                                 className="text-gray-300 ml-1 underline group-hover:text-white"
                                 target="_blank"
                                 rel="noopener noreferrer"

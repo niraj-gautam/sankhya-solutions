@@ -50,12 +50,10 @@ export default function LastMileSection() {
                     {/* Decorative element behind image */}
                     <div className="absolute -top-6 -left-6 w-32 h-32 bg-orange-100 rounded-full opacity-70 -z-10" />
 
-                    <motion.img
+                    <img
                         src={content.overview.image}
                         alt="Data Science Solutions Visualization"
                         className="rounded-xl shadow-xl object-cover w-full h-[50vh] md:h-[80vh] border border-gray-100"
-                        whileHover={{ scale: 1.02 }}
-                        transition={{ type: "spring", stiffness: 300 }}
                     />
 
                     {/* Decorative element in corner */}

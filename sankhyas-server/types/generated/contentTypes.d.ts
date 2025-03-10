@@ -381,21 +381,16 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Article: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultMarkdown';
-        }
-      >;
-    Author: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Sankhya Solutions'>;
+    Author: Schema.Attribute.String;
+    Content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Date: Schema.Attribute.Date & Schema.Attribute.Required;
-    Image: Schema.Attribute.Media<'images'>;
+    Description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -403,12 +398,9 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    source: Schema.Attribute.String;
-    Title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 100;
-      }>;
+    PublishedDate: Schema.Attribute.Date;
+    Slug: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -418,6 +410,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
 export interface ApiHeroSlideHeroSlide extends Struct.CollectionTypeSchema {
   collectionName: 'hero_slides';
   info: {
+    description: '';
     displayName: 'Hero Slide';
     pluralName: 'hero-slides';
     singularName: 'hero-slide';
@@ -426,7 +419,7 @@ export interface ApiHeroSlideHeroSlide extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Active: Schema.Attribute.Boolean;
+    Active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     Alt: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -442,7 +435,9 @@ export interface ApiHeroSlideHeroSlide extends Struct.CollectionTypeSchema {
       'api::hero-slide.hero-slide'
     > &
       Schema.Attribute.Private;
-    Order: Schema.Attribute.Integer;
+    Order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;

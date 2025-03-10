@@ -39,7 +39,7 @@ export const IndustryPage = () => {
                             <div className="w-16 h-16 mb-6 text-orange-500">
                                 <challenge.icon size={64} strokeWidth={1.5} />
                             </div>
-                            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                            <h3 className="text-xl font-semibold text-gray-900 mb-4 mr-30 ">
                                 {challenge.title}
                             </h3>
                             <p className="text-gray-600">

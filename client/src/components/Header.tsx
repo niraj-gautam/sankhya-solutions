@@ -8,6 +8,7 @@ import {
     MessageSquare,
     ChevronDown,
     ChevronUp,
+    Twitter,
 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { content } from "../data/content";
@@ -42,8 +43,9 @@ const INDUSTRY_ITEMS = [
     { name: "Retail", path: "/industries/2" },
     { name: "Industry", path: "/industries/3" },
     { name: "Travel & Hospitality", path: "/industries/4" },
-    { name: "Education", path: "/industries/5" },
-    { name: "Health", path: "/industries/6" },
+    // { name: "Education", path: "/industries/5" },
+    // { name: "Health", path: "/industries/6" },
+    { name: "Legal", path: "/industries/7" },
 ];
 
 const DropdownMenu = ({
@@ -270,17 +272,17 @@ export function Header() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="flex justify-between items-center py-6">
                     <div className="flex-shrink-0 flex items-center relative">
-                        {/* Company logo */}
-                        <div className="relative h-10 md:h-12 lg:h-12 w-12 md:w-12 lg:w-12 flex-shrink-0">
+                        {/* Company logo - Increased size with overflow handling */}
+                        <div className="relative h-10 md:h-12 lg:h-12 w-14 md:w-16 lg:w-14 flex-shrink-0 overflow-visible">
                             <Link
                                 to="/"
                                 onClick={handleHomeClick}
                                 className="block h-full w-full"
                             >
                                 <img
-                                    src="/images/logo.png"
+                                    src="/images/logo-cropped.png"
                                     alt="Company Logo"
-                                    className="h-full w-full object-contain"
+                                    className="h-full w-auto object-contain transform scale-125 origin-center"
                                 />
                             </Link>
                         </div>
@@ -378,6 +380,11 @@ export function Header() {
                             href={content.company.linkedin}
                             icon={Linkedin}
                             label="Connect on LinkedIn"
+                        />
+                        <SocialIcon
+                            href={content.company.X}
+                            icon={Twitter}
+                            label="Connect on X (Twitter)"
                         />
                     </div>
                 </div>

@@ -1,3 +1,11 @@
+import {
+    Blend,
+    Handshake,
+    PersonStanding,
+    Replace,
+    ShieldCheck,
+    Telescope,
+} from "lucide-react";
 import { content } from "../data/content";
 import { motion } from "framer-motion";
 
@@ -26,6 +34,64 @@ export function About() {
         },
     };
 
+    const animationConfig = {
+        section: {
+            initial: { opacity: 0, y: 20 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.9, ease: "easeOut" },
+        },
+        item: {
+            initial: { opacity: 0, y: 20 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.9, ease: "easeOut" },
+        },
+        image: {
+            initial: { opacity: 0, scale: 0.95 },
+            animate: { opacity: 1, scale: 1 },
+            transition: { duration: 0.9, ease: "easeOut" },
+        },
+        button: {
+            hover: { scale: 1.03, y: -2 },
+            tap: { scale: 0.97 },
+            transition: { type: "spring", stiffness: 400 },
+        },
+        feature: {
+            hover: { x: 5 },
+            transition: { type: "spring", stiffness: 300 },
+        },
+    };
+
+    const values = [
+        {
+            icon: ShieldCheck,
+            title: "Integrity",
+        },
+        {
+            icon: Telescope,
+            title: "Innovation",
+        },
+        {
+            icon: Handshake,
+            title: "Collaboration",
+        },
+        {
+            icon: Replace,
+            title: "Agility",
+        },
+        {
+            icon: PersonStanding,
+            title: "Customer Centricity",
+        },
+        {
+            icon: Blend,
+            title: "Transparency",
+        },
+    ];
+
+    // Split values into two columns
+    const leftColumnValues = values.slice(0, 3);
+    const rightColumnValues = values.slice(3);
+
     return (
         <section id="about" className="pt-10 pb-16 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,9 +99,6 @@ export function About() {
                     <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl mb-6">
                         {content.about.title}
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-4xl mx-auto italic">
-                        " {content.company.tagline} "
-                    </p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -63,14 +126,82 @@ export function About() {
                                 {" "}
                                 {content.company.name}{" "}
                             </span>
-                            {content.about.description}
-                        </motion.p>
-                        <motion.p
-                            className="text-md text-gray-600 leading-relaxed"
-                            variants={textVariants}
-                        >
                             {content.about.history}
                         </motion.p>
+
+                        <motion.div
+                            className="mt-8"
+                            variants={animationConfig.section}
+                        >
+                            <motion.h3
+                                className="text-xl font-semibold text-gray-600 mb-3"
+                                variants={animationConfig.item}
+                            >
+                                Our Values
+                            </motion.h3>
+
+                            <motion.div
+                                className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5"
+                                initial="initial"
+                                whileInView="animate"
+                                viewport={{ once: true }}
+                                transition={{ staggerChildren: 0.15 }}
+                            >
+                                {/* Left Column */}
+                                <div className="space-y-5">
+                                    {leftColumnValues.map((item, index) => (
+                                        <motion.div
+                                            key={index}
+                                            className="flex items-center space-x-4 rounded-lg hover:bg-orange-50 transition-colors duration-300 p-2"
+                                            variants={animationConfig.item}
+                                            whileHover={{ x: 5 }}
+                                            transition={{
+                                                type: "spring",
+                                                stiffness: 300,
+                                            }}
+                                        >
+                                            <div className="flex-shrink-0">
+                                                <div className="p-3 bg-orange-100 rounded-lg shadow-sm">
+                                                    <item.icon className="h-5 w-5 text-orange-500" />
+                                                </div>
+                                            </div>
+                                            <div className="flex items-center h-full">
+                                                <h4 className="font-semibold text-gray-900">
+                                                    {item.title}
+                                                </h4>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+
+                                {/* Right Column */}
+                                <div className="space-y-5">
+                                    {rightColumnValues.map((item, index) => (
+                                        <motion.div
+                                            key={index + 3}
+                                            className="flex items-center space-x-4 rounded-lg hover:bg-orange-50 transition-colors duration-300 p-2"
+                                            variants={animationConfig.item}
+                                            whileHover={{ x: 5 }}
+                                            transition={{
+                                                type: "spring",
+                                                stiffness: 300,
+                                            }}
+                                        >
+                                            <div className="flex-shrink-0">
+                                                <div className="p-3 bg-orange-100 rounded-lg shadow-sm">
+                                                    <item.icon className="h-5 w-5 text-orange-500" />
+                                                </div>
+                                            </div>
+                                            <div className="flex items-center h-full">
+                                                <h4 className="font-semibold text-gray-900">
+                                                    {item.title}
+                                                </h4>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        </motion.div>
                     </motion.div>
                 </div>
             </div>

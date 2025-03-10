@@ -5,7 +5,6 @@ import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Services } from "./components/Services";
 
-import { Resources } from "./components/Resources";
 import { Contact } from "./components/Contact";
 import { ServicePage } from "./pages/ServicePage";
 import { ResourcePage } from "./pages/ResourcePage";

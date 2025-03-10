@@ -13,36 +13,33 @@
   "pluginOptions": {},
   "attributes": {
     "Title": {
-      "type": "string",
-      "required": true,
-      "maxLength": 100
+      "type": "string"
+    },
+    "Slug": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "PublishedDate": {
+      "type": "date"
+    },
+    "Author": {
+      "type": "string"
     },
     "Image": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "allowedTypes": [
-        "images"
+        "images",
+        "files",
+        "videos",
+        "audios"
       ]
     },
-    "source": {
-      "type": "string"
-    },
-    "Author": {
-      "type": "string",
-      "default": "Sankhya Solutions"
-    },
-    "Date": {
-      "type": "date",
-      "required": true
-    },
-    "Article": {
-      "type": "customField",
-      "options": {
-        "preset": "defaultMarkdown"
-      },
-      "customField": "plugin::ckeditor5.CKEditor",
-      "required": true
+    "Content": {
+      "type": "blocks"
     }
   }
 }

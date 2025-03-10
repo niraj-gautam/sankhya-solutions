@@ -117,8 +117,8 @@ export function Contact() {
                 <div className="grid lg:grid-cols-2 gap-10 xl:gap-16 max-w-6xl mx-auto">
                     {/* Contact Form */}
                     <div className="space-y-8">
-                        <form className="space-y-6" onSubmit={handleSubmit}>
-                            <div className="space-y-4">
+                        <form className="space-y-8" onSubmit={handleSubmit}>
+                            <div className="space-y-6">
                                 <div>
                                     <label
                                         htmlFor="name"
@@ -132,7 +132,7 @@ export function Contact() {
                                         id="name"
                                         value={formData.name}
                                         onChange={handleInputChange}
-                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 ${
+                                        className={`w-full px-4 py-4 border rounded-lg focus:ring-2 ${
                                             errors.name
                                                 ? "border-red-500 focus:ring-red-500"
                                                 : "border-gray-300 focus:border-orange-500 focus:ring-orange-500 outline-none"
@@ -159,7 +159,7 @@ export function Contact() {
                                         id="email"
                                         value={formData.email}
                                         onChange={handleInputChange}
-                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 ${
+                                        className={`w-full px-4 py-4 border rounded-lg focus:ring-2 ${
                                             errors.email
                                                 ? "border-red-500 focus:ring-red-500"
                                                 : "border-gray-300 focus:border-orange-500 focus:ring-orange-500 outline-none"
@@ -186,7 +186,7 @@ export function Contact() {
                                         id="phone"
                                         value={formData.phone}
                                         onChange={handleInputChange}
-                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 ${
+                                        className={`w-full px-4 py-4 border rounded-lg focus:ring-2 ${
                                             errors.phone
                                                 ? "border-red-500 focus:ring-red-500"
                                                 : "border-gray-300 focus:border-orange-500 focus:ring-orange-500 outline-none"
@@ -213,7 +213,7 @@ export function Contact() {
                                         rows={4}
                                         value={formData.message}
                                         onChange={handleInputChange}
-                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 resize-none ${
+                                        className={`w-full md:h-44 px-4 py-4 border rounded-lg focus:ring-2 resize-none ${
                                             errors.message
                                                 ? "border-red-500 focus:ring-red-500"
                                                 : "border-gray-300 focus:border-orange-500 focus:ring-orange-500 outline-none"
@@ -287,10 +287,7 @@ export function Contact() {
                                     <Mail className="w-6 h-6 text-orange-500 mt-1" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-semibold text-gray-900">
-                                        {contact.email.label}
-                                    </h3>
-                                    <p className="mt-1 text-gray-600">
+                                    <p className="mt-1 text-gray-900 ">
                                         {contact.email.value}
                                     </p>
                                 </div>
@@ -301,10 +298,7 @@ export function Contact() {
                                     <Phone className="w-6 h-6 text-orange-500 mt-1" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-semibold text-gray-900">
-                                        {contact.phone.label}
-                                    </h3>
-                                    <p className="mt-1 text-gray-600">
+                                    <p className="mt-1 text-gray-900">
                                         {contact.phone.value}
                                     </p>
                                 </div>
@@ -315,10 +309,7 @@ export function Contact() {
                                     <MapPin className="w-6 h-6 text-orange-500 mt-1" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-semibold text-gray-900">
-                                        {contact.office.label}
-                                    </h3>
-                                    <p className="mt-1 text-gray-600 space-y-1">
+                                    <p className="mt-1 text-gray-900 space-y-1">
                                         {contact.office.address.map(
                                             (line, index) => (
                                                 <span
@@ -334,11 +325,11 @@ export function Contact() {
                             </div>
                         </div>
 
-                        <div className="rounded-xl overflow-hidden shadow-lg border border-gray-600">
+                        <div className="rounded-xl overflow-hidden shadow-lg border border-gray-400">
                             <iframe
                                 src={contact.mapUrl}
                                 width="100%"
-                                height="400"
+                                height="390"
                                 className="border-0"
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
