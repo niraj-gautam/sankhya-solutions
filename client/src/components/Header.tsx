@@ -77,6 +77,20 @@ export function Header() {
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        const handleRouteChange = () => {
+            setIsMenuOpen(false);
+            setMobileDropdownOpen(false);
+        };
+
+        // Listen for route changes
+        window.addEventListener("popstate", handleRouteChange);
+
+        return () => {
+            window.removeEventListener("popstate", handleRouteChange);
+        };
+    }, []);
+
+    useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (
                 dropdownRef.current &&
@@ -90,9 +104,19 @@ export function Header() {
             document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
+    // Close mobile menu when route changes
+    useEffect(() => {
+        setIsMenuOpen(false);
+    }, [location.pathname]);
+
     const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        if (location.pathname === "/") {
-            e.preventDefault();
+        e.preventDefault(); // Prevent default behavior in all cases
+        if (location.pathname !== "/") {
+            navigate("/"); // Navigate to home if not already there
+            setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }, 100);
+        } else {
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
     };
@@ -119,14 +143,15 @@ export function Header() {
     };
 
     const isActive = (path: string) => {
-        if (path === "/") {
+        if (path === "") {
             return location.pathname === "/" && !location.hash;
         }
         if (path.startsWith("#")) {
             return location.hash === path;
         }
-        const targetPath = path.startsWith("/") ? path : `/${path}`;
-        return location.pathname === targetPath;
+        // Ensure consistent path comparison with or without leading slash
+        const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+        return location.pathname === normalizedPath;
     };
 
     const SocialIcon = ({
@@ -256,16 +281,50 @@ export function Header() {
             );
         }
 
-        return isLink ? (
-            <Link to={`/${path}`} onClick={onClick} className={baseClassName}>
-                {name}
-            </Link>
-        ) : (
-            <a href={path} className={baseClassName}>
-                {name}
-            </a>
-        );
+        if (isLink) {
+            return (
+                <Link
+                    to={path.startsWith("/") ? path : `/${path}`}
+                    onClick={onClick}
+                    className={baseClassName}
+                >
+                    {name}
+                </Link>
+            );
+        }
     };
+
+    // Mobile navigation items with fixed paths
+    const mobileNavItems = [
+        {
+            name: "Home",
+            path: "",
+            isLink: true,
+            onClick: handleHomeClick,
+        },
+        { name: "About", path: "about", isLink: true },
+        {
+            name: "Industries",
+            path: "",
+            hasDropdown: true,
+            dropdownItems: INDUSTRY_ITEMS,
+        },
+        {
+            name: "Services",
+            path: "#services",
+            isSection: true,
+        },
+        {
+            name: "Resources",
+            path: "/resources",
+            isLink: true,
+        },
+        {
+            name: "Contact",
+            path: "/contact",
+            isLink: true,
+        },
+    ];
 
     return (
         <header className="fixed w-full bg-white/95 backdrop-blur-sm z-50 shadow-md">
@@ -352,12 +411,12 @@ export function Header() {
                             },
                             {
                                 name: "Resources",
-                                path: "resources",
+                                path: "/resources",
                                 isLink: true,
                             },
                             {
                                 name: "Contact",
-                                path: "contact",
+                                path: "/contact",
                                 isLink: true,
                             },
                         ].map((item) => (
@@ -397,36 +456,7 @@ export function Header() {
                         className="lg:hidden"
                     >
                         <div className="flex flex-col px-2 pt-2 pb-3 sm:px-3">
-                            {[
-                                {
-                                    name: "Home",
-                                    path: "",
-                                    isLink: true,
-                                    onClick: handleHomeClick,
-                                },
-                                { name: "About", path: "about", isLink: true },
-                                {
-                                    name: "Industries",
-                                    path: "",
-                                    hasDropdown: true,
-                                    dropdownItems: INDUSTRY_ITEMS,
-                                },
-                                {
-                                    name: "Services",
-                                    path: "#services",
-                                    isSection: true,
-                                },
-                                {
-                                    name: "Resources",
-                                    path: "#resources",
-                                    isSection: true,
-                                },
-                                {
-                                    name: "Contact",
-                                    path: "#contact",
-                                    isSection: true,
-                                },
-                            ].map((item) => (
+                            {mobileNavItems.map((item) => (
                                 <NavItem key={item.name} {...item} />
                             ))}
                         </div>
