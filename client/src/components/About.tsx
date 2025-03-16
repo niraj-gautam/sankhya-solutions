@@ -101,25 +101,31 @@ export function About() {
                     </h2>
                 </div>
 
+                {/* Grid container with equal height columns for non-mobile */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div className="relative">
-                        <img
-                            src={content.about.image}
-                            alt="Market Research"
-                            className="rounded-lg shadow-lg object-cover w-full h-[55vh]"
-                            loading="eager"
-                            decoding="sync"
-                        />
+                    {/* Left column - Image */}
+                    <div className="relative h-full flex lg:items-stretch">
+                        <div className="w-full h-full">
+                            <img
+                                src={content.about.image}
+                                alt="Market Research"
+                                className="rounded-lg shadow-lg object-cover w-full h-full lg:h-auto lg:min-h-full"
+                                loading="eager"
+                                decoding="sync"
+                            />
+                        </div>
                     </div>
+
+                    {/* Right column - Content */}
                     <motion.div
-                        className="space-y-4"
+                        className="space-y-4 h-full flex flex-col"
                         variants={containerVariants}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                     >
                         <motion.p
-                            className="text-md text-gray-600 leading-relaxed"
+                            className="text-md text-gray-600 leading-relaxed text-justify"
                             variants={textVariants}
                         >
                             <span className="text-orange-500 font-semibold">
@@ -130,7 +136,7 @@ export function About() {
                         </motion.p>
 
                         <motion.div
-                            className="mt-8"
+                            className="mt-8 flex-grow"
                             variants={animationConfig.section}
                         >
                             <motion.h3

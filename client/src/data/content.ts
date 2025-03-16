@@ -195,7 +195,7 @@ export const content = {
         image: "/images/about.jpg",
 
         history:
-            " was founded in 2019 to revolutionize decision-making in Nepal through data-driven solutions, Artificial Intelligence (AI), and machine learning (ML). We believe these technologies can transform organizations, boost the economy, and position Nepali businesses alongside global leaders.At Sankhya, we let data speak, guiding decisions that create meaningful change. Together, we’re building a data-driven future to make businesses thrive on the global stage.",
+            " was founded in 2019 to revolutionize decision-making through data-driven solutions, Artificial Intelligence (AI), and machine learning (ML). We believe these technologies can transform organizations, boost the economy, and position businesses alongside global leaders. At Sankhya, we let data speak, guiding decisions that create meaningful change. Together, we’re building a data-driven future to make businesses thrive on the global stage.",
         aboutCards: {
             mission: {
                 img: "/images/mission.jpg",
