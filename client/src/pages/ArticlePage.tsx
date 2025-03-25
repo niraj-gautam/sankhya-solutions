@@ -1,22 +1,63 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { content } from "../data/content";
-import { Header } from "../components/Header";
-import { Contact } from "../components/Contact";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import { Footer } from "../components/Footer";
+import { fetchArticleBySlug } from "../services/api";
+import { Header } from "../components/Header";
+import DOMPurify from "dompurify";
 
 export function ArticlePage() {
-    const { articleTitle } = useParams();
+    const { articleSlug } = useParams();
+    const [article, setArticle] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    // Find the article by matching the slug
-    const article = content.resources.find((r) => r.slug === articleTitle);
+    useEffect(() => {
+        const fetchArticle = async () => {
+            setLoading(true);
+            setError(null);
+            try {
+                if (!articleSlug) {
+                    // Handle case where articleSlug is still undefined
+                    setError(new Error("Invalid article slug"));
+                    return;
+                }
+
+                const fetchedArticle = await fetchArticleBySlug(articleSlug);
+                if (fetchedArticle) {
+                    setArticle(fetchedArticle);
+                    console.log(fetchedArticle);
+                } else {
+                    setError(new Error("Article not found"));
+                }
+            } catch (error) {
+                setError(error);
+                console.error("Error fetching article:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchArticle(); // Call fetchArticle directly; no need for conditional
+    }, [articleSlug]); // articleSlug is in the dependency array, so useEffect runs when it changes
+
+    if (loading) {
+        return <div>Loading article...</div>;
+    }
+
+    if (error) {
+        return <div>Error loading article: {error.message}</div>;
+    }
 
     if (!article) {
         return <div>Article not found</div>;
     }
+
+    const articleImage =
+        `http://localhost:1337${article.Image[0].url}` || "/placeholder.jpg";
 
     return (
         <div className="min-h-screen bg-white">
@@ -34,32 +75,39 @@ export function ArticlePage() {
                     </div>
 
                     <header className="mb-8">
-                        <div className=" overflow-hidden rounded-lg shadow-lg mb-8 prose prose-lg mx-auto">
+                        <div className="overflow-hidden rounded-lg shadow-lg mb-8 prose prose-lg mx-auto">
                             <img
-                                src={article.image}
-                                alt={article.title}
+                                src={articleImage}
+                                alt={article.Title || "Article Image"}
                                 className="w-full h-full object-cover"
                             />
                         </div>
 
                         <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                            {article.title}
+                            {article.Title}
                         </h1>
 
                         <div className="flex items-center text-gray-500">
                             <span className="font-medium text-gray-900">
-                                {article.author}
+                                {article.Author}
                             </span>
                             <span className="mx-2">·</span>
-                            {format(
-                                new Date(article.publishedDate),
-                                "MMMM dd, yyyy"
-                            )}
+                            <span>
+                                {format(
+                                    new Date(article.PublishedDate),
+                                    "MMMM dd, yyyy"
+                                )}
+                            </span>
                         </div>
                     </header>
 
                     <div className="prose prose-indigo max-w-none">
-                        {article.articleContent}
+                        <div
+                            className="prose prose-indigo max-w-none"
+                            dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(article.Content),
+                            }}
+                        />
                     </div>
                 </div>
             </div>

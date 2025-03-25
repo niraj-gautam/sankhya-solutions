@@ -1,21 +1,39 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { Header } from "../components/Header";
-import { Contact } from "../components/Contact";
-import { content } from "../data/content";
 import { Link } from "react-router-dom";
 import { Footer } from "../components/Footer";
-
-// Function to create a URL-friendly slug from a title
-export const createSlug = (title: string) => {
-    return title
-        .toLowerCase()
-        .replace(/[^a-z0-9\s-]/g, "") // remove invalid chars
-        .replace(/\s+/g, "-") // collapse whitespace and replace by -
-        .replace(/-+/g, "-"); // collapse dashes
-};
+import { fetchArticles } from "../services/api";
+import { format } from "date-fns";
 
 export function ResourcePage() {
+    const [articles, setArticles] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const loadArticlesData = async () => {
+            setLoading(true);
+            try {
+                const response = await fetchArticles();
+                console.log("Data from Strapi:", response);
+
+                // Extract the slides array from the response
+                const articles = response.data || [];
+
+                setArticles(articles);
+            } catch (error) {
+                console.error("Error loading hero data:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadArticlesData();
+    }, []);
+    if (loading) {
+        return <div>Loading articles...</div>;
+    }
+
     return (
         <div className="min-h-screen bg-white">
             <Header />
@@ -32,36 +50,43 @@ export function ResourcePage() {
                     </div>
 
                     <div className="grid gap-12">
-                        {content.resources.map((study) => {
-                            const articleSlug = createSlug(study.title);
+                        {articles.map((article) => {
+                            // Strapi API returns a image URL
+                            const articleImage = `http://localhost:1337${article.Image[0].url}`;
+
                             return (
                                 <div
-                                    key={study.id}
+                                    key={article.id}
                                     className="flex flex-col lg:flex-row gap-8 bg-white rounded-lg shadow-lg overflow-hidden"
                                 >
                                     <div className="lg:w-1/3">
                                         <img
                                             className="h-64 w-full object-cover lg:h-full"
-                                            src={study.image}
-                                            alt={study.title}
+                                            src={articleImage}
+                                            alt={article.Title}
                                         />
                                     </div>
                                     <div className="flex-1 p-8">
-                                        <h2 className="text-2xl font-bold text-gray-900 mb-4  transition-colors">
-                                            {study.title}
+                                        <h2 className="text-2xl font-bold text-gray-900 mb-4 transition-colors">
+                                            {article.Title}
                                         </h2>
-
                                         <p className="text-gray-600 mb-6">
-                                            {study.description}
+                                            {article.Description}{" "}
+                                            {/* Assuming you have a description field */}
                                         </p>
                                         <div className="space-y-4">
                                             <div className="flex items-center text-gray-400">
                                                 <span className="ml-2">
-                                                    {study.publishedDate}
+                                                    {format(
+                                                        new Date(
+                                                            article.PublishedDate
+                                                        ),
+                                                        "MMMM dd, yyyy"
+                                                    )}
                                                 </span>
                                             </div>
                                             <Link
-                                                to={`/resources/${articleSlug}`}
+                                                to={`/resources/${article.Slug}`}
                                                 className="inline-flex items-center text-orange-500 hover:text-orange-600 font-medium transition-colors"
                                             >
                                                 Read full article
