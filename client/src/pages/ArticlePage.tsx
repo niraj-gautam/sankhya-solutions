@@ -56,8 +56,9 @@ export function ArticlePage() {
         return <div>Article not found</div>;
     }
 
-    const articleImage =
-        `http://localhost:1337${article.Image[0].url}` || "/placeholder.jpg";
+    const articleImage = `${import.meta.env.VITE_STRAPI_API_URL}${
+        article.Image[0].url
+    }`;
 
     return (
         <div className="min-h-screen bg-white">

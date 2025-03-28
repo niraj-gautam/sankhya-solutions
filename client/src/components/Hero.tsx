@@ -143,8 +143,7 @@ export function Hero() {
                                             <img
                                                 src={`${
                                                     import.meta.env
-                                                        .VITE_STRAPI_API_URL ||
-                                                    "http://localhost:1337"
+                                                        .VITE_STRAPI_API_URL
                                                 }${slide.Image[0].url}`}
                                                 alt={slide.Alt || slide.Title}
                                                 className="w-full h-full object-cover"

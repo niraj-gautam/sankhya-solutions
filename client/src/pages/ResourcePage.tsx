@@ -52,7 +52,9 @@ export function ResourcePage() {
                     <div className="grid gap-12">
                         {articles.map((article) => {
                             // Strapi API returns a image URL
-                            const articleImage = `http://localhost:1337${article.Image[0].url}`;
+                            const articleImage = `${
+                                import.meta.env.VITE_STRAPI_API_URL
+                            }${article.Image[0].url}`;
 
                             return (
                                 <div
