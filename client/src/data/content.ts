@@ -1,18 +1,14 @@
 import {
     ActivitySquare,
-    Binary,
     BookOpenCheck,
     Bot,
     Brain,
     BrainCircuit,
     Building2,
     CableCar,
-    CandlestickChart,
     CircleDollarSign,
-    ClipboardPlus,
     DollarSign,
     FileSearch2,
-    Grid2x2Icon,
     Landmark,
     LayoutDashboard,
     LineChart,
@@ -28,8 +24,6 @@ import {
     Warehouse,
     Wrench,
 } from "lucide-react";
-
-import XIcon from "/images/x-twitter.svg";
 
 export interface TeamMember {
     id: number;
@@ -132,49 +126,6 @@ export const teamMembers: TeamMember[] = [
 ];
 
 export const content = {
-    // heroData: [
-    //     {
-    //         id: 1,
-    //         title: "AI Agents",
-    //         description:
-    //             "Custom intelligent assistants that automate complex tasks for your business",
-    //         image: "/images/hero1.jpg",
-    //         alt: "Research team analyzing policy documents",
-    //     },
-    //     {
-    //         id: 2,
-    //         title: "Business Intelligence",
-    //         description:
-    //             "Transform raw data into actionable insights through analytics and real-time reporting",
-    //         image: "/images/hero2.jpg",
-    //         alt: "Team reviewing evaluation metrics",
-    //     },
-    //     {
-    //         id: 3,
-    //         title: "Data Engineering",
-    //         description:
-    //             "Build scalable data infrastructure to efficiently process and manage your data",
-    //         image: "/images/hero3.jpg",
-    //         alt: "Data collection and survey process",
-    //     },
-    //     {
-    //         id: 4,
-    //         title: "Data Annotation",
-    //         description:
-    //             "Expert labeling of data to create high-quality training datasets for machine learning",
-    //         image: "images/hero4.jpg",
-    //         alt: "Professional training session",
-    //     },
-    //     {
-    //         id: 5,
-    //         title: "Custom Message",
-    //         description:
-    //             "You can put your custom message or latest news/ article here",
-    //         image: "images/hero4.jpg",
-    //         alt: "Professional training session",
-    //     },
-    // ],
-
     overview: {
         image: "/images/overview.jpg",
     },
