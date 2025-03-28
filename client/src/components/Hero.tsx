@@ -30,7 +30,6 @@ export function Hero() {
             setLoading(true);
             try {
                 const response = await fetchHeroSlides();
-                console.log("Data from Strapi:", response);
 
                 // Extract the slides array from the response
                 const slides = response.data || [];

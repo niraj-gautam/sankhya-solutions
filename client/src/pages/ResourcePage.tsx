@@ -15,7 +15,6 @@ export function ResourcePage() {
             setLoading(true);
             try {
                 const response = await fetchArticles();
-                console.log("Data from Strapi:", response);
 
                 // Extract the slides array from the response
                 const articles = response.data || [];

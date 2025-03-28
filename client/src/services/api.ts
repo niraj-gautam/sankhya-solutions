@@ -11,7 +11,6 @@ export async function fetchHeroSlides() {
         }
 
         const data = await response.json();
-        console.log("Raw Strapi response:", data);
 
         return data;
     } catch (error) {

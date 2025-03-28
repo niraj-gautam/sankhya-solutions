@@ -29,7 +29,6 @@ export function ArticlePage() {
                 const fetchedArticle = await fetchArticleBySlug(articleSlug);
                 if (fetchedArticle) {
                     setArticle(fetchedArticle);
-                    console.log(fetchedArticle);
                 } else {
                     setError(new Error("Article not found"));
                 }
