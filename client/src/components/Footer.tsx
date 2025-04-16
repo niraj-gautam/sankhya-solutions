@@ -29,16 +29,19 @@ export function Footer() {
     };
 
     return (
-        <footer className="bg-gray-600 text-white py-8">
+        <footer className="bg-gray-800 text-white py-8">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Company Info */}
                     <div className="sm:col-span-2 lg:col-span-1 lg:pr-4">
-                        <img
-                            src={content.company.logo}
-                            alt="Company Logo"
-                            className="h-28 mb-1 rounded-sm bg-slate-50 px-4"
-                        />
+                        <div className="flex flex-col mb-4">
+                            <h1 className="text-base md:text-lg font-semibold text-orange-500 uppercase tracking-wide">
+                                {content.company.name}
+                            </h1>
+                            <span className="text-sm text-gray-400 mt-1  font-normal hidden sm:block">
+                                {content.company.tagline}
+                            </span>
+                        </div>
                         <p className="text-sm mb-2">
                             {content.contact.email.label}:{" "}
                             {content.contact.email.value}
@@ -164,7 +167,8 @@ export function Footer() {
                     <div className="relative flex flex-col items-center md:flex-row md:justify-center">
                         <p className="text-sm text-center md:text-left">
                             &copy; {new Date().getFullYear()}{" "}
-                            {content.company.name}. All rights reserved.
+                            {content.company.registeredName} All rights
+                            reserved.
                         </p>
                         <div className="mt-2 self-end md:self-auto md:absolute md:right-0 flex items-center group text-xs text-gray-300 md:pr-2">
                             <p>Developed by</p>

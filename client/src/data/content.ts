@@ -42,14 +42,10 @@ export interface TeamMember {
 export const teamMembers: TeamMember[] = [
     {
         id: 1,
-        name: "Bishu Giri",
-        position: "Chief Operating Officer (COO)",
-        imageUrl: "images/Bishu.png",
-        bio: "Bishu Giri is a seasoned data scientist and AI expert with over eight years of experience in data science, analytics, and research. He has worked with esteemed organizations like the World Bank and Bridgei2i Analytics Solutions (now Accenture AI). At Bridgei2i, Bishu worked as a data scientist, helping Fortune 500 organizations to adapt to data driven solutions. Some of the projects he worked on: developing fraud detection models using text analytics, demand forecasting using time series data, loan default prediction using credit history, optimizing lead time in supply chain for a CPG organization. His expertise extends to generative AI, machine learning, database management, visualization, and optimization.",
-        education: [
-            "MS in Public Policy, Carnegie Mellon University, Pittsburgh, USA",
-            "MS in Economics, Madras School of Economics, Chennai, India",
-        ],
+        name: "Indra Giri",
+        position: "Chief Executive Officer (CEO)",
+        imageUrl: "images/Indra.jpg",
+        bio: "Mr. Indra Giri brings over 8 years of experience in data analytics, machine learning, and research, combined with a proven track record of successfully leading multiple organizations in Nepal. Known for his exceptional leadership and strategic vision Indra excels in driving organizational growth and transformation. With a strong commitment and backed by a strong team Indra is leading Sankhya AI towards a future of innovation and success for businesses across the globe.",
         socialLinks: {
             linkedin: "https://linkedin.com",
             twitter: "https://twitter.com",
@@ -57,10 +53,11 @@ export const teamMembers: TeamMember[] = [
     },
     {
         id: 2,
-        name: "Indra Giri",
-        position: "Chief Executive Officer (CEO)",
-        imageUrl: "images/Indra.jpg",
-        bio: "7+ years of experience working in public policy, survey design, and data collection. Skilled in policy evaluation and strategic research methodologies.",
+        name: "Bishu Giri",
+        position: "Board Member",
+        imageUrl: "images/Bishu.png",
+        bio: " Bishu Giri is a data scientist with over eight years of experience. He has worked at Accenture AI team (formerly Bridgei2i) for six years before moving to the World Bank HQ, Washington D.C., where he works on implementing genAI solutions at the development research team. At Accenture, Bishu led many projects –  helping Fortune 500 organizations use data science to solve business problems. His work portfolio includes building fraud detection models, demand forecasting, loan default and loss provisioning models, recommendation engine, topic modeling and sentiment analysis, etc. His expertise extends to generative AI, database management, visualization, and geo-spatial analysis. Bishu holds a masters degree in economics from Madras School of Economics, India and a masters degree in public policy from Carnegie Mellon University, PA, USA.",
+
         socialLinks: {
             linkedin: "https://linkedin.com",
             twitter: "https://twitter.com",
@@ -69,10 +66,10 @@ export const teamMembers: TeamMember[] = [
     {
         id: 3,
         name: "Krishna Sharma",
-        position: "Chief Strategy Officer",
+        position: "Board Member",
         imageUrl: "images/krishna.jpg",
-        bio: " Krishna Sharma is a Policy Fellow at the Hoover Institution, Stanford University. With extensive experience in research and data analytics, he has worked with leading organizations such as the United Nations and the Ministry of Finance, Government of India. His research focuses on migration, innovation, and economic development, with a special emphasis on global investment dynamics and public policy. Krishna is also a regular commentator on fiscal federalism and agricultural issues in Nepal. He holds a Master's in Economics from South Asian University-New Delhi and has a proven track record of bridging academic insights with practical policy solutions.",
-        education: ["Phd Economics, Clemson University"],
+        bio: " Krishna Sharma is a Policy Fellow at the Hoover Institution, Stanford University. With extensive experience in research and data analytics, he has worked with leading organizations such as the United Nations and the Ministry of Finance, Government of India. His research focuses on migration, innovation, and economic development, with a special emphasis on global investment dynamics and public policy. Krishna is also a regular commentator on fiscal federalism and agricultural issues in Nepal. He holds a Master's in Economics from South Asian University-New Delhi and has a proven track record of bridging academic insights with practical policy solutions. Krishan holds a master’s degree from South Asian University and a PhD in economics from Clemson University, SC, USA.",
+
         socialLinks: {
             linkedin: "https://linkedin.com",
             twitter: "https://twitter.com",
@@ -80,22 +77,22 @@ export const teamMembers: TeamMember[] = [
     },
     {
         id: 4,
-        name: "Maheswar Giri",
-        position: "Chief Marketing Officer (CMO)",
-        imageUrl: "images/maheshwar.jpg",
-        bio: `Maheshwar Giri is an agricultural economist specializing in economic research and policy analysis. He recently completed his PhD thesis at the Faculty of Economics, South Asian University, New Delhi, where he examined agrarian institutions in Nepal and their impact on agricultural performance. His research employed advanced quantitative methods to provide policy insights on land tenure, extension services, and agricultural market dynamics.\n\n Giri has expertise in survey design, econometrics, data analysis, and impact evaluation. His research interests include agricultural economics, land relations, extension services, marketing channels, energy transitions, and rural livelihoods.
-`,
+        name: "Narendra Regmi",
+        position: "Board Member",
+        imageUrl: "images/sumit1.jpg",
+        bio: " Narendra Regmi works at the intersection of economic growth, trade, and machine learning. He is currently an Assistant Professor in the Economics Department, University of Wisconsin-Whitewater. My research interests are in the fields of economic growth, international trade as well as monetary economics. My research topics have spanned from applying machine learning methods in understanding trade flows as well as monetary policy decisions to linking fertility choices with economic growth and understanding the process of demographic transition. Narendra currently teaches courses in macroeconomics such as introductory macroeconomics, intermediate macroeconomics, growth and development, and monetary economics. His goal in the classroom is to make economics as palatable and as insightful as possible for students from all disciplines. Narendra has earned a B.A. in Economics and Mathematics from Cornell College, Iowa and a Ph.D. in Economics from Clemson University.",
         socialLinks: {
             linkedin: "https://linkedin.com",
             twitter: "https://twitter.com",
         },
     },
+
     {
         id: 5,
         name: "Praval Sharma",
         position: "Chief Intelligence Officer",
         imageUrl: "images/Praval.png",
-        bio: "Praval Sharma has a Ph.D. in Computer Science. His research interests lie at the intersection of natural language processing and spatial data mining. He has worked extensively on developing novel data-driven algorithms that leverage machine learning, large language models, and spatial statistics to extract meaningful insights from  large-scale datasets. In addition to his research expertise, Praval has worked as a software engineer and gained hands-on experience in professional software development. He has worked on a variety of projects for international clients based in Europe and the USA. Overall, his experience spans various domains that include artificial intelligence, geospatial analysis, and software development.",
+        bio: " Praval is an AI scientist and researcher. His research interests lie at the intersection of natural language processing and spatial data mining. He has worked on developing novel data-driven algorithms that leverage machine learning, large language models, and spatial statistics to extract meaningful insights from  large-scale datasets. In addition to his research expertise, Praval has worked as a software engineer and gained hands-on experience in professional software development. He has worked on a variety of projects for international clients based in Europe and the USA. Praval holds a Ph.D. in Computer Science from University of Nebraska-Lincoln.",
         socialLinks: {
             linkedin: "https://linkedin.com",
             twitter: "https://twitter.com",
@@ -106,18 +103,7 @@ export const teamMembers: TeamMember[] = [
         name: "Dr. Ram N. Shrestha",
         position: "Chief Growth Officer",
         imageUrl: "images/Ram.jpeg",
-        bio: " Ram Narayan Shrestha is an Economist by training with research interest in the areas of development economics, labour economics and related areas. Dr. Shrestha specialises in survey designing, data collection tools and labour market analysis.",
-        socialLinks: {
-            linkedin: "https://linkedin.com",
-            twitter: "https://twitter.com",
-        },
-    },
-    {
-        id: 7,
-        name: "Sumit Sharma",
-        position: "Vice President, Executive Director",
-        imageUrl: "images/sumit1.jpg",
-        bio: " Sumit Sharma is an economist at ICICI Bank in Mumbai, India, with over 11 years of experience in data analysis and research. He has previously worked with EY and Capgemini Consulting, as a data analyst. He completed his masters in economics from Delhi School of Economics in 2013. He has been associated with Sankhya Solutions since 2020, with an aim to promote data centred analysis of developmental issues.",
+        bio: "Ram Narayan Shrestha is an Economist by training with research interest in the areas of development economics, data analytics and research. Dr. Shrestha has worked as consultant for many reputed organizations such as World Vision, UNDP, ILO, etc. He specializes in research design, survey analysis, and econometric modeling. He holds a Ph.D. in economics from South Asian University, New Delhi, India.",
         socialLinks: {
             linkedin: "https://linkedin.com",
             twitter: "https://twitter.com",
@@ -131,6 +117,7 @@ export const content = {
     },
     company: {
         name: "Sankhya AI",
+        registeredName: "Sankhya Solutions Pvt. Ltd.",
         tagline: "Your Intelligence Partner",
         logo: "/images/logo.png",
         description:
@@ -644,7 +631,7 @@ export const content = {
         },
         phone: {
             label: "Phone",
-            value: "+977 9812345678",
+            value: "+977 9856077413",
         },
         office: {
             label: "Office",

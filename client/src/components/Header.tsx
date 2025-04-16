@@ -9,6 +9,8 @@ import {
     ChevronDown,
     ChevronUp,
     Twitter,
+    MessageCircleMore,
+    MessageCircle,
 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { content } from "../data/content";
@@ -158,10 +160,12 @@ export function Header() {
         href,
         icon: Icon,
         label,
+        color,
     }: {
         href: string;
         icon: any;
         label: string;
+        color: string;
     }) => (
         <motion.div
             whileHover="hover"
@@ -173,7 +177,7 @@ export function Header() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-2 text-gray-500 hover:text-orange-600 motion-safe:transition-colors motion-safe:duration-300 rounded-full hover:bg-gray-100"
+                className={`block p-2 ${color} hover:text-opacity-90 motion-safe:transition-colors motion-safe:duration-300 rounded-full hover:bg-gray-100 hover:text-orange-600`}
                 aria-label={label}
             >
                 <Icon className="h-5 w-5" />
@@ -428,21 +432,25 @@ export function Header() {
                         <SocialIcon
                             href={content.company.facebook}
                             icon={Facebook}
+                            color="text-blue-600"
                             label="Follow us on Facebook"
                         />
                         <SocialIcon
                             href={content.company.whatsapp}
-                            icon={MessageSquare}
+                            icon={MessageCircle}
+                            color="text-green-500"
                             label="Chat with us on WhatsApp"
                         />
                         <SocialIcon
                             href={content.company.linkedin}
                             icon={Linkedin}
+                            color="text-blue-700"
                             label="Connect on LinkedIn"
                         />
                         <SocialIcon
                             href={content.company.X}
                             icon={Twitter}
+                            color="text-sky-500"
                             label="Connect on X (Twitter)"
                         />
                     </div>
@@ -465,17 +473,26 @@ export function Header() {
                             <SocialIcon
                                 href={content.company.facebook}
                                 icon={Facebook}
+                                color="text-blue-600"
                                 label="Follow us on Facebook"
                             />
                             <SocialIcon
                                 href={content.company.whatsapp}
-                                icon={MessageSquare}
+                                color="text-green-500"
+                                icon={MessageCircle}
                                 label="Chat with us on WhatsApp"
                             />
                             <SocialIcon
                                 href={content.company.linkedin}
+                                color="text-blue-700"
                                 icon={Linkedin}
                                 label="Connect on LinkedIn"
+                            />
+                            <SocialIcon
+                                href={content.company.X}
+                                icon={Twitter}
+                                color="text-sky-500"
+                                label="Connect on X (Twitter)"
                             />
                         </div>
                     </motion.div>
