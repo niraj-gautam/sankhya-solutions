@@ -70,6 +70,7 @@ $RECYCLE.BIN/
 *.sql
 *.sqlite
 *.sqlite3
+*.db
 
 
 ############################
@@ -110,6 +111,7 @@ node_modules
 !.yarn/versions
 .pnp.*
 yarn-error.log
+npm-debug.log
 
 ############################
 # Tests
@@ -127,5 +129,7 @@ exports
 .strapi
 dist
 build
+build/
 .strapi-updater.json
 .strapi-cloud.json
+.cache/
