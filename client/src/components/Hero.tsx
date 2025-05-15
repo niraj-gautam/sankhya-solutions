@@ -32,11 +32,11 @@ export function Hero() {
                 const response = await fetchHeroSlides();
 
                 // Extract the slides array from the response
-                const slides = response.data || [];
+                const slides = response || [];
 
                 // Sort by order field if available
                 const sortedSlides = slides.sort(
-                    (a, b) => (a.Order || 0) - (b.Order || 0)
+                    (a, b) => (a.order || 0) - (b.order || 0)
                 );
                 setHeroData(sortedSlides);
             } catch (error) {
@@ -137,14 +137,14 @@ export function Hero() {
                                         }}
                                         className="absolute inset-0 "
                                     >
-                                        {slide.Image &&
-                                        slide.Image.length > 0 ? (
+                                        {slide.image &&
+                                        slide.image.length > 0 ? (
                                             <img
                                                 src={`${
                                                     import.meta.env
                                                         .VITE_STRAPI_API_URL
-                                                }${slide.Image[0].url}`}
-                                                alt={slide.Alt || slide.Title}
+                                                }${slide.image.path}`}
+                                                alt={slide.alt || slide.title}
                                                 className="w-full h-full object-cover"
                                             />
                                         ) : (
@@ -164,7 +164,7 @@ export function Hero() {
                                             className="text-center"
                                         >
                                             <h1 className="text-4xl md:text-5xl font-semibold text-white mb-8">
-                                                {slide.Title}
+                                                {slide.title}
                                             </h1>
                                             <motion.p
                                                 initial={{ opacity: 0 }}
@@ -172,7 +172,7 @@ export function Hero() {
                                                 transition={{ delay: 0.4 }}
                                                 className="text-lg font-normal text-gray-200 mb-12 max-w-2xl mx-auto"
                                             >
-                                                {slide.Description}
+                                                {slide.description}
                                             </motion.p>
                                             <motion.div
                                                 initial={{ opacity: 0 }}

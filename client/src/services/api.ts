@@ -1,9 +1,14 @@
-const API_URL = import.meta.env.VITE_STRAPI_API_URL;
-
 export async function fetchHeroSlides() {
     try {
         const response = await fetch(
-            `${API_URL}/api/hero-slides?populate=Image`
+            `${
+                import.meta.env.VITE_STRAPI_API_URL
+            }/api/content/items/heroslide`,
+            {
+                headers: {
+                    "api-key": import.meta.env.VITE_API_KEY,
+                },
+            }
         );
 
         if (!response.ok) {
@@ -11,7 +16,7 @@ export async function fetchHeroSlides() {
         }
 
         const data = await response.json();
-
+        console.log("Data:", data);
         return data;
     } catch (error) {
         console.error("Failed to fetch hero slides:", error);
@@ -21,7 +26,9 @@ export async function fetchHeroSlides() {
 
 export async function fetchArticles() {
     try {
-        const response = await fetch(`${API_URL}/api/articles?populate=Image`); // populate=Image to  fetches all related data along with  Image
+        const response = await fetch(
+            `${import.meta.env.VITE_STRAPI_API_URL}/api/articles?populate=Image`
+        ); // populate=Image to  fetches all related data along with  Image
 
         if (!response.ok) {
             throw new Error(`Error fetching articles: ${response.status}`);
@@ -38,7 +45,9 @@ export async function fetchArticles() {
 export async function fetchArticleBySlug(slug: string) {
     try {
         const response = await fetch(
-            `${API_URL}/api/articles?filters[Slug][$eq]=${slug}&populate=Image`
+            `${
+                import.meta.env.VITE_STRAPI_API_URL
+            }/api/articles?filters[Slug][$eq]=${slug}&populate=Image`
         );
 
         if (!response.ok) {

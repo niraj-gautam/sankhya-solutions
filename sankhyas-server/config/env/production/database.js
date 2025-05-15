@@ -20,20 +20,19 @@ module.exports = ({ env }) => {
     //     debug: false,
     //   },
     // }
-
     // For MySQL:
-    return {
-        connection: {
-            client: "mysql",
-            connection: {
-                host: env("DATABASE_HOST", "127.0.0.1"), // Placeholder - we'll set this in cPanel
-                port: env.int("DATABASE_PORT", 3306), // Placeholder
-                database: env("DATABASE_NAME", "strapi"), // Placeholder
-                user: env("DATABASE_USERNAME", "strapi"), // Placeholder
-                password: env("DATABASE_PASSWORD", ""), // Placeholder
-                ssl: env.bool("DATABASE_SSL", false), // Usually false for cPanel MySQL on localhost
-            },
-            debug: false,
-        },
-    };
+    // return {
+    //     connection: {
+    //         client: "mysql",
+    //         connection: {
+    //             host: env("DATABASE_HOST", "127.0.0.1"), // Placeholder - we'll set this in cPanel
+    //             port: env.int("DATABASE_PORT", 3306), // Placeholder
+    //             database: env("DATABASE_NAME", "strapi"), // Placeholder
+    //             user: env("DATABASE_USERNAME", "strapi"), // Placeholder
+    //             password: env("DATABASE_PASSWORD", ""), // Placeholder
+    //             ssl: env.bool("DATABASE_SSL", false), // Usually false for cPanel MySQL on localhost
+    //         },
+    //         debug: false,
+    //     },
+    // };
 };
