@@ -58,7 +58,7 @@ export function ResourcePage() {
                             return (
                                 <div
                                     key={article.id}
-                                    className="flex flex-col lg:flex-row gap-8 bg-white rounded-lg shadow-lg overflow-hidden"
+                                    className="flex flex-col lg:flex-row gap-8 bg-white rounded-lg shadow-md overflow-hidden"
                                 >
                                     <div className="lg:w-1/3">
                                         <img

@@ -171,7 +171,7 @@ export function Footer() {
                             reserved.
                         </p>
                         <div className="mt-2 self-end md:self-auto md:absolute md:right-0 flex items-center group text-xs text-gray-300 md:pr-2">
-                            <p>Developed by</p>
+                            <p>Crafted by</p>
                             <a
                                 href="https://knitbytes.com/"
                                 className="text-gray-300 ml-1 underline group-hover:text-white"
