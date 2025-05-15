@@ -38,8 +38,9 @@ function HomePage() {
 function App() {
     return (
         <Router>
-            <ScrollToTop />
             <div className="min-h-screen bg-white">
+                <ScrollToTop />
+
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/about" element={<AboutPage />} />

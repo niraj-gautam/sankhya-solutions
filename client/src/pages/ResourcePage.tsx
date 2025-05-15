@@ -29,14 +29,11 @@ export function ResourcePage() {
 
         loadArticlesData();
     }, []);
-    if (loading) {
-        return <div>Loading articles...</div>;
-    }
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="flex flex-col min-h-screen bg-white">
             <Header />
-            <div className="pt-36 pb-20">
+            <div className=" flex-grow pt-36 pb-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
@@ -55,7 +52,9 @@ export function ResourcePage() {
                                 import.meta.env.VITE_ASSETS_URL
                             }${article.image.path}`;
 
-                            return (
+                            return loading ? (
+                                <div>Loading articles...</div>
+                            ) : (
                                 <div
                                     key={article.id}
                                     className="flex flex-col lg:flex-row gap-8 bg-white rounded-lg shadow-md overflow-hidden"
