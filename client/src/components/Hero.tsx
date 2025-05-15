@@ -137,8 +137,7 @@ export function Hero() {
                                         }}
                                         className="absolute inset-0 "
                                     >
-                                        {slide.image &&
-                                        slide.image.length > 0 ? (
+                                        {slide.image && slide.image.path ? (
                                             <img
                                                 src={`${
                                                     import.meta.env

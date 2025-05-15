@@ -55,8 +55,8 @@ export function ArticlePage() {
         return <div>Article not found</div>;
     }
 
-    const articleImage = `${import.meta.env.VITE_STRAPI_API_URL}${
-        article.Image[0].url
+    const articleImage = `${import.meta.env.VITE_ASSETS_URL}${
+        article.image.path
     }`;
 
     return (
@@ -78,23 +78,23 @@ export function ArticlePage() {
                         <div className="overflow-hidden rounded-lg shadow-lg mb-8 prose prose-lg mx-auto">
                             <img
                                 src={articleImage}
-                                alt={article.Title || "Article Image"}
+                                alt={article.title || "Article Image"}
                                 className="w-full h-full object-cover"
                             />
                         </div>
 
                         <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                            {article.Title}
+                            {article.title}
                         </h1>
 
                         <div className="flex items-center text-gray-500">
                             <span className="font-medium text-gray-900">
-                                {article.Author}
+                                {article.author}
                             </span>
                             <span className="mx-2">·</span>
                             <span>
                                 {format(
-                                    new Date(article.PublishedDate),
+                                    new Date(article.publishedDate),
                                     "MMMM dd, yyyy"
                                 )}
                             </span>
@@ -105,7 +105,7 @@ export function ArticlePage() {
                         <div
                             className="prose prose-indigo max-w-none"
                             dangerouslySetInnerHTML={{
-                                __html: DOMPurify.sanitize(article.Content),
+                                __html: DOMPurify.sanitize(article.content),
                             }}
                         />
                     </div>

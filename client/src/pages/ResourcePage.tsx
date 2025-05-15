@@ -17,7 +17,7 @@ export function ResourcePage() {
                 const response = await fetchArticles();
 
                 // Extract the slides array from the response
-                const articles = response.data || [];
+                const articles = response || [];
 
                 setArticles(articles);
             } catch (error) {
@@ -36,7 +36,7 @@ export function ResourcePage() {
     return (
         <div className="min-h-screen bg-white">
             <Header />
-            <div className="pt-28 pb-20">
+            <div className="pt-36 pb-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
@@ -52,8 +52,8 @@ export function ResourcePage() {
                         {articles.map((article) => {
                             // Strapi API returns a image URL
                             const articleImage = `${
-                                import.meta.env.VITE_STRAPI_API_URL
-                            }${article.Image[0].url}`;
+                                import.meta.env.VITE_ASSETS_URL
+                            }${article.image.path}`;
 
                             return (
                                 <div
@@ -64,15 +64,15 @@ export function ResourcePage() {
                                         <img
                                             className="h-64 w-full object-cover lg:h-full"
                                             src={articleImage}
-                                            alt={article.Title}
+                                            alt={article.title}
                                         />
                                     </div>
                                     <div className="flex-1 p-8">
                                         <h2 className="text-2xl font-bold text-gray-900 mb-4 transition-colors">
-                                            {article.Title}
+                                            {article.title}
                                         </h2>
                                         <p className="text-gray-600 mb-6">
-                                            {article.Description}{" "}
+                                            {article.description}{" "}
                                             {/* Assuming you have a description field */}
                                         </p>
                                         <div className="space-y-4">
@@ -80,14 +80,14 @@ export function ResourcePage() {
                                                 <span className="ml-2">
                                                     {format(
                                                         new Date(
-                                                            article.PublishedDate
+                                                            article.publishedDate
                                                         ),
                                                         "MMMM dd, yyyy"
                                                     )}
                                                 </span>
                                             </div>
                                             <Link
-                                                to={`/resources/${article.Slug}`}
+                                                to={`/resources/${article.slug}`}
                                                 className="inline-flex items-center text-orange-500 hover:text-orange-600 font-medium transition-colors"
                                             >
                                                 Read full article
