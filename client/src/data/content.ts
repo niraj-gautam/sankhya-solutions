@@ -627,7 +627,7 @@ export const content = {
         subtitle: "Get in touch.",
         email: {
             label: "Email",
-            value: "info@sankhyasolutions.com.np",
+            value: "info@sankhyai.co",
         },
         phone: {
             label: "Phone",

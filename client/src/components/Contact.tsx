@@ -80,8 +80,12 @@ export function Contact() {
         setSubmitSuccess(false);
 
         try {
-            await emailjs.send("service_kpzdwx4", "template_zf8rldr", formData);
-
+            await emailjs.send("service_5yqh5gv", "template_rk3ryv7", {
+                name: formData.name,
+                message: formData.message,
+                phone: formData.phone,
+                user_email: formData.email,
+            });
             setFormData({ name: "", email: "", phone: "", message: "" });
             setSubmitSuccess(true);
         } catch (error) {
@@ -238,7 +242,7 @@ export function Contact() {
                                 {submitSuccess && (
                                     <div className="p-4 bg-green-50 text-green-800 rounded-lg border border-green-100">
                                         Message sent successfully! We'll respond
-                                        within 24 hours.
+                                        as soon as possible.
                                     </div>
                                 )}
 
