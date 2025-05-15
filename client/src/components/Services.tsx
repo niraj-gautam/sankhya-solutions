@@ -77,7 +77,7 @@ export function Services() {
                                 >
                                     <Link to={`/services/${service.id}`}>
                                         <motion.div
-                                            className="h-full bg-gray-50 rounded-lg shadow-xl p-6  flex flex-col relative overflow-hidden"
+                                            className="h-full bg-gray-50 rounded-lg shadow-md p-6  flex flex-col relative overflow-hidden"
                                             whileHover="hover"
                                             whileTap="tap"
                                             initial="initial"
